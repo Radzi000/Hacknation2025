@@ -1,0 +1,621 @@
+Poziom,Symbol PKD 2007,Nazwa grupowania PKD 2007,Symbol PKD 2025,Nazwa grupowania PKD 2025
+1,A,"ROLNICTWO, LEŚNICTWO, ŁOWIECTWO I RYBACTWO",A,"ROLNICTWO, LEŚNICTWO I RYBACTWO"
+2,01,"Uprawy rolne, chów i hodowla zwierząt, łowiectwo, włączając działalność usługową",01,"Uprawy rolne, chów i hodowla zwierząt, łowiectwo, włączając działalność usługową"
+3,01.1,Uprawy rolne inne niż wieloletnie ,01.1,Uprawy rolne inne niż wieloletnie
+3,01.2,Uprawa roślin wieloletnich,01.1,Uprawy rolne inne niż wieloletnie
+3,01.2,Uprawa roślin wieloletnich,01.2,Uprawa roślin wieloletnich
+3,01.3,Rozmnażanie roślin,01.3,Rozmnażanie roślin
+3,01.4,Chów i hodowla zwierząt,01.4,Chów i hodowla zwierząt
+3,01.5,Uprawy rolne połączone z chowem i hodowlą zwierząt (działalność mieszana),01.5,Uprawy rolne połączone z chowem i hodowlą zwierząt (działalność mieszana)
+3,01.6,Działalność usługowa wspomagająca rolnictwo i następująca po zbiorach,01.4,Chów i hodowla zwierząt
+3,01.6,Działalność usługowa wspomagająca rolnictwo i następująca po zbiorach,01.6,Działalność usługowa wspomagająca rolnictwo i następująca po zbiorach
+3,01.7,"Łowiectwo i pozyskiwanie zwierząt łownych, włączając działalność usługową",01.7,"Łowiectwo i pozyskiwanie zwierząt łownych, włączając działalność usługową"
+2,02,Leśnictwo i pozyskiwanie drewna,02,Leśnictwo i pozyskiwanie drewna
+3,02.1,"Gospodarka leśna i pozostała działalność leśna, z wyłączeniem pozyskiwania produktów leśnych",02.1,"Gospodarka leśna i pozostała działalność leśna, z wyłączeniem pozyskiwania produktów leśnych"
+3,02.2,Pozyskiwanie drewna,02.2,Pozyskiwanie drewna
+3,02.3,"Pozyskiwanie dziko rosnących produktów leśnych, z wyłączeniem drewna",02.3,"Pozyskiwanie dziko rosnących produktów leśnych, z wyłączeniem drewna"
+3,02.4,Działalność usługowa związana z leśnictwem,02.4,Działalność usługowa związana z leśnictwem
+2,03,Rybactwo,01,"Uprawy rolne, chów i hodowla zwierząt, łowiectwo, włączając działalność usługową"
+2,03,Rybactwo,03,Rybactwo
+3,03.1,Rybołówstwo,03.1,Rybołówstwo
+3,03.1,Rybołówstwo,03.3,Działalność usługowa wspomagająca rybołówstwo i akwakulturę
+3,03.2,Chów i hodowla ryb oraz pozostałych organizmów wodnych,01.4,Chów i hodowla zwierząt
+3,03.2,Chów i hodowla ryb oraz pozostałych organizmów wodnych,03.2,Akwakultura
+3,03.2,Chów i hodowla ryb oraz pozostałych organizmów wodnych,03.3,Działalność usługowa wspomagająca rybołówstwo i akwakulturę
+1,B,GÓRNICTWO I WYDOBYWANIE,B,GÓRNICTWO I WYDOBYWANIE
+2,05,Wydobywanie węgla kamiennego i węgla brunatnego (lignitu),05,Wydobywanie węgla kamiennego i węgla brunatnego (lignitu)
+3,05.1,Wydobywanie węgla kamiennego,05.1,Wydobywanie węgla kamiennego
+3,05.2,Wydobywanie węgla brunatnego (lignitu),05.2,Wydobywanie węgla brunatnego (lignitu)
+2,06,Górnictwo ropy naftowej i gazu ziemnego,06,Górnictwo ropy naftowej i gazu ziemnego
+3,06.1,Górnictwo ropy naftowej,06.1,Górnictwo ropy naftowej
+3,06.2,Górnictwo gazu ziemnego,06.2,Górnictwo gazu ziemnego
+2,07,Górnictwo rud metali,07,Górnictwo rud metali
+3,07.1,Górnictwo rud żelaza,07.1,Górnictwo rud żelaza
+3,07.2,Górnictwo rud metali nieżelaznych,07.2,Górnictwo rud metali nieżelaznych
+2,08,Pozostałe Górnictwo i wydobywanie,08,Pozostałe górnictwo i wydobywanie
+3,08.1,"Wydobywanie kamienia, piasku i gliny",08.1,"Wydobywanie kamienia, piasku i gliny"
+3,08.9,"Górnictwo i wydobywanie, gdzie indziej niesklasyfikowane",08.9,Górnictwo i wydobywanie gdzie indziej niesklasyfikowane
+2,09,Działalność usługowa wspomagająca górnictwo i wydobywanie,09,Działalność usługowa wspomagająca górnictwo i wydobywanie
+3,09.1,Działalność usługowa wspomagająca eksploatację złóż ropy naftowej i gazu ziemnego,09.1,Działalność usługowa wspomagająca eksploatację złóż ropy naftowej i gazu ziemnego
+3,09.9,Działalność usługowa wspomagająca pozostałe górnictwo i wydobywanie,09.9,Działalność usługowa wspomagająca pozostałe górnictwo i wydobywanie
+1,C,PRZETWÓRSTWO PRZEMYSŁOWE,A,"ROLNICTWO, LEŚNICTWO I RYBACTWO"
+1,C,PRZETWÓRSTWO PRZEMYSŁOWE,C,PRZETWÓRSTWO PRZEMYSŁOWE
+1,C,PRZETWÓRSTWO PRZEMYSŁOWE,S,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, SPORTEM I REKREACJĄ"
+2,10,Produkcja artykułów spożywczych,10,Produkcja artykułów spożywczych
+2,10,Produkcja artykułów spożywczych,11,Produkcja napojów
+3,10.1,Przetwarzanie i konserwowanie mięsa oraz produkcja wyrobów z mięsa,10.1,Przetwarzanie i konserwowanie mięsa oraz produkcja wyrobów z mięsa
+3,10.2,"Przetwarzanie i konserwowanie ryb, skorupiaków i mięczaków",10.2,"Przetwarzanie i konserwowanie ryb, skorupiaków i mięczaków"
+3,10.3,Przetwarzanie i konserwowanie owoców i warzyw,10.3,Przetwarzanie i konserwowanie owoców i warzyw
+3,10.4,Produkcja olejów i tłuszczów pochodzenia roślinnego i zwierzęcego,10.4,Produkcja olejów i tłuszczów pochodzenia roślinnego i zwierzęcego
+3,10.5,Wytwarzanie wyrobów mleczarskich,10.5,Wytwarzanie wyrobów mleczarskich i lodów jadalnych
+3,10.6,"Wytwarzanie produktów przemiału zbóż, skrobi i wyrobów skrobiowych",10.6,"Wytwarzanie produktów przemiału zbóż, skrobi i wyrobów skrobiowych"
+3,10.7,Produkcja wyrobów piekarskich i mącznych,10.7,Produkcja wyrobów piekarniczych i mącznych
+3,10.8,Produkcja pozostałych artykułów spożywczych,10.6,"Wytwarzanie produktów przemiału zbóż, skrobi i wyrobów skrobiowych"
+3,10.8,Produkcja pozostałych artykułów spożywczych,10.7,Produkcja wyrobów piekarniczych i mącznych
+3,10.8,Produkcja pozostałych artykułów spożywczych,10.8,Produkcja pozostałych artykułów spożywczych
+3,10.8,Produkcja pozostałych artykułów spożywczych,11.0,Produkcja napojów
+3,10.9,Produkcja gotowych paszy i karmy dla zwierząt,10.9,Produkcja gotowej paszy i karmy dla zwierząt
+2,11,Produkcja napojów,11,Produkcja napojów
+3,11.0,Produkcja napojów,11.0,Produkcja napojów
+2,12,Produkcja wyrobów tytoniowych,12,Produkcja wyrobów tytoniowych
+3,12.0,Produkcja wyrobów tytoniowych,12.0,Produkcja wyrobów tytoniowych
+2,13,Produkcja wyrobów tekstylnych,13,Produkcja wyrobów tekstylnych
+2,13,Produkcja wyrobów tekstylnych,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych
+3,13.1,Przygotowanie i przędzenie włókien tekstylnych,13.1,Przygotowanie i przędzenie włókien tekstylnych
+3,13.2,Produkcja tkanin,13.2,Produkcja tkanin
+3,13.2,Produkcja tkanin,13.9,Produkcja pozostałych wyrobów tekstylnych
+3,13.2,Produkcja tkanin,23.9,"Produkcja wyrobów ściernych i wyrobów z mineralnych surowców niemetalicznych, gdzie indziej niesklasyfikowana"
+3,13.3,Wykończanie wyrobów włókienniczych,13.3,Wykończanie wyrobów tekstylnych
+3,13.9,Produkcja pozostałych wyrobów tekstylnych,13.9,Produkcja pozostałych wyrobów tekstylnych
+2,14,Produkcja odzieży,14,Produkcja odzieży
+3,14.1,"Produkcja odzieży, z wyłączeniem wyrobów futrzarskich",14.1,Produkcja odzieży dzianej
+3,14.1,"Produkcja odzieży, z wyłączeniem wyrobów futrzarskich",14.2,Produkcja pozostałej odzieży i dodatków do odzieży
+3,14.2,Produkcja wyrobów futrzarskich,14.2,Produkcja pozostałej odzieży i dodatków do odzieży
+3,14.3,Produkcja odzieży dzianej,14.1,Produkcja odzieży dzianej
+2,15,Produkcja skór i wyrobów ze skór wyprawionych,15,"Produkcja skór i wyrobów ze skór wyprawionych, produkcja podobnych wyrobów z innych materiałów"
+3,15.1,"Wyprawa skór, garbowanie; wyprawa i barwienie skór futerkowych; produkcja toreb bagażowych, toreb ręcznych i podobnych wyrobów kaletniczych; produkcja wyrobów rymarskich",15.1,"Garbowanie, barwienie, wyprawa skór, w tym futerkowych; produkcja toreb bagażowych, toreb ręcznych i podobnych wyrobów kaletniczych; produkcja wyrobów rymarskich"
+3,15.2,Produkcja obuwia,15.2,Produkcja obuwia
+2,16,"Produkcja wyrobów z drewna oraz korka, z wyłączeniem mebli; produkcja wyrobów ze słomy i materiałów używanych do wyplatania",15,"Produkcja skór i wyrobów ze skór wyprawionych, produkcja podobnych wyrobów z innych materiałów"
+2,16,"Produkcja wyrobów z drewna oraz korka, z wyłączeniem mebli; produkcja wyrobów ze słomy i materiałów używanych do wyplatania",16,"Produkcja wyrobów z drewna i korka, z wyłączeniem mebli; produkcja wyrobów ze słomy i materiałów używanych do wyplatania"
+3,16.1,Produkcja wyrobów tartacznych,16.1,Produkcja wyrobów tartacznych; obróbka i wykończanie wyrobów tartacznych
+3,16.2,"Produkcja wyrobów z drewna, korka, słomy i materiałów używanych do wyplatania",15.2,Produkcja obuwia
+3,16.2,"Produkcja wyrobów z drewna, korka, słomy i materiałów używanych do wyplatania",16.2,"Produkcja wyrobów z drewna, korka, słomy i materiałów używanych do wyplatania"
+2,17,Produkcja papieru i wyrobów z papieru,17,Produkcja papieru i wyrobów z papieru
+3,17.1,"Produkcja masy włóknistej, papieru i tektury",17.1,"Produkcja masy włóknistej, papieru i tektury"
+3,17.2,Produkcja wyrobów z papieru i tektury,17.2,Produkcja wyrobów z papieru i tektury
+2,18,Poligrafia i reprodukcja zapisanych nośników informacji,13,Produkcja wyrobów tekstylnych
+2,18,Poligrafia i reprodukcja zapisanych nośników informacji,18,Poligrafia i reprodukcja zapisanych nośników informacji
+3,18.1,Drukowanie i działalność usługowa związana z poligrafią,13.3,Wykończanie wyrobów tekstylnych
+3,18.1,Drukowanie i działalność usługowa związana z poligrafią,18.1,Drukowanie i działalność usługowa związana z poligrafią
+3,18.2,Reprodukcja zapisanych nośników informacji,18.2,Reprodukcja zapisanych nośników informacji
+2,19,Wytwarzanie i przetwarzanie koksu i produktów rafinacji ropy naftowej,19,Wytwarzanie i przetwarzanie koksu i produktów rafinacji ropy naftowej
+3,19.1,Wytwarzanie i przetwarzanie koksu,19.1,Wytwarzanie i przetwarzanie koksu
+3,19.2,Wytwarzanie i przetwarzanie produktów rafinacji ropy naftowej,19.2,Wytwarzanie i przetwarzanie produktów rafinacji ropy naftowej oraz produktów z paliw kopalnych
+2,20,Produkcja chemikaliów i wyrobów chemicznych,20,Produkcja chemikaliów i wyrobów chemicznych
+3,20.1,"Produkcja podstawowych chemikaliów, nawozów i związków azotowych, tworzyw sztucznych i kauczuku syntetycznego w formach podstawowych",20.1,"Produkcja podstawowych chemikaliów, nawozów i związków azotowych, tworzyw sztucznych i kauczuku syntetycznego w formach podstawowych"
+3,20.1,"Produkcja podstawowych chemikaliów, nawozów i związków azotowych, tworzyw sztucznych i kauczuku syntetycznego w formach podstawowych",20.5,Produkcja pozostałych wyrobów chemicznych
+3,20.2,Produkcja pestycydów i pozostałych środków agrochemicznych,20.2,"Produkcja pestycydów, środków dezynfekujących i pozostałych środków agrochemicznych"
+3,20.3,"Produkcja farb, lakierów i podobnych powłok, farb drukarskich i mas uszczelniających",20.3,"Produkcja farb, lakierów i podobnych powłok, farb drukarskich i mas uszczelniających"
+3,20.4,"Produkcja mydła i detergentów, środków myjących i czyszczących, wyrobów kosmetycznych i toaletowych",20.4,"Produkcja środków piorących, myjących i czyszczących"
+3,20.5,Produkcja pozostałych wyrobów chemicznych,20.5,Produkcja pozostałych wyrobów chemicznych
+3,20.6,Produkcja włókien chemicznych,20.6,Produkcja włókien chemicznych
+2,21,Produkcja podstawowych substancji farmaceutycznych oraz leków i pozostałych wyrobów farmaceutycznych,21,Produkcja podstawowych substancji farmaceutycznych oraz leków i pozostałych wyrobów farmaceutycznych
+3,21.1,Produkcja podstawowych substancji farmaceutycznych,21.1,Produkcja podstawowych substancji farmaceutycznych
+3,21.2,Produkcja leków i pozostałych wyrobów farmaceutycznych,21.2,Produkcja leków i pozostałych wyrobów farmaceutycznych
+2,22,Produkcja wyrobów z gumy i tworzyw sztucznych,15,"Produkcja skór i wyrobów ze skór wyprawionych, produkcja podobnych wyrobów z innych materiałów"
+2,22,Produkcja wyrobów z gumy i tworzyw sztucznych,22,Produkcja wyrobów z gumy i tworzyw sztucznych
+2,22,Produkcja wyrobów z gumy i tworzyw sztucznych,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych
+3,22.1,Produkcja wyrobów z gumy,15.2,Produkcja obuwia
+3,22.1,Produkcja wyrobów z gumy,22.1,Produkcja wyrobów z gumy
+3,22.2,Produkcja wyrobów z tworzyw sztucznych,15.2,Produkcja obuwia
+3,22.2,Produkcja wyrobów z tworzyw sztucznych,22.2,Produkcja wyrobów z tworzyw sztucznych
+3,22.2,Produkcja wyrobów z tworzyw sztucznych,23.6,"Produkcja wyrobów z betonu, cementu i gipsu"
+2,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych
+2,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych,29,"Produkcja pojazdów silnikowych, produkcja przyczep i naczep"
+2,23,Produkcja wyrobów z pozostałych mineralnych surowców niemetalicznych,31,Produkcja mebli
+3,23.1,Produkcja szkła i wyrobów ze szkła,23.1,Produkcja szkła i wyrobów ze szkła
+3,23.1,Produkcja szkła i wyrobów ze szkła,29.3,Produkcja części i akcesoriów do pojazdów silnikowych
+3,23.2,Produkcja wyrobów ogniotrwałych,23.2,Produkcja wyrobów ogniotrwałych
+3,23.3,Produkcja ceramicznych materiałów budowlanych,23.3,Produkcja ceramicznych materiałów budowlanych
+3,23.4,Produkcja pozostałych wyrobów z porcelany i ceramiki,23.4,Produkcja pozostałych wyrobów z porcelany i ceramiki
+3,23.4,Produkcja pozostałych wyrobów z porcelany i ceramiki,31.0,Produkcja mebli
+3,23.5,"Produkcja cementu, wapna i gipsu",23.5,"Produkcja cementu, wapna i gipsu"
+3,23.6,"Produkcja wyrobów z betonu, cementu i gipsu",23.6,"Produkcja wyrobów z betonu, cementu i gipsu"
+3,23.7,"Cięcie, formowanie i wykańczanie kamienia",23.7,"Cięcie, formowanie i wykończanie kamienia"
+3,23.9,"Produkcja wyrobów ściernych i pozostałych wyrobów z mineralnych surowców niemetalicznych, gdzie indziej niesklasyfikowana",23.9,"Produkcja wyrobów ściernych i wyrobów z mineralnych surowców niemetalicznych, gdzie indziej niesklasyfikowana"
+2,24,Produkcja metali,24,Produkcja metali
+3,24.1,"Produkcja surówki, żelazostopów, żeliwa i stali oraz wyrobów hutniczych",24.1,"Produkcja surówki, żelazostopów, żeliwa i stali oraz wyrobów hutniczych"
+3,24.2,"Produkcja rur, przewodów, kształtowników zamkniętych i łączników, ze stali",24.2,"Produkcja rur, przewodów, kształtowników zamkniętych i łączników, ze stali"
+3,24.3,Produkcja pozostałych wyrobów ze stali poddanej wstępnej obróbce,24.3,Produkcja pozostałych wyrobów ze stali poddanej wstępnej obróbce
+3,24.4,Produkcja metali szlachetnych i innych metali nieżelaznych,24.4,Produkcja metali szlachetnych i innych metali nieżelaznych
+3,24.5,Odlewnictwo metali,24.5,Odlewnictwo metali
+2,25,"Produkcja metalowych wyrobów gotowych, z wyłączeniem maszyn i urządzeń",25,"Produkcja metalowych wyrobów gotowych, z wyłączeniem maszyn i urządzeń"
+2,25,"Produkcja metalowych wyrobów gotowych, z wyłączeniem maszyn i urządzeń",28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana"
+3,25.1,Produkcja metalowych elementów konstrukcyjnych,25.1,Produkcja metalowych elementów konstrukcyjnych
+3,25.2,"Produkcja zbiorników, cystern i pojemników metalowych",25.2,"Produkcja zbiorników, cystern i pojemników metalowych"
+3,25.2,"Produkcja zbiorników, cystern i pojemników metalowych",28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia
+3,25.3,"Produkcja wytwornic pary, z wyłączeniem kotłów do centralnego ogrzewania gorącą wodą",25.2,"Produkcja zbiorników, cystern i pojemników metalowych"
+3,25.4,Produkcja broni i amunicji,25.3,Produkcja broni i amunicji
+3,25.5,"Kucie, prasowanie, wytłaczanie i walcowanie metali; metalurgia proszków",25.4,Kucie i formowanie metali oraz metalurgia proszków
+3,25.6,Obróbka metali i nakładanie powłok na metale; obróbka mechaniczna elementów metalowych,25.5,Obróbka metali i nakładanie powłok na metale; obróbka mechaniczna elementów metalowych
+3,25.7,"Produkcja wyrobów nożowniczych, sztućców, narzędzi i wyrobów metalowych ogólnego przeznaczenia",25.6,"Produkcja wyrobów nożowniczych, sztućców, narzędzi i wyrobów metalowych ogólnego przeznaczenia"
+3,25.9,Produkcja pozostałych gotowych wyrobów metalowych,25.9,Produkcja pozostałych gotowych wyrobów metalowych
+2,26,"Produkcja komputerów, wyrobów elektronicznych i optycznych",26,"Produkcja komputerów, wyrobów elektronicznych i optycznych"
+3,26.1,Produkcja elektronicznych elementów i obwodów drukowanych,26.1,Produkcja elektronicznych elementów i obwodów drukowanych
+3,26.2,Produkcja komputerów i urządzeń peryferyjnych,26.2,Produkcja komputerów i urządzeń peryferyjnych
+3,26.2,Produkcja komputerów i urządzeń peryferyjnych,26.4,Produkcja elektronicznego sprzętu powszechnego użytku
+3,26.3,Produkcja sprzętu (tele)komunikacyjnego,26.3,Produkcja sprzętu (tele)komunikacyjnego
+3,26.3,Produkcja sprzętu (tele)komunikacyjnego,26.5,"Produkcja instrumentów i przyrządów pomiarowych, kontrolnych, zegarów i zegarków"
+3,26.4,Produkcja elektronicznego sprzętu powszechnego użytku,26.4,Produkcja elektronicznego sprzętu powszechnego użytku
+3,26.5,"Produkcja instrumentów i przyrządów pomiarowych, kontrolnych i nawigacyjnych; produkcja zegarków i zegarów",26.5,"Produkcja instrumentów i przyrządów pomiarowych, kontrolnych, zegarów i zegarków"
+3,26.6,"Produkcja urządzeń napromieniowujących, sprzętu elektromedycznego i elektroterapeutycznego",26.6,"Produkcja urządzeń napromieniowujących, sprzętu elektromedycznego i elektroterapeutycznego"
+3,26.7,Produkcja instrumentów optycznych i sprzętu fotograficznego,26.7,"Produkcja instrumentów optycznych, niezapisanych magnetycznych i optycznych nośników informacji oraz sprzętu fotograficznego"
+3,26.8,Produkcja magnetycznych i optycznych niezapisanych nośników informacji,26.7,"Produkcja instrumentów optycznych, niezapisanych magnetycznych i optycznych nośników informacji oraz sprzętu fotograficznego"
+2,27,Produkcja urządzeń elektrycznych,27,Produkcja urządzeń elektrycznych
+2,27,Produkcja urządzeń elektrycznych,29,"Produkcja pojazdów silnikowych, produkcja przyczep i naczep"
+2,27,Produkcja urządzeń elektrycznych,32,Pozostała produkcja wyrobów
+3,27.1,"Produkcja elektrycznych silników, prądnic, transformatorów, aparatury rozdzielczej i sterowniczej energii elektrycznej",27.1,"Produkcja elektrycznych silników, prądnic, transformatorów, aparatury rozdzielczej i sterowniczej energii elektrycznej"
+3,27.1,"Produkcja elektrycznych silników, prądnic, transformatorów, aparatury rozdzielczej i sterowniczej energii elektrycznej",29.1,"Produkcja pojazdów silnikowych, z wyłączeniem motocykli"
+3,27.2,Produkcja baterii i akumulatorów,27.2,Produkcja baterii i akumulatorów
+3,27.3,Produkcja izolowanych przewodów i kabli oraz sprzętu instalacyjnego,27.3,Produkcja izolowanych przewodów i kabli oraz sprzętu instalacyjnego
+3,27.4,Produkcja elektrycznego sprzętu oświetleniowego,27.4,Produkcja sprzętu oświetleniowego
+3,27.5,Produkcja sprzętu gospodarstwa domowego,27.5,Produkcja sprzętu gospodarstwa domowego
+3,27.9,Produkcja pozostałego sprzętu elektrycznego,27.1,"Produkcja elektrycznych silników, prądnic, transformatorów, aparatury rozdzielczej i sterowniczej energii elektrycznej"
+3,27.9,Produkcja pozostałego sprzętu elektrycznego,27.9,Produkcja pozostałego sprzętu elektrycznego
+3,27.9,Produkcja pozostałego sprzętu elektrycznego,29.3,Produkcja części i akcesoriów do pojazdów silnikowych
+3,27.9,Produkcja pozostałego sprzętu elektrycznego,32.9,"Produkcja wyrobów, gdzie indziej niesklasyfikowana"
+2,28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana",26,"Produkcja komputerów, wyrobów elektronicznych i optycznych"
+2,28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana",27,Produkcja urządzeń elektrycznych
+2,28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana",28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana"
+2,28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana",29,"Produkcja pojazdów silnikowych, produkcja przyczep i naczep"
+2,28,"Produkcja maszyn i urządzeń, gdzie indziej niesklasyfikowana",30,Produkcja pozostałego sprzętu transportowego
+3,28.1,Produkcja maszyn ogólnego przeznaczenia,28.1,Produkcja maszyn ogólnego przeznaczenia
+3,28.1,Produkcja maszyn ogólnego przeznaczenia,29.3,Produkcja części i akcesoriów do pojazdów silnikowych
+3,28.1,Produkcja maszyn ogólnego przeznaczenia,30.9,"Produkcja sprzętu transportowego, gdzie indziej niesklasyfikowana"
+3,28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia,26.2,Produkcja komputerów i urządzeń peryferyjnych
+3,28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia,28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia
+3,28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia,28.9,Produkcja pozostałych maszyn specjalnego przeznaczenia
+3,28.2,Produkcja pozostałych maszyn ogólnego przeznaczenia,29.3,Produkcja części i akcesoriów do pojazdów silnikowych
+3,28.3,Produkcja maszyn dla rolnictwa i leśnictwa,28.3,Produkcja maszyn dla rolnictwa i leśnictwa
+3,28.4,Produkcja maszyn i narzędzi mechanicznych,27.9,Produkcja pozostałego sprzętu elektrycznego
+3,28.4,Produkcja maszyn i narzędzi mechanicznych,28.4,Produkcja maszyn do formowania metalu i narzędzi mechanicznych
+3,28.9,Produkcja pozostałych maszyn specjalnego przeznaczenia,28.3,Produkcja maszyn dla rolnictwa i leśnictwa
+3,28.9,Produkcja pozostałych maszyn specjalnego przeznaczenia,28.9,Produkcja pozostałych maszyn specjalnego przeznaczenia
+2,29,"Produkcja pojazdów samochodowych, przyczep i naczep, z wyłączeniem motocykli",29,"Produkcja pojazdów silnikowych, produkcja przyczep i naczep"
+3,29.1,"Produkcja pojazdów samochodowych, z wyłączeniem motocykli",29.1,"Produkcja pojazdów silnikowych, z wyłączeniem motocykli"
+3,29.2,Produkcja nadwozi do pojazdów silnikowych; produkcja przyczep i naczep,29.2,"Produkcja nadwozi do pojazdów silnikowych, z wyłączeniem motocykli; produkcja przyczep i naczep"
+3,29.3,Produkcja części i akcesoriów do pojazdów silnikowych,29.3,Produkcja części i akcesoriów do pojazdów silnikowych
+2,30,Produkcja pozostałego sprzętu transportowego,30,Produkcja pozostałego sprzętu transportowego
+2,30,Produkcja pozostałego sprzętu transportowego,33,"Naprawa, konserwacja i instalowanie maszyn i urządzeń"
+3,30.1,Produkcja statków i łodzi,30.1,Produkcja statków i łodzi
+3,30.2,Produkcja lokomotyw kolejowych oraz taboru szynowego,30.2,Produkcja lokomotyw kolejowych oraz taboru szynowego
+3,30.3,"Produkcja statków powietrznych, statków kosmicznych i podobnych maszyn",30.3,"Produkcja statków powietrznych, statków kosmicznych i podobnych maszyn"
+3,30.4,Produkcja wojskowych pojazdów bojowych,30.4,Produkcja wojskowych pojazdów bojowych
+3,30.4,Produkcja wojskowych pojazdów bojowych,33.1,"Naprawa i konserwacja metalowych wyrobów gotowych, maszyn i urządzeń"
+3,30.9,"Produkcja sprzętu transportowego, gdzie indziej niesklasyfikowana",30.9,"Produkcja sprzętu transportowego, gdzie indziej niesklasyfikowana"
+2,31,Produkcja mebli,31,Produkcja mebli
+3,31.0,Produkcja mebli,31.0,Produkcja mebli
+2,32,Pozostała produkcja wyrobów,26,"Produkcja komputerów, wyrobów elektronicznych i optycznych"
+2,32,Pozostała produkcja wyrobów,32,Pozostała produkcja wyrobów
+3,32.1,"Produkcja wyrobów jubilerskich, biżuterii i podobnych wyrobów",32.1,"Produkcja wyrobów jubilerskich, biżuterii i podobnych wyrobów"
+3,32.2,Produkcja instrumentów muzycznych,32.2,Produkcja instrumentów muzycznych
+3,32.3,Produkcja sprzętu sportowego,32.3,Produkcja sprzętu sportowego
+3,32.3,Produkcja sprzętu sportowego,32.9,"Produkcja wyrobów, gdzie indziej niesklasyfikowana"
+3,32.4,Produkcja gier i zabawek,32.4,Produkcja gier i zabawek
+3,32.5,"Produkcja urządzeń, instrumentów oraz wyrobów medycznych, włączając dentystyczne",26.6,"Produkcja urządzeń napromieniowujących, sprzętu elektromedycznego i elektroterapeutycznego"
+3,32.5,"Produkcja urządzeń, instrumentów oraz wyrobów medycznych, włączając dentystyczne",32.5,"Produkcja urządzeń, instrumentów oraz wyrobów medycznych, włączając dentystyczne"
+3,32.9,"Produkcja wyrobów, gdzie indziej niesklasyfikowana",32.5,"Produkcja urządzeń, instrumentów oraz wyrobów medycznych, włączając dentystyczne"
+3,32.9,"Produkcja wyrobów, gdzie indziej niesklasyfikowana",32.9,"Produkcja wyrobów, gdzie indziej niesklasyfikowana"
+2,33,"Naprawa, konserwacja i instalowanie maszyn i urządzeń",03,Rybactwo
+2,33,"Naprawa, konserwacja i instalowanie maszyn i urządzeń",33,"Naprawa, konserwacja i instalowanie maszyn i urządzeń"
+2,33,"Naprawa, konserwacja i instalowanie maszyn i urządzeń",91,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą"
+3,33.1,"Naprawa i konserwacja metalowych wyrobów gotowych, maszyn i urządzeń",03.3,Działalność usługowa wspomagająca rybołówstwo i akwakulturę
+3,33.1,"Naprawa i konserwacja metalowych wyrobów gotowych, maszyn i urządzeń",33.1,"Naprawa i konserwacja metalowych wyrobów gotowych, maszyn i urządzeń"
+3,33.1,"Naprawa i konserwacja metalowych wyrobów gotowych, maszyn i urządzeń",91.3,Działalność w zakresie konserwacji i renowacji oraz pozostała działalność wspomagająca na rzecz dziedzictwa kulturowego
+3,33.2,"Instalowanie maszyn przemysłowych, sprzętu i wyposażenia",33.2,"Instalowanie maszyn przemysłowych, sprzętu i wyposażenia"
+1,D,"WYTWARZANIE I ZAOPATRYWANIE W ENERGIĘ ELEKTRYCZNĄ, GAZ, PARĘ WODNĄ, GORĄCĄ WODĘ I POWIETRZE DO UKŁADÓW KLIMATYZACYJNYCH",D,"WYTWARZANIE I ZAOPATRYWANIE W ENERGIĘ ELEKTRYCZNĄ, GAZ, PARĘ WODNĄ I POWIETRZE DO UKŁADÓW KLIMATYZACYJNYCH
+"
+2,35,"Wytwarzanie i zaopatrywanie w energię elektryczną, gaz, parę wodną, gorącą wodę i powietrze do układów klimatyzacyjnych",35,"Wytwarzanie i zaopatrywanie w energię elektryczną, gaz, parę wodną i powietrze do układów klimatyzacyjnych"
+3,35.1,"Wytwarzanie, przesyłanie, dystrybucja i handel energią elektryczną",35.1,"Wytwarzanie, przesyłanie, dystrybucja energii elektrycznej, handel energią elektryczną"
+3,35.1,"Wytwarzanie, przesyłanie, dystrybucja i handel energią elektryczną",35.4,Działalność brokerów i agentów w zakresie energii elektrycznej i gazu ziemnego
+3,35.2,Wytwarzanie paliw gazowych; dystrybucja i handel paliwami gazowymi w systemie sieciowym,35.2,Wytwarzanie paliw gazowych oraz dystrybucja i handel paliwami gazowymi w systemie sieciowym
+3,35.2,Wytwarzanie paliw gazowych; dystrybucja i handel paliwami gazowymi w systemie sieciowym,35.4,Działalność brokerów i agentów w zakresie energii elektrycznej i gazu ziemnego
+3,35.3,"Wytwarzanie i zaopatrywanie w parę wodną, gorącą wodę i powietrze do układów klimatyzacyjnych",35.3,Wytwarzanie i zaopatrywanie w parę wodną i powietrze do układów klimatyzacyjnych
+1,E,DOSTAWA WODY; GOSPODAROWANIE ŚCIEKAMI I ODPADAMI ORAZ DZIAŁALNOŚĆ ZWIĄZANA Z REKULTYWACJĄ,C,PRZETWÓRSTWO PRZEMYSŁOWE
+1,E,DOSTAWA WODY; GOSPODAROWANIE ŚCIEKAMI I ODPADAMI ORAZ DZIAŁALNOŚĆ ZWIĄZANA Z REKULTYWACJĄ,E,DOSTAWA WODY; GOSPODAROWANIE ŚCIEKAMI I ODPADAMI ORAZ DZIAŁALNOŚĆ ZWIĄZANA Z REKULTYWACJĄ
+2,36,"Pobór, uzdatnianie i dostarczanie wody",36,"Pobór, uzdatnianie i dostarczanie wody"
+3,36.0,"Pobór, uzdatnianie i dostarczanie wody",36.0,"Pobór, uzdatnianie i dostarczanie wody"
+2,37,Odprowadzanie i oczyszczanie ścieków,37,Odprowadzanie i oczyszczanie ścieków
+3,37.0,Odprowadzanie i oczyszczanie ścieków,37.0,Odprowadzanie i oczyszczanie ścieków
+2,38,"Działalność związana ze zbieraniem, przetwarzaniem i unieszkodliwianiem odpadów; odzysk surowców",20,Produkcja chemikaliów i wyrobów chemicznych
+2,38,"Działalność związana ze zbieraniem, przetwarzaniem i unieszkodliwianiem odpadów; odzysk surowców",38,"Działalność związana ze zbieraniem, odzyskiem i unieszkodliwianiem odpadów"
+3,38.1,Zbieranie odpadów,38.1,Zbieranie odpadów
+3,38.2,Przetwarzanie i unieszkodliwianie odpadów,38.2,Odzysk związany z odpadami
+3,38.2,Przetwarzanie i unieszkodliwianie odpadów,38.3,Unieszkodliwianie odpadów bez odzysku
+3,38.3,Odzysk surowców,20.1,"Produkcja podstawowych chemikaliów, nawozów i związków azotowych, tworzyw sztucznych i kauczuku syntetycznego w formach podstawowych"
+3,38.3,Odzysk surowców,38.2,Odzysk związany z odpadami
+2,39,Działalność związana z rekultywacją i pozostała działalność usługowa związana z gospodarką odpadami,39,Działalność związana z rekultywacją i pozostała działalność usługowa związana z gospodarką odpadami
+3,39.0,Działalność związana z rekultywacją i pozostała działalność usługowa związana z gospodarką odpadami,39.0,Działalność związana z rekultywacją i pozostała działalność usługowa związana z gospodarką odpadami
+1,F,BUDOWNICTWO,F,BUDOWNICTWO
+1,F,BUDOWNICTWO,M,DZIAŁALNOŚĆ ZWIĄZANA Z OBSŁUGĄ RYNKU NIERUCHOMOŚCI
+1,F,BUDOWNICTWO,O,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA
+1,F,BUDOWNICTWO,S,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, SPORTEM I REKREACJĄ"
+2,41,Roboty budowlane związane ze wznoszeniem budynków,41,Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych
+2,41,Roboty budowlane związane ze wznoszeniem budynków,43,Roboty budowlane specjalistyczne
+2,41,Roboty budowlane związane ze wznoszeniem budynków,68,Działalność związana z obsługą rynku nieruchomości
+2,41,Roboty budowlane związane ze wznoszeniem budynków,91,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą"
+3,41.1,Realizacja projektów budowlanych związanych ze wznoszeniem budynków,68.1,Działalność związana z obsługą rynku nieruchomości na własny rachunek oraz realizacja projektów budowlanych
+3,41.2,Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych,41.0,Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych
+3,41.2,Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych,43.9,Pozostałe specjalistyczne roboty budowlane
+3,41.2,Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych,91.3,Działalność w zakresie konserwacji i renowacji oraz pozostała działalność wspomagająca na rzecz dziedzictwa kulturowego
+2,42,Roboty związane z budową obiektów inżynierii lądowej i wodnej,42,Roboty związane z budową obiektów inżynierii lądowej i wodnej
+2,42,Roboty związane z budową obiektów inżynierii lądowej i wodnej,43,Roboty budowlane specjalistyczne
+2,42,Roboty związane z budową obiektów inżynierii lądowej i wodnej,68,Działalność związana z obsługą rynku nieruchomości
+3,42.1,Roboty związane z budową dróg kołowych i szynowych,42.1,Roboty związane z budową dróg kołowych i szynowych
+3,42.1,Roboty związane z budową dróg kołowych i szynowych,43.5,Roboty budowlane specjalistyczne w zakresie inżynierii lądowej i wodnej
+3,42.2,"Roboty związane z budową rurociągów, linii telekomunikacyjnych i elektroenergetycznych",42.2,"Roboty związane z budową rurociągów, linii telekomunikacyjnych i elektroenergetycznych"
+3,42.9,Roboty związane z budową pozostałych obiektów inżynierii lądowej i wodnej,42.9,Roboty związane z budową pozostałych obiektów inżynierii lądowej i wodnej
+3,42.9,Roboty związane z budową pozostałych obiektów inżynierii lądowej i wodnej,68.1,Działalność związana z obsługą rynku nieruchomości na własny rachunek oraz realizacja projektów budowlanych
+2,43,Roboty budowlane specjalistyczne,42,Roboty związane z budową obiektów inżynierii lądowej i wodnej
+2,43,Roboty budowlane specjalistyczne,43,Roboty budowlane specjalistyczne
+2,43,Roboty budowlane specjalistyczne,81,Działalność usługowa związana z utrzymaniem porządku w budynkach i zagospodarowaniem terenów zieleni
+3,43.1,Rozbiórka i przygotowanie terenu pod budowę,43.1,Rozbiórka i przygotowanie terenu pod budowę
+3,43.2,"Wykonywanie instalacji elektrycznych, wodno-kanalizacyjnych i pozostałych instalacji budowlanych",43.2,"Wykonywanie instalacji elektrycznych, wodno-kanalizacyjnych i pozostałych instalacji budowlanych"
+3,43.3,Wykonywanie robót budowlanych wykończeniowych,43.2,"Wykonywanie instalacji elektrycznych, wodno-kanalizacyjnych i pozostałych instalacji budowlanych"
+3,43.3,Wykonywanie robót budowlanych wykończeniowych,43.3,Wykonywanie robót budowlanych wykończeniowych
+3,43.3,Wykonywanie robót budowlanych wykończeniowych,81.2,Sprzątanie obiektów
+3,43.9,Pozostałe specjalistyczne roboty budowlane,42.9,Roboty związane z budową pozostałych obiektów inżynierii lądowej i wodnej
+3,43.9,Pozostałe specjalistyczne roboty budowlane,43.2,"Wykonywanie instalacji elektrycznych, wodno-kanalizacyjnych i pozostałych instalacji budowlanych"
+3,43.9,Pozostałe specjalistyczne roboty budowlane,43.3,Wykonywanie robót budowlanych wykończeniowych
+3,43.9,Pozostałe specjalistyczne roboty budowlane,43.4,Wykonywanie specjalistycznych robót budowlanych w zakresie budowy budynków
+3,43.9,Pozostałe specjalistyczne roboty budowlane,43.5,Roboty budowlane specjalistyczne w zakresie inżynierii lądowej i wodnej
+3,43.9,Pozostałe specjalistyczne roboty budowlane,43.9,Pozostałe specjalistyczne roboty budowlane
+3,43.9,Pozostałe specjalistyczne roboty budowlane,81.2,Sprzątanie obiektów
+1,G,"HANDEL HURTOWY I DETALICZNY; NAPRAWA POJAZDÓW SAMOCHODOWYCH, WŁĄCZAJĄC MOTOCYKLE",G,HANDEL HURTOWY I DETALICZNY
+1,G,"HANDEL HURTOWY I DETALICZNY; NAPRAWA POJAZDÓW SAMOCHODOWYCH, WŁĄCZAJĄC MOTOCYKLE",J,DZIAŁALNOŚĆ WYDAWNICZA I NADAWCZA ORAZ ZWIĄZANA Z PRODUKCJĄ I DYSTRYBUCJĄ TREŚCI
+1,G,"HANDEL HURTOWY I DETALICZNY; NAPRAWA POJAZDÓW SAMOCHODOWYCH, WŁĄCZAJĄC MOTOCYKLE",T,POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA
+2,45,Handel hurtowy i detaliczny pojazdami samochodowymi; naprawa pojazdów samochodowych,46,Handel hurtowy
+2,45,Handel hurtowy i detaliczny pojazdami samochodowymi; naprawa pojazdów samochodowych,47,Handel detaliczny
+2,45,Handel hurtowy i detaliczny pojazdami samochodowymi; naprawa pojazdów samochodowych,95,"Naprawa i konserwacja komputerów, artykułów użytku osobistego i domowego oraz pojazdów silnikowych, w tym motocykli"
+3,45.1,"Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli",46.1,Sprzedaż hurtowa realizowana na zlecenie
+3,45.1,"Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli",46.7,"Sprzedaż hurtowa pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.1,"Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli",47.8,"Sprzedaż detaliczna pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.1,"Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli",47.9,Pośrednictwo w sprzedaży detalicznej
+3,45.2,"Konserwacja i naprawa pojazdów samochodowych, z wyłączeniem motocykli",95.3,"Naprawa i konserwacja pojazdów silnikowych, w tym motocykli"
+3,45.3,"Sprzedaż hurtowa i detaliczna części i akcesoriów do pojazdów samochodowych, z wyłączeniem motocykli",46.1,Sprzedaż hurtowa realizowana na zlecenie
+3,45.3,"Sprzedaż hurtowa i detaliczna części i akcesoriów do pojazdów samochodowych, z wyłączeniem motocykli",46.7,"Sprzedaż hurtowa pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.3,"Sprzedaż hurtowa i detaliczna części i akcesoriów do pojazdów samochodowych, z wyłączeniem motocykli",47.8,"Sprzedaż detaliczna pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.3,"Sprzedaż hurtowa i detaliczna części i akcesoriów do pojazdów samochodowych, z wyłączeniem motocykli",47.9,Pośrednictwo w sprzedaży detalicznej
+3,45.4,"Sprzedaż hurtowa i detaliczna motocykli, ich naprawa i konserwacja oraz sprzedaż hurtowa i detaliczna części i akcesoriów do nich",46.1,Sprzedaż hurtowa realizowana na zlecenie
+3,45.4,"Sprzedaż hurtowa i detaliczna motocykli, ich naprawa i konserwacja oraz sprzedaż hurtowa i detaliczna części i akcesoriów do nich",46.7,"Sprzedaż hurtowa pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.4,"Sprzedaż hurtowa i detaliczna motocykli, ich naprawa i konserwacja oraz sprzedaż hurtowa i detaliczna części i akcesoriów do nich",47.8,"Sprzedaż detaliczna pojazdów silnikowych, w tym motocykli, oraz części i akcesoriów do nich"
+3,45.4,"Sprzedaż hurtowa i detaliczna motocykli, ich naprawa i konserwacja oraz sprzedaż hurtowa i detaliczna części i akcesoriów do nich",47.9,Pośrednictwo w sprzedaży detalicznej
+3,45.4,"Sprzedaż hurtowa i detaliczna motocykli, ich naprawa i konserwacja oraz sprzedaż hurtowa i detaliczna części i akcesoriów do nich",95.3,"Naprawa i konserwacja pojazdów silnikowych, w tym motocykli"
+2,46,"Handel hurtowy, z wyłączeniem handlu pojazdami samochodowymi",46,Handel hurtowy
+3,46.1,Sprzedaż hurtowa realizowana na zlecenie,46.1,Sprzedaż hurtowa realizowana na zlecenie
+3,46.2,Sprzedaż hurtowa płodów rolnych i żywych zwierząt,46.2,Sprzedaż hurtowa płodów rolnych i żywych zwierząt
+3,46.3,"Sprzedaż hurtowa żywności, napojów i wyrobów tytoniowych",46.3,"Sprzedaż hurtowa żywności, napojów i wyrobów tytoniowych"
+3,46.4,Sprzedaż hurtowa artykułów użytku domowego,46.4,Sprzedaż hurtowa artykułów użytku domowego
+3,46.4,Sprzedaż hurtowa artykułów użytku domowego,46.6,"Sprzedaż hurtowa pozostałych maszyn, urządzeń i dodatkowego wyposażenia"
+3,46.5,Sprzedaż hurtowa narzędzi technologii informacyjnej i komunikacyjnej,46.5,Sprzedaż hurtowa urządzeń technologii informacyjnej i komunikacyjnej
+3,46.6,"Sprzedaż hurtowa maszyn, urządzeń i dodatkowego wyposażenia",46.4,Sprzedaż hurtowa artykułów użytku domowego
+3,46.6,"Sprzedaż hurtowa maszyn, urządzeń i dodatkowego wyposażenia",46.5,Sprzedaż hurtowa urządzeń technologii informacyjnej i komunikacyjnej
+3,46.6,"Sprzedaż hurtowa maszyn, urządzeń i dodatkowego wyposażenia",46.6,"Sprzedaż hurtowa pozostałych maszyn, urządzeń i dodatkowego wyposażenia"
+3,46.7,Pozostała wyspecjalizowana sprzedaż hurtowa,46.8,Pozostała sprzedaż hurtowa wyspecjalizowana
+3,46.9,Sprzedaż hurtowa niewyspecjalizowana,46.9,Sprzedaż hurtowa niewyspecjalizowana
+2,47,"Handel detaliczny, z wyłączeniem handlu detalicznego pojazdami samochodowymi",47,Handel detaliczny
+2,47,"Handel detaliczny, z wyłączeniem handlu detalicznego pojazdami samochodowymi",60,"Nadawanie programów ogólnodostępnych i abonamentowych, działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści"
+3,47.1,Sprzedaż detaliczna prowadzona w niewyspecjalizowanych sklepach,47.1,Sprzedaż detaliczna niewyspecjalizowana
+3,47.1,Sprzedaż detaliczna prowadzona w niewyspecjalizowanych sklepach,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.2,"Sprzedaż detaliczna żywności, napojów i wyrobów tytoniowych prowadzona w wyspecjalizowanych sklepach",47.2,"Sprzedaż detaliczna żywności, napojów i wyrobów tytoniowych"
+3,47.2,"Sprzedaż detaliczna żywności, napojów i wyrobów tytoniowych prowadzona w wyspecjalizowanych sklepach",47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.3,Sprzedaż detaliczna paliw do pojazdów silnikowych na stacjach paliw,47.3,Sprzedaż detaliczna paliw do pojazdów silnikowych
+3,47.3,Sprzedaż detaliczna paliw do pojazdów silnikowych na stacjach paliw,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.4,Sprzedaż detaliczna narzędzi technologii informacyjnej i komunikacyjnej prowadzona w wyspecjalizowanych sklepach,47.4,Sprzedaż detaliczna narzędzi technologii informacyjnej i komunikacyjnej
+3,47.4,Sprzedaż detaliczna narzędzi technologii informacyjnej i komunikacyjnej prowadzona w wyspecjalizowanych sklepach,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.5,Sprzedaż detaliczna artykułów użytku domowego prowadzona w wyspecjalizowanych sklepach,47.5,Sprzedaż detaliczna pozostałych artykułów użytku domowego
+3,47.5,Sprzedaż detaliczna artykułów użytku domowego prowadzona w wyspecjalizowanych sklepach,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją
+3,47.5,Sprzedaż detaliczna artykułów użytku domowego prowadzona w wyspecjalizowanych sklepach,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją prowadzona w wyspecjalizowanych sklepach,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją
+3,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją prowadzona w wyspecjalizowanych sklepach,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.7,Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach,47.5,Sprzedaż detaliczna pozostałych artykułów użytku domowego
+3,47.7,Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją
+3,47.7,Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach,47.7,"Sprzedaż detaliczna pozostałych wyrobów z wyłączeniem pojazdów silnikowych, w tym motocykli"
+3,47.7,Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach,47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.1,Sprzedaż detaliczna niewyspecjalizowana
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.2,"Sprzedaż detaliczna żywności, napojów i wyrobów tytoniowych"
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.4,Sprzedaż detaliczna narzędzi technologii informacyjnej i komunikacyjnej
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.5,Sprzedaż detaliczna pozostałych artykułów użytku domowego
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją
+3,47.8,Sprzedaż detaliczna prowadzona na straganach i targowiskach,47.7,"Sprzedaż detaliczna pozostałych wyrobów z wyłączeniem pojazdów silnikowych, w tym motocykli"
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.1,Sprzedaż detaliczna niewyspecjalizowana
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.2,"Sprzedaż detaliczna żywności, napojów i wyrobów tytoniowych"
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.4,Sprzedaż detaliczna narzędzi technologii informacyjnej i komunikacyjnej
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.5,Sprzedaż detaliczna pozostałych artykułów użytku domowego
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.6,Sprzedaż detaliczna wyrobów związanych z kulturą i rekreacją
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.7,"Sprzedaż detaliczna pozostałych wyrobów z wyłączeniem pojazdów silnikowych, w tym motocykli"
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",47.9,Pośrednictwo w sprzedaży detalicznej
+3,47.9,"Sprzedaż detaliczna prowadzona poza siecią sklepową, straganami i targowiskami",60.3,Działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści
+1,H,TRANSPORT I GOSPODARKA MAGAZYNOWA,D,"WYTWARZANIE I ZAOPATRYWANIE W ENERGIĘ ELEKTRYCZNĄ, GAZ, PARĘ WODNĄ I POWIETRZE DO UKŁADÓW KLIMATYZACYJNYCH
+"
+1,H,TRANSPORT I GOSPODARKA MAGAZYNOWA,H,TRANSPORT I GOSPODARKA MAGAZYNOWA
+1,H,TRANSPORT I GOSPODARKA MAGAZYNOWA,K,"DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE TELEKOMUNIKACJI, PROGRAMOWANIA KOMPUTEROWEGO, DORADZTWA, INFRASTRUKTURY OBLICZENIOWEJ ORAZ POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE INFORMACJI"
+2,49,Transport lądowy oraz transport rurociągowy,49,Transport lądowy oraz transport rurociągowy
+2,49,Transport lądowy oraz transport rurociągowy,52,"Magazynowanie, przechowywanie i działalność usługowa wspomagająca transport"
+3,49.1,Transport kolejowy pasażerski międzymiastowy,49.1,Szynowy transport pasażerski
+3,49.2,Transport kolejowy towarów,49.2,Transport kolejowy towarów
+3,49.3,Pozostały transport lądowy pasażerski,49.1,Szynowy transport pasażerski
+3,49.3,Pozostały transport lądowy pasażerski,49.3,Pozostały transport lądowy pasażerski
+3,49.3,Pozostały transport lądowy pasażerski,52.3,Pośrednictwo w transporcie
+3,49.4,Transport drogowy towarów oraz działalność usługowa związana z przeprowadzkami,49.4,Transport drogowy towarów oraz działalność usługowa związana z przeprowadzkami
+3,49.4,Transport drogowy towarów oraz działalność usługowa związana z przeprowadzkami,52.2,Działalność usługowa wspomagająca transport
+3,49.5,Transport rurociągowy,49.5,Transport rurociągowy
+2,50,Transport wodny,50,Transport wodny
+3,50.1,Transport morski i przybrzeżny pasażerski ,50.1,Transport morski i przybrzeżny pasażerski
+3,50.2,Transport morski i przybrzeżny towarów,50.2,Transport morski i przybrzeżny towarów
+3,50.3,Transport wodny śródlądowy pasażerski ,50.3,Transport wodny śródlądowy pasażerski
+3,50.4,Transport wodny śródlądowy towarów,50.4,Transport wodny śródlądowy towarów
+2,51,Transport lotniczy,51,Transport lotniczy
+3,51.1,Transport lotniczy pasażerski,51.1,Transport lotniczy pasażerski
+3,51.2,Transport lotniczy towarów i transport kosmiczny,51.2,Transport lotniczy towarów i transport kosmiczny
+2,52,Magazynowanie i działalność usługowa wspomagająca transport,35,"Wytwarzanie i zaopatrywanie w energię elektryczną, gaz, parę wodną i powietrze do układów klimatyzacyjnych"
+2,52,Magazynowanie i działalność usługowa wspomagająca transport,52,"Magazynowanie, przechowywanie i działalność usługowa wspomagająca transport"
+2,52,Magazynowanie i działalność usługowa wspomagająca transport,63,"Działalność usługowa w zakresie infrastruktury obliczeniowej, przetwarzania danych, zarządzania stronami internetowymi (hosting) i pozostała działalność usługowa w zakresie informacji"
+3,52.1,Magazynowanie i przechowywanie towarów,35.2,Wytwarzanie paliw gazowych oraz dystrybucja i handel paliwami gazowymi w systemie sieciowym
+3,52.1,Magazynowanie i przechowywanie towarów,52.1,Magazynowanie i przechowywanie towarów
+3,52.1,Magazynowanie i przechowywanie towarów,63.1,"Działalność usługowa w zakresie infrastruktury obliczeniowej, przetwarzania danych, zarządzania stronami internetowymi (hosting) i działalności powiązane"
+3,52.2,Działalność usługowa wspomagająca transport,52.2,Działalność usługowa wspomagająca transport
+3,52.2,Działalność usługowa wspomagająca transport,52.3,Pośrednictwo w transporcie
+2,53,Działalność pocztowa i kurierska,53,Działalność pocztowa i kurierska
+3,53.1,Działalność pocztowa objęta obowiązkiem świadczenia usług powszechnych (operatora publicznego),53.1,Działalność pocztowa objęta obowiązkiem świadczenia usług powszechnych (operatora publicznego)
+3,53.2,Pozostała działalność pocztowa i kurierska,53.2,Pozostała działalność pocztowa i kurierska
+1,I,DZIAŁALNOŚĆ ZWIĄZANA Z ZAKWATEROWANIEM I USŁUGAMI GASTRONOMICZNYMI,I,DZIAŁALNOŚĆ ZWIĄZANA Z ZAKWATEROWANIEM I USŁUGAMI GASTRONOMICZNYMI
+2,55,Zakwaterowanie,55,Zakwaterowanie
+3,55.1,Hotele i podobne obiekty zakwaterowania,55.1,Hotele i podobne obiekty zakwaterowania
+3,55.2,Obiekty noclegowe turystyczne i miejsca krótkotrwałego zakwaterowania,55.2,Obiekty noclegowe turystyczne i miejsca krótkotrwałego zakwaterowania
+3,55.3,Pola kempingowe (włączając pola dla pojazdów kempingowych) i pola namiotowe,55.3,Pola kempingowe
+3,55.9,Pozostałe zakwaterowanie,55.9,Pozostałe zakwaterowanie
+2,56,Działalność usługowa związana z wyżywieniem,56,Działalność usługowa związana z wyżywieniem
+3,56.1,Restauracje i pozostałe placówki gastronomiczne,56.1,Restauracje i ruchome placówki gastronomiczne
+3,56.2,Przygotowywanie żywności dla odbiorców zewnętrznych (katering) i pozostała gastronomiczna działalność usługowa,56.2,Okazjonalne i regularne przygotowywanie żywności dla odbiorców zewnętrznych (katering) i pozostała gastronomiczna działalność usługowa
+3,56.3,Przygotowywanie i podawanie napojów,56.3,Podawanie napojów
+1,J,INFORMACJA I KOMUNIKACJA,J,DZIAŁALNOŚĆ WYDAWNICZA I NADAWCZA ORAZ ZWIĄZANA Z PRODUKCJĄ I DYSTRYBUCJĄ TREŚCI
+1,J,INFORMACJA I KOMUNIKACJA,K,"DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE TELEKOMUNIKACJI, PROGRAMOWANIA KOMPUTEROWEGO, DORADZTWA, INFRASTRUKTURY OBLICZENIOWEJ ORAZ POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE INFORMACJI"
+2,58,Działalność wydawnicza,58,Działalność wydawnicza
+3,58.1,"Wydawanie książek i periodyków oraz pozostała działalność wydawnicza, z wyłączeniem w zakresie oprogramowania",58.1,"Wydawanie książek, gazet i periodyków oraz pozostała działalność wydawnicza, z wyłączeniem w zakresie oprogramowania"
+3,58.2,Działalność wydawnicza w zakresie oprogramowania,58.2,Działalność wydawnicza w zakresie oprogramowania
+2,59,"Działalność związana z produkcją filmów, nagrań wideo, programów telewizyjnych, nagrań dźwiękowych i muzycznych",59,"Działalność związana z produkcją filmów, nagrań wideo, programów telewizyjnych, nagrań dźwiękowych i muzycznych"
+3,59.1,"Działalność związana z filmami, nagraniami wideo i programami telewizyjnymi",59.1,"Działalność związana z filmami, nagraniami wideo i programami telewizyjnymi"
+3,59.2,Działalność w zakresie nagrań dźwiękowych i muzycznych,59.2,Działalność w zakresie nagrań dźwiękowych i muzycznych
+2,60,Nadawanie programów ogólnodostępnych i abonamentowych,60,"Nadawanie programów ogólnodostępnych i abonamentowych, działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści"
+3,60.1,Nadawanie programów radiofonicznych,60.1,Nadawanie programów radiofonicznych i dystrybucja nagrań dźwiękowych
+3,60.2,Nadawanie programów telewizyjnych ogólnodostępnych i abonamentowych,60.2,Nadawanie programów telewizyjnych ogólnodostępnych i abonamentowych oraz dystrybucja nagrań wideo
+2,61,Telekomunikacja,61,Telekomunikacja
+3,61.1,Działalność w zakresie telekomunikacji przewodowej,61.1,"Działalność w zakresie telekomunikacji przewodowej, bezprzewodowej i satelitarnej"
+3,61.2,"Działalność w zakresie telekomunikacji bezprzewodowej, z wyłączeniem telekomunikacji satelitarnej",61.1,"Działalność w zakresie telekomunikacji przewodowej, bezprzewodowej i satelitarnej"
+3,61.2,"Działalność w zakresie telekomunikacji bezprzewodowej, z wyłączeniem telekomunikacji satelitarnej",61.9,Działalność w zakresie pozostałej telekomunikacji
+3,61.3,Działalność w zakresie telekomunikacji satelitarnej,61.1,"Działalność w zakresie telekomunikacji przewodowej, bezprzewodowej i satelitarnej"
+3,61.9,Działalność w zakresie pozostałej telekomunikacji,61.2,Działalność w zakresie odsprzedaży usług telekomunikacyjnych oraz pośrednictwo w telekomunikacji
+3,61.9,Działalność w zakresie pozostałej telekomunikacji,61.9,Działalność w zakresie pozostałej telekomunikacji
+2,62,Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz działalność powiązana,62,"Działalność związana z programowaniem, doradztwem w zakresie informatyki i działalności powiązane"
+3,62.0,Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz działalność powiązana,62.1,Działalność w zakresie programowania
+3,62.0,Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz działalność powiązana,62.2,Działalność związana z doradztwem w zakresie informatyki oraz zarządzaniem urządzeniami informatycznymi
+3,62.0,Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz działalność powiązana,62.9,Pozostała działalność usługowa w zakresie technologii informatycznych i komputerowych
+2,63,Działalność usługowa w zakresie informacji,60,"Nadawanie programów ogólnodostępnych i abonamentowych, działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści"
+2,63,Działalność usługowa w zakresie informacji,63,"Działalność usługowa w zakresie infrastruktury obliczeniowej, przetwarzania danych, zarządzania stronami internetowymi (hosting) i pozostała działalność usługowa w zakresie informacji"
+3,63.1,Przetwarzanie danych; zarządzanie stronami internetowymi (hosting) i podobna działalność; działalność portali internetowych,60.2,Nadawanie programów telewizyjnych ogólnodostępnych i abonamentowych oraz dystrybucja nagrań wideo
+3,63.1,Przetwarzanie danych; zarządzanie stronami internetowymi (hosting) i podobna działalność; działalność portali internetowych,60.3,Działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści
+3,63.1,Przetwarzanie danych; zarządzanie stronami internetowymi (hosting) i podobna działalność; działalność portali internetowych,63.1,"Działalność usługowa w zakresie infrastruktury obliczeniowej, przetwarzania danych, zarządzania stronami internetowymi (hosting) i działalności powiązane"
+3,63.1,Przetwarzanie danych; zarządzanie stronami internetowymi (hosting) i podobna działalność; działalność portali internetowych,63.9,Działalność wyszukiwarek internetowych oraz pozostała działalność usługowa w zakresie informacji
+3,63.9,Pozostała działalność usługowa w zakresie informacji,60.3,Działalność agencji informacyjnych i pozostała działalność związana z dystrybucją treści
+3,63.9,Pozostała działalność usługowa w zakresie informacji,63.9,Działalność wyszukiwarek internetowych oraz pozostała działalność usługowa w zakresie informacji
+1,K,DZIAŁALNOŚĆ FINANSOWA I UBEZPIECZENIOWA,L,DZIAŁALNOŚĆ FINANSOWA I UBEZPIECZENIOWA
+2,64,"Finansowa działalność usługowa, z wyłączeniem ubezpieczeń i funduszów emerytalnych",64,"Finansowa działalność usługowa, z wyłączeniem ubezpieczeń i funduszy emerytalnych"
+3,64.1,Pośrednictwo pieniężne,64.1,Pośrednictwo pieniężne
+3,64.2,Działalność holdingów finansowych,64.2,Działalność spółek holdingowych i spółek pozyskujących finansowanie na rzecz innych podmiotów
+3,64.3,"Działalność trustów, funduszów i podobnych instytucji finansowych",64.3,"Działalność trustów, funduszy i podobnych instytucji finansowych"
+3,64.9,"Pozostała finansowa działalność usługowa, z wyłączeniem ubezpieczeń i funduszów emerytalnych",64.2,Działalność spółek holdingowych i spółek pozyskujących finansowanie na rzecz innych podmiotów
+3,64.9,"Pozostała finansowa działalność usługowa, z wyłączeniem ubezpieczeń i funduszów emerytalnych",64.9,"Pozostała finansowa działalność usługowa, z wyłączeniem ubezpieczeń i funduszy emerytalnych"
+2,65,"Ubezpieczenia, reasekuracja oraz fundusze emerytalne, z wyłączeniem obowiązkowego ubezpieczenia społecznego",65,"Działalność w zakresie ubezpieczeń, reasekuracji oraz funduszy emerytalnych, z wyłączeniem obowiązkowego ubezpieczenia społecznego"
+3,65.1,Ubezpieczenia,65.1,Działalność w zakresie ubezpieczeń
+3,65.2,Reasekuracja,65.2,Działalność w zakresie reasekuracji
+3,65.3,Fundusze emerytalne,65.3,Działalność w zakresie funduszy emerytalnych
+2,66,Działalność wspomagająca usługi finansowe oraz ubezpieczenia i fundusze emerytalne,66,"Działalność wspomagająca usługi finansowe, ubezpieczenia i fundusze emerytalne"
+3,66.1,"Działalność wspomagająca usługi finansowe, z wyłączeniem ubezpieczeń i funduszów emerytalnych",66.1,"Działalność wspomagająca usługi finansowe, z wyłączeniem ubezpieczeń i funduszy emerytalnych"
+3,66.1,"Działalność wspomagająca usługi finansowe, z wyłączeniem ubezpieczeń i funduszów emerytalnych",66.3,Działalność związana z zarządzaniem funduszami
+3,66.2,Działalność wspomagająca ubezpieczenia i fundusze emerytalne,66.2,Działalność wspomagająca ubezpieczenia i fundusze emerytalne
+3,66.3,Działalność związana z zarządzaniem funduszami,66.3,Działalność związana z zarządzaniem funduszami
+1,L,DZIAŁALNOŚĆ ZWIĄZANA Z OBSŁUGĄ RYNKU NIERUCHOMOŚCI,I,DZIAŁALNOŚĆ ZWIĄZANA Z ZAKWATEROWANIEM I USŁUGAMI GASTRONOMICZNYMI
+1,L,DZIAŁALNOŚĆ ZWIĄZANA Z OBSŁUGĄ RYNKU NIERUCHOMOŚCI,M,DZIAŁALNOŚĆ ZWIĄZANA Z OBSŁUGĄ RYNKU NIERUCHOMOŚCI
+2,68,Działalność związana z obsługą rynku nieruchomości,55,Zakwaterowanie
+2,68,Działalność związana z obsługą rynku nieruchomości,68,Działalność związana z obsługą rynku nieruchomości
+3,68.1,Kupno i sprzedaż nieruchomości na własny rachunek,68.1,Działalność związana z obsługą rynku nieruchomości na własny rachunek oraz realizacja projektów budowlanych
+3,68.2,Wynajem i zarządzanie nieruchomościami własnymi lub dzierżawionymi,55.9,Pozostałe zakwaterowanie
+3,68.2,Wynajem i zarządzanie nieruchomościami własnymi lub dzierżawionymi,68.2,Wynajem i zarządzanie nieruchomościami własnymi lub dzierżawionymi
+3,68.3,Działalność związana z obsługą rynku nieruchomości wykonywana na zlecenie,68.3,Działalność związana z obsługą rynku nieruchomości wykonywana na zlecenie
+1,M,"DZIAŁALNOŚĆ PROFESJONALNA, NAUKOWA I TECHNICZNA",C,PRZETWÓRSTWO PRZEMYSŁOWE
+1,M,"DZIAŁALNOŚĆ PROFESJONALNA, NAUKOWA I TECHNICZNA",N,"DZIAŁALNOŚĆ PROFESJONALNA, NAUKOWA I TECHNICZNA"
+1,M,"DZIAŁALNOŚĆ PROFESJONALNA, NAUKOWA I TECHNICZNA",O,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA
+2,69,"Działalność prawnicza, rachunkowo-księgowa i doradztwo podatkowe",69,"Działalność prawnicza, rachunkowo-księgowa i doradztwo podatkowe"
+3,69.1,Działalność prawnicza,69.1,Działalność prawnicza
+3,69.2,Działalność rachunkowo-księgowa; doradztwo podatkowe,69.2,Działalność rachunkowo-księgowa; doradztwo podatkowe
+2,70,Działalność firm centralnych (head offices); doradztwo związane z zarządzaniem,70,Działalność central (head offices) oraz doradztwo związane z zarządzaniem
+2,70,Działalność firm centralnych (head offices); doradztwo związane z zarządzaniem,73,"Działalność w zakresie reklamy, badania rynku i public relations"
+3,70.1,"Działalność firm centralnych (head offices) i holdingów, z wyłączeniem holdingów finansowych",70.1,Działalność central (head offices)
+3,70.2,Doradztwo związane z zarządzaniem,70.2,Doradztwo w zakresie prowadzenia działalności gospodarczej i pozostałe doradztwo w zakresie zarządzania
+3,70.2,Doradztwo związane z zarządzaniem,73.3,Działalność w zakresie public relations i komunikacji
+2,71,Działalność w zakresie architektury i inżynierii; badania i analizy techniczne,71,Działalność w zakresie architektury i inżynierii; badania i analizy techniczne
+3,71.1,Działalność w zakresie architektury i inżynierii oraz związane z nią doradztwo techniczne,71.1,Działalność w zakresie architektury i inżynierii oraz związane z nią doradztwo techniczne
+3,71.2,Badania i analizy techniczne,71.2,Badania i analizy techniczne
+2,72,Badania naukowe i prace rozwojowe,72,Badania naukowe i prace rozwojowe
+3,72.1,Badania naukowe i prace rozwojowe w dziedzinie nauk przyrodniczych i technicznych,72.1,Badania naukowe i prace rozwojowe w dziedzinie nauk przyrodniczych i technicznych
+3,72.2,Badania naukowe i prace rozwojowe w dziedzinie nauk społecznych i humanistycznych,72.2,Badania naukowe i prace rozwojowe w dziedzinie nauk społecznych i humanistycznych
+2,73,"Reklama, badanie rynku i opinii publicznej",73,"Działalność w zakresie reklamy, badania rynku i public relations"
+3,73.1,Reklama,73.1,Reklama
+3,73.2,Badanie rynku i opinii publicznej,73.2,Badanie rynku i opinii publicznej
+2,74,"Pozostała działalność profesjonalna, naukowa i techniczna",18,Poligrafia i reprodukcja zapisanych nośników informacji
+2,74,"Pozostała działalność profesjonalna, naukowa i techniczna",74,"Pozostała działalność profesjonalna, naukowa i techniczna"
+2,74,"Pozostała działalność profesjonalna, naukowa i techniczna",80,Działalność detektywistyczna i ochroniarska
+3,74.1,Działalność w zakresie specjalistycznego projektowania,74.1,Działalność w zakresie specjalistycznego projektowania
+3,74.2,Działalność fotograficzna,18.1,Drukowanie i działalność usługowa związana z poligrafią
+3,74.2,Działalność fotograficzna,74.2,Działalność fotograficzna
+3,74.3,Działalność związana z tłumaczeniami,74.3,Działalność związana z tłumaczeniami
+3,74.9,"Pozostała działalność profesjonalna, naukowa i techniczna, gdzie indziej niesklasyfikowana",74.9,"Pozostała działalność profesjonalna, naukowa i techniczna, gdzie indziej niesklasyfikowana"
+3,74.9,"Pozostała działalność profesjonalna, naukowa i techniczna, gdzie indziej niesklasyfikowana",80.0,Działalność detektywistyczna i ochroniarska
+2,75,Działalność weterynaryjna,75,Działalność weterynaryjna
+3,75.0,Działalność weterynaryjna,75.0,Działalność weterynaryjna
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,C,PRZETWÓRSTWO PRZEMYSŁOWE
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,F,BUDOWNICTWO
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,G,HANDEL HURTOWY I DETALICZNY
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,H,TRANSPORT I GOSPODARKA MAGAZYNOWA
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,I,DZIAŁALNOŚĆ ZWIĄZANA Z ZAKWATEROWANIEM I USŁUGAMI GASTRONOMICZNYMI
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,K,"DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE TELEKOMUNIKACJI, PROGRAMOWANIA KOMPUTEROWEGO, DORADZTWA, INFRASTRUKTURY OBLICZENIOWEJ ORAZ POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA W ZAKRESIE INFORMACJI"
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,O,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,Q,EDUKACJA
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,R,OPIEKA ZDROWOTNA I POMOC SPOŁECZNA
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,S,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, SPORTEM I REKREACJĄ"
+1,N,DZIAŁALNOŚĆ W ZAKRESIE USŁUG ADMINISTROWANIA I DZIAŁALNOŚĆ WSPIERAJĄCA,T,POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA
+2,77,Wynajem i dzierżawa,77,Wynajem i dzierżawa
+3,77.1,"Wynajem i dzierżawa pojazdów samochodowych, z wyłączeniem motocykli",77.1,Wynajem i dzierżawa pojazdów silnikowych
+3,77.2,Wypożyczanie i dzierżawa artykułów użytku osobistego i domowego,77.2,Wypożyczanie i dzierżawa artykułów użytku osobistego i domowego
+3,77.3,"Wynajem i dzierżawa pozostałych maszyn, urządzeń oraz dóbr materialnych",77.1,Wynajem i dzierżawa pojazdów silnikowych
+3,77.3,"Wynajem i dzierżawa pozostałych maszyn, urządzeń oraz dóbr materialnych",77.3,"Wynajem i dzierżawa pozostałych maszyn, urządzeń oraz dóbr materialnych"
+3,77.4,"Dzierżawa własności intelektualnej i podobnych produktów, z wyłączeniem prac chronionych prawem autorskim",77.4,"Dzierżawa własności intelektualnej i podobnych produktów, z wyłączeniem prac chronionych prawem autorskim"
+2,78,Działalność związana z zatrudnieniem,78,Działalność związana z zatrudnieniem
+3,78.1,Działalność związana z wyszukiwaniem miejsc pracy i pozyskiwaniem pracowników,78.1,Działalność związana z wyszukiwaniem miejsc pracy i pozyskiwaniem pracowników
+3,78.2,Działalność agencji pracy tymczasowej,78.2,Działalność agencji pracy tymczasowej i pozostała działalność związana z udostępnianiem pracowników
+3,78.3,Pozostała działalność związana z udostępnianiem pracowników,78.2,Działalność agencji pracy tymczasowej i pozostała działalność związana z udostępnianiem pracowników
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",52,"Magazynowanie, przechowywanie i działalność usługowa wspomagająca transport"
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",55,Zakwaterowanie
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",56,Działalność usługowa związana z wyżywieniem
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",77,Wynajem i dzierżawa
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",79,"Działalność organizatorów turystyki, agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane"
+2,79,"Działalność organizatorów turystyki, pośredników i agentów turystycznych oraz pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane",82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej
+3,79.1,Działalność agentów i pośredników turystycznych oraz organizatorów turystyki,52.3,Pośrednictwo w transporcie
+3,79.1,Działalność agentów i pośredników turystycznych oraz organizatorów turystyki,55.4,Pośrednictwo w zakwaterowaniu
+3,79.1,Działalność agentów i pośredników turystycznych oraz organizatorów turystyki,77.5,Pośrednictwo w wynajmie i dzierżawie dóbr materialnych oraz niefinansowych wartości niematerialnych i prawnych
+3,79.1,Działalność agentów i pośredników turystycznych oraz organizatorów turystyki,79.1,Działalność agentów turystycznych oraz organizatorów turystyki
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,52.3,Pośrednictwo w transporcie
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,55.4,Pośrednictwo w zakwaterowaniu
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,56.4,Pośrednictwo w zakresie działalności usługowej związanej z wyżywieniem
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,77.5,Pośrednictwo w wynajmie i dzierżawie dóbr materialnych oraz niefinansowych wartości niematerialnych i prawnych
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,79.9,Pozostała działalność usługowa w zakresie rezerwacji oraz działalności z nią związane
+3,79.9,Pozostała działalność usługowa w zakresie rezerwacji i działalności z nią związane,82.4,"Pośrednictwo w zakresie działalności wspomagającej prowadzenie działalności gospodarczej, gdzie indziej niesklasyfikowane"
+2,80,Działalność detektywistyczna i ochroniarska,80,Działalność detektywistyczna i ochroniarska
+3,80.1,"Działalność ochroniarska, z wyłączeniem obsługi systemów bezpieczeństwa",80.0,Działalność detektywistyczna i ochroniarska
+3,80.2,Działalność ochroniarska w zakresie obsługi systemów bezpieczeństwa,80.0,Działalność detektywistyczna i ochroniarska
+3,80.3,Działalność detektywistyczna,80.0,Działalność detektywistyczna i ochroniarska
+2,81,Działalność usługowa związana z utrzymaniem porządku w budynkach i zagospodarowaniem terenów zieleni,81,Działalność usługowa związana z utrzymaniem porządku w budynkach i zagospodarowaniem terenów zieleni
+2,81,Działalność usługowa związana z utrzymaniem porządku w budynkach i zagospodarowaniem terenów zieleni,96,Działalność usługowa indywidualna
+3,81.1,Działalność pomocnicza związana z utrzymaniem porządku w budynkach,81.1,Działalność pomocnicza związana z utrzymaniem porządku w budynkach
+3,81.2,Sprzątanie obiektów,81.2,Sprzątanie obiektów
+3,81.2,Sprzątanie obiektów,96.9,Pozostała indywidualna działalność usługowa
+3,81.3,Działalność usługowa związana z zagospodarowaniem terenów zieleni,81.3,Działalność usługowa związana z zagospodarowaniem terenów zieleni
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,18,Poligrafia i reprodukcja zapisanych nośników informacji
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,43,Roboty budowlane specjalistyczne
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,46,Handel hurtowy
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,47,Handel detaliczny
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,53,Działalność pocztowa i kurierska
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,61,Telekomunikacja
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,77,Wynajem i dzierżawa
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,85,Edukacja
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,86,Opieka zdrowotna
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,87,Pomoc społeczna z zakwaterowaniem
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,93,"Działalność sportowa, rozrywkowa i rekreacyjna"
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,95,"Naprawa i konserwacja komputerów, artykułów użytku osobistego i domowego oraz pojazdów silnikowych, w tym motocykli"
+2,82,Działalność związana z administracyjną obsługą biura i pozostała działalność wspomagająca prowadzenie działalności gospodarczej,96,Działalność usługowa indywidualna
+3,82.1,"Działalność związana z administracyjną obsługą biura, włączając działalność wspomagającą",18.1,Drukowanie i działalność usługowa związana z poligrafią
+3,82.1,"Działalność związana z administracyjną obsługą biura, włączając działalność wspomagającą",82.1,"Działalność związana z administracyjną obsługą biura, włączając działalność wspomagającą"
+3,82.2,Działalność centrów telefonicznych (call center),82.2,Działalność centrów telefonicznych (call center)
+3,82.3,"Działalność związana z organizacją targów, wystaw i kongresów",82.3,"Działalność związana z organizacją targów, wystaw i kongresów"
+3,82.3,"Działalność związana z organizacją targów, wystaw i kongresów",93.2,Działalność rozrywkowa i rekreacyjna
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",43.6,Pośrednictwo w zakresie specjalistycznych usług budowlanych
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",46.1,Sprzedaż hurtowa realizowana na zlecenie
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",47.9,Pośrednictwo w sprzedaży detalicznej
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",53.3,Pośrednictwo w zakresie działalności pocztowej i kurierskiej
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",61.2,Działalność w zakresie odsprzedaży usług telekomunikacyjnych oraz pośrednictwo w telekomunikacji
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",77.5,Pośrednictwo w wynajmie i dzierżawie dóbr materialnych oraz niefinansowych wartości niematerialnych i prawnych
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",82.4,"Pośrednictwo w zakresie działalności wspomagającej prowadzenie działalności gospodarczej, gdzie indziej niesklasyfikowane"
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana"
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",85.6,Działalność wspomagająca edukację
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",86.9,Pozostała działalność w zakresie opieki zdrowotnej
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",87.9,Pozostała pomoc społeczna z zakwaterowaniem
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",95.4,"Pośrednictwo w naprawie i konserwacji komputerów, artykułów użytku osobistego i domowego oraz pojazdów silnikowych, w tym motocykli"
+3,82.9,"Działalność komercyjna, gdzie indziej niesklasyfikowana",96.4,Pośrednictwo w zakresie usług indywidualnych
+1,O,ADMINISTRACJA PUBLICZNA I OBRONA NARODOWA; OBOWIĄZKOWE ZABEZPIECZENIA SPOŁECZNE,P,ADMINISTRACJA PUBLICZNA I OBRONA NARODOWA; OBOWIĄZKOWE UBEZPIECZENIA SPOŁECZNE
+2,84,Administracja publiczna i obrona narodowa; obowiązkowe zabezpieczenia społeczne,84,Administracja publiczna i obrona narodowa; obowiązkowe ubezpieczenia społeczne
+3,84.1,Administracja publiczna oraz polityka gospodarcza i społeczna,84.1,"Administracja publiczna oraz polityka gospodarcza, społeczna i w zakresie ochrony środowiska"
+3,84.2,Usługi na rzecz całego społeczeństwa,84.2,Działalność usługowa na rzecz całego społeczeństwa
+3,84.3,Obowiązkowe zabezpieczenia społeczne,84.3,Obowiązkowe ubezpieczenia społeczne
+1,P,EDUKACJA,Q,EDUKACJA
+1,P,EDUKACJA,S,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, SPORTEM I REKREACJĄ"
+2,85,Edukacja,85,Edukacja
+2,85,Edukacja,93,"Działalność sportowa, rozrywkowa i rekreacyjna"
+3,85.1,Placówki wychowania przedszkolnego,85.1,Placówki wychowania przedszkolnego
+3,85.2,Szkoły podstawowe,85.2,Szkoły podstawowe
+3,85.3,"Gimnazja, szkoły ponadgimnazjalne i szkoły ponadpodstawowe, z wyłączeniem szkół policealnych",85.3,Szkoły ponadpodstawowe i placówki kształcenia policealnego
+3,85.4,Szkoły policealne oraz wyższe,85.3,Szkoły ponadpodstawowe i placówki kształcenia policealnego
+3,85.4,Szkoły policealne oraz wyższe,85.4,Szkoły wyższe
+3,85.5,Pozaszkolne formy edukacji,85.5,Pozostałe formy edukacji
+3,85.5,Pozaszkolne formy edukacji,93.1,Działalność związana ze sportem
+3,85.6,Działalność wspomagająca edukację,85.6,Działalność wspomagająca edukację
+1,Q,OPIEKA ZDROWOTNA I POMOC SPOŁECZNA,R,OPIEKA ZDROWOTNA I POMOC SPOŁECZNA
+2,86,Opieka zdrowotna,86,Opieka zdrowotna
+3,86.1,Działalność szpitali,86.1,Działalność szpitali
+3,86.2,Praktyka lekarska,86.2,Praktyka lekarska i dentystyczna
+3,86.9,Pozostała działalność w zakresie opieki zdrowotnej,86.9,Pozostała działalność w zakresie opieki zdrowotnej
+2,87,Pomoc społeczna z zakwaterowaniem,87,Pomoc społeczna z zakwaterowaniem
+3,87.1,Pomoc społeczna z zakwaterowaniem zapewniająca opiekę pielęgniarską,87.1,Pomoc społeczna z zakwaterowaniem zapewniająca opiekę pielęgniarską
+3,87.2,Pomoc społeczna z zakwaterowaniem dla osób z zaburzeniami psychicznymi,87.2,Pomoc społeczna z zakwaterowaniem dla osób z zaburzeniami psychicznymi lub uzależnieniami
+3,87.3,Pomoc społeczna z zakwaterowaniem dla osób w podeszłym wieku i osób niepełnosprawnych,87.3,Pomoc społeczna z zakwaterowaniem dla osób starszych lub osób z niepełnosprawnościami ruchowymi
+3,87.9,Pozostała pomoc społeczna z zakwaterowaniem,87.9,Pozostała pomoc społeczna z zakwaterowaniem
+2,88,Pomoc społeczna bez zakwaterowania,88,Pomoc społeczna bez zakwaterowania
+3,88.1,Pomoc społeczna bez zakwaterowania dla osób w podeszłym wieku i osób niepełnosprawnych,88.1,Pomoc społeczna bez zakwaterowania dla osób starszych lub osób z niepełnosprawnościami
+3,88.9,Pozostała pomoc społeczna bez zakwaterowania,88.9,Pozostała pomoc społeczna bez zakwaterowania
+1,R,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, ROZRYWKĄ I REKREACJĄ",P,ADMINISTRACJA PUBLICZNA I OBRONA NARODOWA; OBOWIĄZKOWE UBEZPIECZENIA SPOŁECZNE
+1,R,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, ROZRYWKĄ I REKREACJĄ",S,"DZIAŁALNOŚĆ ZWIĄZANA Z KULTURĄ, SPORTEM I REKREACJĄ"
+2,90,Działalność twórcza związana z kulturą i rozrywką,90,Działalność twórcza i działalność związana z wystawianiem przedstawień artystycznych
+2,90,Działalność twórcza związana z kulturą i rozrywką,91,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą"
+3,90.0,Działalność twórcza związana z kulturą i rozrywką,90.1,Działalność twórcza
+3,90.0,Działalność twórcza związana z kulturą i rozrywką,90.2,Działalność związana z wystawianiem przedstawień artystycznych
+3,90.0,Działalność twórcza związana z kulturą i rozrywką,90.3,Działalność wspomagająca działalność twórczą i związaną z wystawianiem przedstawień artystycznych
+3,90.0,Działalność twórcza związana z kulturą i rozrywką,91.3,Działalność w zakresie konserwacji i renowacji oraz pozostała działalność wspomagająca na rzecz dziedzictwa kulturowego
+2,91,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą",91,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą"
+3,91.0,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą",91.1,Działalność bibliotek i archiwów
+3,91.0,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą",91.2,"Działalność muzeów oraz działalność związana z opieką nad zbiorami muzealnymi, miejscami historycznymi i pomnikami"
+3,91.0,"Działalność bibliotek, archiwów, muzeów oraz pozostała działalność związana z kulturą",91.4,Działalność ogrodów botanicznych i zoologicznych oraz obszarów i obiektów ochrony przyrody
+2,92,Działalność związana z grami losowymi i zakładami wzajemnymi,92,Działalność związana z grami hazardowymi
+3,92.0,Działalność związana z grami losowymi i zakładami wzajemnymi,92.0,Działalność związana z grami hazardowymi
+2,93,"Działalność sportowa, rozrywkowa i rekreacyjna",84,Administracja publiczna i obrona narodowa; obowiązkowe ubezpieczenia społeczne
+2,93,"Działalność sportowa, rozrywkowa i rekreacyjna",93,"Działalność sportowa, rozrywkowa i rekreacyjna"
+3,93.1,Działalność związana ze sportem,93.1,Działalność związana ze sportem
+3,93.1,Działalność związana ze sportem,93.2,Działalność rozrywkowa i rekreacyjna
+3,93.2,Działalność rozrywkowa i rekreacyjna,84.2,Działalność usługowa na rzecz całego społeczeństwa
+3,93.2,Działalność rozrywkowa i rekreacyjna,93.1,Działalność związana ze sportem
+3,93.2,Działalność rozrywkowa i rekreacyjna,93.2,Działalność rozrywkowa i rekreacyjna
+1,S,POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA,H,TRANSPORT I GOSPODARKA MAGAZYNOWA
+1,S,POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA,T,POZOSTAŁA DZIAŁALNOŚĆ USŁUGOWA
+2,94,Działalność organizacji członkowskich,94,Działalność organizacji członkowskich
+3,94.1,"Działalność organizacji komercyjnych, pracodawców oraz organizacji profesjonalnych",94.1,"Działalność organizacji komercyjnych, pracodawców oraz organizacji profesjonalnych"
+3,94.2,Działalność związków zawodowych,94.2,Działalność związków zawodowych
+3,94.9,Działalność pozostałych organizacji członkowskich,94.9,Działalność pozostałych organizacji członkowskich
+2,95,Naprawa i konserwacja komputerów i artykułów użytku osobistego i domowego,95,"Naprawa i konserwacja komputerów, artykułów użytku osobistego i domowego oraz pojazdów silnikowych, w tym motocykli"
+3,95.1,Naprawa i konserwacja komputerów i sprzętu komunikacyjnego,95.1,Naprawa i konserwacja komputerów i sprzętu (tele)komunikacyjnego
+3,95.2,Naprawa i konserwacja artykułów użytku osobistego i domowego,95.2,Naprawa i konserwacja artykułów użytku osobistego i domowego
+2,96,Pozostała indywidualna działalność usługowa,53,Działalność pocztowa i kurierska
+2,96,Pozostała indywidualna działalność usługowa,96,Działalność usługowa indywidualna
+3,96.0,Pozostała indywidualna działalność usługowa,53.2,Pozostała działalność pocztowa i kurierska
+3,96.0,Pozostała indywidualna działalność usługowa,96.1,Pranie i czyszczenie wyrobów tekstylnych i futrzarskich
+3,96.0,Pozostała indywidualna działalność usługowa,96.2,"Działalność w zakresie usług fryzjerskich, pielęgnacji urody, spa i podobnych"
+3,96.0,Pozostała indywidualna działalność usługowa,96.3,Pogrzeby i działalność pokrewna
+3,96.0,Pozostała indywidualna działalność usługowa,96.9,Pozostała indywidualna działalność usługowa
+1,T,GOSPODARSTWA DOMOWE ZATRUDNIAJĄCE PRACOWNIKÓW; GOSPODARSTWA DOMOWE PRODUKUJĄCE WYROBY I ŚWIADCZĄCE USŁUGI NA WŁASNE POTRZEBY,U,GOSPODARSTWA DOMOWE ZATRUDNIAJĄCE PRACOWNIKÓW ORAZ GOSPODARSTWA DOMOWE PRODUKUJĄCE WYROBY I ŚWIADCZĄCE USŁUGI NA WŁASNE POTRZEBY
+2,97,Gospodarstwa domowe zatrudniające pracowników,97,Gospodarstwa domowe zatrudniające pracowników
+3,97.0,Gospodarstwa domowe zatrudniające pracowników,97.0,Gospodarstwa domowe zatrudniające pracowników
+2,98,Gospodarstwa domowe produkujące wyroby i świadczące usługi na własne potrzeby,98,Gospodarstwa domowe produkujące wyroby i świadczące usługi na własne potrzeby
+3,98.1,Gospodarstwa domowe produkujące wyroby na własne potrzeby,98.1,Gospodarstwa domowe produkujące wyroby na własne potrzeby
+3,98.2,Gospodarstwa domowe świadczące usługi na własne potrzeby,98.2,Gospodarstwa domowe świadczące usługi na własne potrzeby
+1,U,ORGANIZACJE I ZESPOŁY EKSTERYTORIALNE,V,ORGANIZACJE I ZESPOŁY EKSTERYTORIALNE
+2,99,Organizacje i zespoły eksterytorialne,99,Organizacje i zespoły eksterytorialne
+3,99.0,Organizacje i zespoły eksterytorialne,99.0,Organizacje i zespoły eksterytorialne
