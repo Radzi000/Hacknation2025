@@ -29,3 +29,43 @@ Usage quickstart:
 - Create a virtual env and install deps: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`.
 - Generate the sector share plot: `python3 sector_pie_chart.py` (outputs to `charts/sector_percentage_pie.png`; adjusts `TOP_N` in the script to change the number of labelled sectors).
 - Notebooks: `SHAP.ipynb` (model explainability), `size_sorting.ipynb` (sorting firms by size buckets), `wskazniki.ipynb` (financial indicator exploration).
+
+Model Description
+
+Model analizuje i prognozuje kondycję branż polskiej gospodarki na podstawie danych finansowych (balance sheet) oraz czynników makroekonomicznych.
+
+1. Dane wejściowe – bilanse branżowe PKD/NACE
+Pobierane są dane finansowe dla branż z podziałem na szczegółowe grupy PKD/NACE (np. 46.1 – sprzedaż hurtowa na zlecenie). Obejmują m.in. przychody, koszty, zyski, inwestycje, zadłużenie, płynność i aktywa.
+
+2. Predykcja istotnych zmiennych makro
+Model przewiduje kluczowe dane makroekonomiczne oraz ceny: produktów i usług, energii, surowców, kosztów finansowania, inflacji, popytu krajowego i globalnego.
+
+3. Modelowanie wpływu czynników makro na dane finansowe branż
+Uczenie nieliniowych zależności między zmiennymi makro a danymi bilansowymi sektorów. Ocena wrażliwości branż na zmiany cen, popytu, kosztów, stóp procentowych i koniunktury.
+
+4. Prognozy bilansów (Balance Sheet Forecasting)
+Model generuje przyszłe wartości kluczowych pozycji (przychody, koszty, cash flow, zysk netto, zadłużenie, kapitał obrotowy), uzyskując projekcję kondycji finansowej branż.
+
+5. Wskaźniki i klasyfikacja przyszłej kondycji branż
+Na podstawie prognozowanej sytuacji finansowej określane są wskaźniki:
+
+wzrostowe / ekspansywne,
+
+spowalniające lub wykazujące symptomy pogorszenia,
+
+wysokiego ryzyka / wysokich potrzeb pożyczkowych,
+
+zmieniające trend (wzrost → stagnacja, stagnacja → ekspansja).
+
+6. Analiza strategiczna branż (Growth-Share Matrix / BCG)
+Model umieszcza branże w macierzy wzrost–udział, określając:
+
+czy polska gospodarka jest w fazie wzrostu czy dojrzałości,
+
+które sektory są „gwiazdami” (wysoki wzrost, wysoka siła rynkowa),
+
+które są „dojnymi krowami” (stabilne i przewidywalne),
+
+które branże są „znakami zapytania” lub „psami” – wykazują ryzyko lub słabe perspektywy,
+
+które sektory oferują najlepsze warunki do finansowania oraz największy potencjał długoterminowy.
