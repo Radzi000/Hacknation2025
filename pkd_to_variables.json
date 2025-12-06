@@ -12,7 +12,6 @@
   ],
   "46.7": [
     "Sprzedaż hurtowa - dynamika",
-    "Export_mln_PLN",
     "CPI",
     "usd/pln",
     "eur/pln",
@@ -54,7 +53,6 @@
   ],
   "46.9": [
     "Sprzedaż hurtowa - dynamika",
-    "Export_mln_PLN",
     "CPI",
     "usd/pln",
     "eur/pln",
@@ -75,7 +73,6 @@
   "29.3": [
     "Samochody osobowe ogółem",
     "HICP - Motor cars",
-    "Export_mln_PLN",
     "Aluminium",
     "usd/pln",
     "eur/pln",
@@ -96,14 +93,12 @@
     "pszenica 1 dt",
     "CPI",
     "usd/pln",
-    "eur/pln",
-    "Export_mln_PLN"
+    "eur/pln"
   ],
   "49.4": [
     "przewieziona masa towarów mln ton",
     "Benzyna 95 1l",
     "CPI",
-    "Export_mln_PLN",
     "Interest rates (yr close)",
     "wynagrodzenia brutto; ogółem"
   ],
@@ -113,7 +108,6 @@
     "Węgiel_USD",
     "usd/pln",
     "eur/pln",
-    "Export_mln_PLN",
     "CPI"
   ],
   "62.0": [
@@ -136,7 +130,6 @@
   ],
   "52.2": [
     "przewieziona masa towarów mln ton",
-    "Export_mln_PLN",
     "CPI",
     "Benzyna 95 1l",
     "wynagrodzenia brutto; ogółem",
