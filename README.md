@@ -1,5 +1,8 @@
 # Hacknation2025
 
+Project's task is, using the available sources of economic, financial and administrative data, to provide insights into which sectors of Polish economy are the "accelerators" - which of them are worth of investing in, as they tend to be stable 
+
+
 Repository layout and current data drops:
 
 - `data/krz_pkd.csv` — bankruptcies from the National Debt Register by PKD 2007 class, from 2018 onward (`rok`, `pkd`, `liczba_upadlosci`).
