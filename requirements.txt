@@ -4,8 +4,5 @@ scikit-learn
 matplotlib
 xgboost
 shap
-<<<<<<< Updated upstream
-=======
 openpyxl
 scipy
->>>>>>> Stashed changes
