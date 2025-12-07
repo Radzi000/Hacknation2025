@@ -174,6 +174,8 @@ class PKODashboard {
     if (this.yearSlider) this.yearSlider.value = String(this.state.yearIndex);
     this.updateYearLabel();
     this.renderAll();
+    // Extra refresh to keep matrix views in sync while dragging the slider.
+    this.renderMatrixSuite();
   }
 
   setMatrixMode(mode) {
@@ -195,8 +197,15 @@ class PKODashboard {
 
   async loadData() {
     try {
-      const res = await fetch(this.options.dataUrl);
-      this.model = await res.json();
+      const [resJson, resLu] = await Promise.all([
+        fetch(this.options.dataUrl),
+        fetch(encodeURI("data/LICZBA UPADŁOŚCI %.csv")).catch(() => null)
+      ]);
+      this.model = await resJson.json();
+      if (resLu?.ok) {
+        const luText = await resLu.text();
+        this.applyLuRisk(luText);
+      }
     } catch (err) {
       console.error("Nie udało się wczytać danych dashboardu", err);
       this.model = { years: [], sectors: [] };
@@ -231,6 +240,57 @@ class PKODashboard {
     const { segment } = this.state;
     if (segment === "all") return this.model.sectors;
     return this.model.sectors.filter(s => s.tier === segment);
+  }
+
+  parseLuCsv(csvText) {
+    const lines = csvText.trim().split(/\r?\n/).filter(Boolean);
+    if (!lines.length) return {};
+    const headers = lines.shift().split(";");
+    const colIdx = headers.reduce((acc, h, i) => ({ ...acc, [h]: i }), {});
+    const luCols = headers.filter(h => h.endsWith("_LU%"));
+    const yearIdx = headers.findIndex(h => h.toLowerCase() === "rok");
+    const series = {};
+
+    lines.forEach(line => {
+      const parts = line.split(";");
+      const year = Number(parts[yearIdx]);
+      if (!Number.isFinite(year)) return;
+      luCols.forEach(col => {
+        const raw = parseFloat(parts[colIdx[col]] ?? "");
+        if (!Number.isFinite(raw)) return;
+        if (!series[col]) series[col] = [];
+        series[col].push({ year, value: raw });
+      });
+    });
+
+    return series;
+  }
+
+  applyLuRisk(csvText) {
+    if (!this.model?.sectors?.length || !csvText) return;
+
+    const series = this.parseLuCsv(csvText);
+    const yearIdxMap = new Map(this.model.years.map((y, i) => [y, i]));
+
+    this.model.sectors = this.model.sectors.map(sector => {
+      const key = `${sector.id}_LU%`;
+      const entries = series[key];
+      if (!entries?.length) return sector;
+
+      const risk = [...(sector.risk ?? new Array(this.model.years.length).fill(0))];
+      const defaults = [...(sector.defaults ?? new Array(this.model.years.length).fill(0))];
+
+      entries.forEach(({ year, value }) => {
+        const idx = yearIdxMap.get(year);
+        if (idx !== undefined) {
+          const frac = value / 100;
+          risk[idx] = frac;
+          defaults[idx] = value;
+        }
+      });
+
+      return { ...sector, risk, defaults };
+    });
   }
 
   formatTier(tier) {

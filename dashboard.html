@@ -830,12 +830,11 @@
           <tr>
             <th>Miejsce</th>
             <th>Sektor</th>
-            <th>Segment</th>
+            <th>Klasyfikacja</th>
             <th>Wynik</th>
             <th>Wzrost</th>
             <th>Ryzyko</th>
             <th>Zadłużenie</th>
-            <th>Eksport</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -970,6 +969,10 @@
       state.yearIndex = parseInt(e.target.value, 10);
       updateYearLabel();
       renderAll();
+      // ensure matrix suite repaints immediately while dragging
+      renderMatrix();
+      renderGrowthProfit();
+      renderIkb();
     });
 
     sectorPicker.addEventListener("change", e => {
@@ -985,6 +988,50 @@
       if (tier === "core") return "Kluczowe";
       if (tier === "watchlist") return "Na obserwacji";
       return tier ?? "";
+    }
+
+    function parseLuCsv(csvText) {
+      const lines = csvText.trim().split(/\r?\n/).filter(Boolean);
+      if (!lines.length) return {};
+      const headers = lines.shift().split(";");
+      const colIdx = headers.reduce((acc, h, i) => ({ ...acc, [h]: i }), {});
+      const luCols = headers.filter(h => h.endsWith("_LU%"));
+      const yearIdx = headers.findIndex(h => h.toLowerCase() === "rok");
+      const series = {};
+      lines.forEach(line => {
+        const parts = line.split(";");
+        const year = Number(parts[yearIdx]);
+        if (!Number.isFinite(year)) return;
+        luCols.forEach(col => {
+          const raw = parseFloat(parts[colIdx[col]] ?? "");
+          if (!Number.isFinite(raw)) return;
+          if (!series[col]) series[col] = [];
+          series[col].push({ year, value: raw });
+        });
+      });
+      return series;
+    }
+
+    function applyLuRisk(model, csvText) {
+      if (!model?.sectors?.length || !csvText) return;
+      const series = parseLuCsv(csvText);
+      const yearIdxMap = new Map(model.years.map((y, i) => [y, i]));
+      model.sectors = model.sectors.map(s => {
+        const key = `${s.id}_LU%`;
+        const entries = series[key];
+        if (!entries?.length) return s;
+        const risk = [...(s.risk ?? new Array(model.years.length).fill(0))];
+        const defaults = [...(s.defaults ?? new Array(model.years.length).fill(0))];
+        entries.forEach(({ year, value }) => {
+          const idx = yearIdxMap.get(year);
+          if (idx !== undefined) {
+            const frac = value / 100;
+            risk[idx] = frac;
+            defaults[idx] = value;
+          }
+        });
+        return { ...s, risk, defaults };
+      });
     }
 
     function shortName(name, max = 24) {
@@ -1569,7 +1616,6 @@
           <td>${s.growthNow.toFixed(1)}%</td>
           <td>${(s.riskNow * 100).toFixed(0)}%</td>
           <td>${(s.debtNow * 100).toFixed(0)}%</td>
-          <td>${s.exportNow.toFixed(0)}%</td>
         </tr>
       `).join("");
 
@@ -1692,8 +1738,15 @@
 
     async function loadData() {
       try {
-        const res = await fetch("data/dashboard_data.json");
-        const json = await res.json();
+        const [resJson, resLu] = await Promise.all([
+          fetch("data/dashboard_data.json"),
+          fetch("data/LICZBA%20UPADŁOŚCI%20%25.csv").catch(() => null)
+        ]);
+        const json = await resJson.json();
+        if (resLu?.ok) {
+          const luText = await resLu.text();
+          applyLuRisk(json, luText);
+        }
         dataModel = json;
         yearSlider.max = dataModel.years.length - 1;
         yearSlider.value = dataModel.years.length - 1;
