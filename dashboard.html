@@ -952,18 +952,47 @@
       updateSliderFill();
     }
 
+        let yearChangeTimer = null;
+
     function handleYearChange(rawValue) {
       if (!dataModel) return;
       const idx = parseInt(rawValue, 10);
-      if (!Number.isFinite(idx) || idx === state.yearIndex) return;
+      if (!Number.isFinite(idx)) return;
+
+      // zawsze ustawiamy index (tak, by wymusić odświeżenie nawet gdy wartość "wydaje się" taka sama)
       state.yearIndex = idx;
       updateYearLabel();
-      renderAll();
-      queueMatrixSuite();
+
+      // natychmiastowe, lekkie odświeżenia UI
+      renderKpis();
+      drawScatter();
+      renderTable();
+      renderDetail();
+      renderCoverageChart();
+
+      // ukryj tooltip przy zmianie roku (zapobiega "zawieszonym" dymkom)
+      if (matrixTooltip) matrixTooltip.style.display = "none";
+
+      // debounce dla cięższych rysunków macierzy (smooth update)
+      if (yearChangeTimer) clearTimeout(yearChangeTimer);
+      yearChangeTimer = setTimeout(() => {
+        // pełne odrysowanie wszystkich macierzy/animacji
+        renderMatrix();
+        renderGrowthProfit();
+        renderIkb();
+        yearChangeTimer = null;
+      }, 60);
     }
 
-    yearSlider.addEventListener("input", e => handleYearChange(e.target.value));
-    yearSlider.addEventListener("change", e => handleYearChange(e.target.value));
+    // upewnij się, że suwak szybko reaguje (w tym efekt wypełnienia) i korzysta z nowej funkcji
+    yearSlider.addEventListener("input", e => {
+      // natychmiastowa aktualizacja wizualnego fill paska
+      updateSliderFill();
+      handleYearChange(e.target.value);
+    });
+    yearSlider.addEventListener("change", e => {
+      handleYearChange(e.target.value);
+    });
 
     sectorPicker.addEventListener("change", e => {
       handleSelect(e.target.value);
