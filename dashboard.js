@@ -57,10 +57,14 @@ class PKODashboard {
 
     this.detailName = document.getElementById("detail-name");
     this.detailTag = document.getElementById("detail-tag");
-    this.detailNote = document.getElementById("detail-note");
+    this.detailNote = null;
     this.chipGrowth = document.getElementById("chip-growth");
     this.chipRisk = document.getElementById("chip-risk");
-    this.chipExport = document.getElementById("chip-export");
+    this.chipExport = null;
+
+    this.valScore = document.getElementById("val-score");
+    this.valRisk = document.getElementById("val-risk");
+    this.valDebt = document.getElementById("val-debt");
 
     this.sparkScore = document.getElementById("spark-score");
     this.sparkRisk = document.getElementById("spark-risk");
@@ -435,10 +439,11 @@ class PKODashboard {
       this.detailTag.className = "tag";
     }
 
-    if (this.detailNote) this.detailNote.textContent = sector.note ?? "";
+    if (this.valScore) this.valScore.textContent = `${(sector.score?.[idx] ?? 0).toFixed(0)} pkt`;
+    if (this.valRisk) this.valRisk.textContent = `${((sector.risk?.[idx] ?? 0) * 100).toFixed(1)}%`;
+    if (this.valDebt) this.valDebt.textContent = `${((sector.debt?.[idx] ?? 0) * 100).toFixed(1)}%`;
     if (this.chipGrowth) this.chipGrowth.textContent = `Wzrost: ${(sector.growth?.[idx] ?? 0).toFixed(1)}%`;
     if (this.chipRisk) this.chipRisk.textContent = `Ryzyko: ${((sector.risk?.[idx] ?? 0) * 100).toFixed(0)}%`;
-    if (this.chipExport) this.chipExport.textContent = `Udział eksportu: ${(sector.export?.[idx] ?? 0).toFixed(0)}%`;
 
     this.drawSpark(this.sparkScore, sector.score ?? [], this.colors[sector.tier] ?? "#5e8bff");
     this.drawSpark(this.sparkRisk, sector.defaults ?? (sector.risk ?? []).map(v => v * 100), "#ffb89f");

@@ -257,10 +257,14 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-top: 18px;
 }
 
+.grid > .panel {
+  height: 100%;
+}
+
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: 2fr 1.1fr;
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -520,6 +524,20 @@ canvas {
 }
 
 .spark { height: 70px; }
+
+.spark-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.spark-val {
+  font-weight: 700;
+  color: var(--blue-100);
+  font-size: 13px;
+}
 .bar { height: 380px; }
 
 .note {
