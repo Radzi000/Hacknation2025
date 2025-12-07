@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PKO Sector Outlook</title>
+  <title>PKO Perspektywy Sektorów</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
   <div class="page">
     <header class="top-bar">
       <div class="brand">
-        <div class="logo" aria-label="PKO mark">
+        <div class="logo" aria-label="Znak PKO">
           <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
             <rect x="18" y="20" width="12" height="26" rx="5" fill="#dce8ff" opacity="0.9"/>
             <rect x="30" y="16" width="12" height="30" rx="6" fill="#a8c4ff"/>
@@ -20,25 +20,25 @@
         </div>
         <div class="titles">
           <span class="eyebrow">PKO Bank Polski</span>
-          <h1>Sector Outlook Dashboard</h1>
+          <h1>Panel perspektyw sektorów</h1>
         </div>
       </div>
 
       <div class="actions">
         <div class="pill segment" id="segment-control">
-          <label>Classification</label>
-          <button data-segment="all" class="active">All</button>
-          <button data-segment="developing">Developing</button>
-          <button data-segment="core">Core</button>
-          <button data-segment="watchlist">Watchlist</button>
+          <label>Klasyfikacja</label>
+          <button data-segment="all" class="active">Wszystkie</button>
+          <button data-segment="developing">Rozwojowe</button>
+          <button data-segment="core">Kluczowe</button>
+          <button data-segment="watchlist">Na obserwacji</button>
         </div>
 
         <div class="pill year-pill">
-          <label for="year">Year</label>
-          <input id="year" type="range" min="0" max="4" value="4" step="1" aria-label="Year selector">
+          <label for="year">Rok</label>
+          <input id="year" type="range" min="0" max="4" value="4" step="1" aria-label="Wybór roku">
           <div class="year-readout">
             <span id="year-value">—</span>
-            <span id="forecast-flag" class="forecast-flag" aria-live="polite">Forecast</span>
+            <span id="forecast-flag" class="forecast-flag" aria-live="polite">Prognoza</span>
           </div>
         </div>
       </div>
@@ -47,43 +47,46 @@
     <div class="grid">
       <!-- LEFT MAIN -->
       <section class="panel">
-        <h2>Portfolio health</h2>
-        <p class="sub">Resilience, risk and momentum by PKD clusters</p>
-
-        <div class="kpis" id="kpi-list"></div>
-
-        <div class="chart-wrap">
-          <canvas id="scatter" aria-label="Growth versus risk scatter plot"></canvas>
-
+        <div class="panel-row">
+          <div>
+            <h2>Macierz PKD w czasie</h2>
+            <p class="sub">Zestaw macierzy z Clustering_Index_i_iny_finalny_szajsik.ipynb (powiązany z suwakiem lat)</p>
+          </div>
           <div class="legend">
-            <span><span class="dot is-dev"></span>Developing</span>
-            <span><span class="dot is-core"></span>Core</span>
-            <span><span class="dot is-watch"></span>Watchlist</span>
-            <span><span class="dot is-lowrisk"></span>Lower risk ↘︎</span>
+            <span>Ciemny = słabe fundamenty • Jasny = mocne perspektywy • Linia kropkowana = start prognozy</span>
           </div>
         </div>
 
-        <div class="method">
-          <strong>Why this view?</strong>
-          We align with PKO's credit-risk lens: sectors are grouped into
-          <em>Developing</em> (fast growth, manageable leverage),
-          <em>Core</em> (strategic, stable fundamentals) and
-          <em>Watchlist</em> (elevated defaults or leverage). Scores blend growth momentum,
-          debt ratio, export share and observed bankruptcy signals.
+        <div class="toggle" id="matrix-toggle">
+          <button data-mode="heatmap" class="active">Mapa cieplna</button>
+          <button data-mode="growth-profit">Macierz PKD: wzrost vs zysk</button>
+          <button data-mode="ikb">Ranking IKB</button>
         </div>
+
+        <div class="chart-wrap rel">
+          <canvas id="matrix" class="heatmap"></canvas>
+          <canvas id="gp-chart" class="heatmap is-hidden"></canvas>
+          <canvas id="ikb-chart" class="heatmap is-hidden"></canvas>
+          <div id="matrix-tooltip" class="tooltip" role="tooltip"></div>
+        </div>
+
+        <p class="note">
+          Kolejność odzwierciedla bieżące perspektywy (jak w notatniku clusteringowym);
+          kliknij dowolną komórkę/punkt/linię, aby przypiąć sektor w sekcji szczegółowej.
+        </p>
       </section>
 
       <!-- RIGHT DETAIL -->
       <section class="panel" id="detail">
         <div class="detail-header">
           <div>
-            <h2>Sector deep dive</h2>
-            <p class="sub" id="detail-name">Select a sector to see the path</p>
+            <h2>Szczegóły sektora</h2>
+            <p class="sub" id="detail-name">Wybierz sektor, aby zobaczyć ścieżkę</p>
           </div>
 
           <label class="picker" for="sector-picker">
-            <span>Pick sector</span>
-            <select id="sector-picker" aria-label="Sector selector"></select>
+            <span>Wybierz sektor</span>
+            <select id="sector-picker" aria-label="Wybór sektora"></select>
           </label>
         </div>
 
@@ -91,32 +94,32 @@
 
         <div class="mini-grid">
           <div>
-            <small>Composite score</small>
+            <small>Wynik łączny</small>
             <canvas class="spark" id="spark-score"></canvas>
           </div>
           <div>
-            <small>Risk (defaults proxy)</small>
+            <small>Ryzyko (proxy upadłości)</small>
             <canvas class="spark" id="spark-risk"></canvas>
           </div>
           <div>
-            <small>Debt ratio</small>
+            <small>Wskaźnik zadłużenia</small>
             <canvas class="spark" id="spark-debt"></canvas>
           </div>
         </div>
 
         <div class="mini-grid">
-          <div class="chip" id="chip-growth">Growth: —</div>
-          <div class="chip" id="chip-risk">Risk: —</div>
-          <div class="chip" id="chip-export">Export share: —</div>
+          <div class="chip" id="chip-growth">Wzrost: —</div>
+          <div class="chip" id="chip-risk">Ryzyko: —</div>
+          <div class="chip" id="chip-export">Udział eksportu: —</div>
         </div>
 
         <p class="note" id="detail-note"></p>
 
-        <div class="chart-wrap" aria-label="Sector coverage">
+        <div class="chart-wrap" aria-label="Pokrycie sektorów">
           <canvas id="coverage-chart" class="bar"></canvas>
           <p class="note">
-            Scores for every PKD sector covered by pkd_to_variables.json
-            (linked to the year slider, incl. 2027 forecast).
+            Wyniki dla każdego sektora PKD z pkd_to_variables.json
+            (powiązane z suwakiem roku, w tym prognoza do 2027).
           </p>
         </div>
       </section>
@@ -126,123 +129,120 @@
     <section class="panel">
       <div class="panel-row">
         <div>
-          <h2>Ranking & rationale</h2>
-          <p class="sub">Click a row to pin details • Scores adapt to the selected year (incl. forecasts to 2027)</p>
-        </div>
-        <div class="legend">
-          <span>Tier weights: growth (35%), leverage (25%), default stress (25%), export share (15%)</span>
-        </div>
-      </div>
+      <h2>Ranking i uzasadnienie</h2>
+      <p class="sub">Kliknij wiersz, aby przypiąć szczegóły • Wyniki dostosowują się do wybranego roku (w tym prognozy do 2027)</p>
+    </div>
+    <div class="legend">
+      <span>Wagi segmentów: wzrost (35%), dźwignia (25%), stres upadłościowy (25%), udział eksportu (15%)</span>
+    </div>
+  </div>
 
-      <table class="table" id="table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Sector</th>
-            <th>Tier</th>
-            <th>Score</th>
-            <th>Growth</th>
-            <th>Risk</th>
-            <th>Debt</th>
-            <th>Exports</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
+  <table class="table" id="table">
+    <thead>
+      <tr>
+        <th>Miejsce</th>
+        <th>Sektor</th>
+        <th>Segment</th>
+        <th>Wynik</th>
+        <th>Wzrost</th>
+        <th>Ryzyko</th>
+        <th>Zadłużenie</th>
+        <th>Eksport</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
 
-    <!-- FORECAST DRIVERS -->
-    <section class="panel">
-      <h2>Forecast drivers</h2>
-      <p class="sub">Inputs used to extend outlook to 2027 (pkd_to_variables.json + PKO data stack)</p>
-      <div class="legend" id="drivers-list"></div>
-      <div class="metric-grid" id="metric-grid"></div>
-      <p class="note">
-        Forecasts blend historical revenues (GS), working capital (NWC), KRZ defaults,
-        export shares, and macro/commodity drivers mapped per PKD.
-        Extend or trim drivers in pkd_to_variables.json.
-      </p>
-    </section>
+<!-- FORECAST DRIVERS -->
+<section class="panel">
+  <h2>Determinanty prognozy</h2>
+  <p class="sub">Dane wejściowe użyte do przedłużenia horyzontu do 2027 (pkd_to_variables.json + dane PKO)</p>
+  <div class="legend" id="drivers-list"></div>
+  <div class="metric-grid" id="metric-grid"></div>
+  <p class="note">
+    Prognozy łączą historyczne przychody (GS), kapitał obrotowy (NWC), upadłości KRZ,
+    udział eksportu oraz makro/commodity powiązane z PKD.
+    Rozszerzaj lub redukuj zestaw zmiennych w pkd_to_variables.json.
+  </p>
+</section>
 
-    <!-- PKD MATRIX -->
-    <section class="panel">
-      <div class="panel-row">
-        <div>
-          <h2>PKD matrix over time</h2>
-          <p class="sub">Matrix suite from Clustering_Index_i_iny_finalny_szajsik.ipynb (linked to the year slider)</p>
-        </div>
-        <div class="legend">
-          <span>Dark = weak fundamentals • Bright = strong outlook • Dotted line = start of forecast</span>
-        </div>
-      </div>
+<!-- PORTFOLIO HEALTH (MOVED) -->
+<section class="panel">
+  <h2>Zdrowie portfela</h2>
+  <p class="sub">Odporność, ryzyko i momentum w grupach PKD</p>
 
-      <div class="toggle" id="matrix-toggle">
-        <button data-mode="heatmap" class="active">Heatmap</button>
-        <button data-mode="growth-profit">PKD matrix: Growth vs Profit</button>
-        <button data-mode="ikb">IKB ranking</button>
-      </div>
+  <div class="kpis" id="kpi-list"></div>
 
-      <div class="chart-wrap rel">
-        <canvas id="matrix" class="heatmap"></canvas>
-        <canvas id="gp-chart" class="heatmap is-hidden"></canvas>
-        <canvas id="ikb-chart" class="heatmap is-hidden"></canvas>
-        <div id="matrix-tooltip" class="tooltip" role="tooltip"></div>
-      </div>
+  <div class="chart-wrap">
+    <canvas id="scatter" aria-label="Wykres rozrzutu wzrost vs ryzyko"></canvas>
 
-      <p class="note">
-        Order uses current outlook to mirror the clustering notebook;
-        click any cell/point/line to pin that sector in the deep dive.
-      </p>
-    </section>
+    <div class="legend">
+      <span><span class="dot is-dev"></span>Rozwojowe</span>
+      <span><span class="dot is-core"></span>Kluczowe</span>
+      <span><span class="dot is-watch"></span>Na obserwacji</span>
+      <span><span class="dot is-lowrisk"></span>Niższe ryzyko ↘︎</span>
+    </div>
+  </div>
+
+  <div class="method">
+    <strong>Dlaczego ten widok?</strong>
+    Korzystamy z podejścia ryzyka kredytowego PKO: sektory dzielimy na
+    <em>Rozwojowe</em> (szybki wzrost, kontrolowana dźwignia),
+    <em>Kluczowe</em> (strategiczne, stabilne fundamenty) oraz
+    <em>Na obserwacji</em> (podwyższone upadłości lub zadłużenie). Wynik miesza momentum wzrostu,
+    wskaźnik zadłużenia, udział eksportu i sygnały upadłości.
+  </div>
+</section>
 
     <!-- PREBUILT PKD VISUALS (IFRAMES) -->
     <section class="panel">
         <header class="panel-head">
             <div>
-            <p class="eyebrow">Deep dives</p>
-            <h2>Prebuilt PKD visuals</h2>
+            <p class="eyebrow">Pogłębione analizy</p>
+            <h2>Gotowe wizualizacje PKD</h2>
             </div>
         </header>
 
         <div class="plot-grid">
             <div class="plot-card">
-            <h3>Avg ratios by year</h3>
-            <iframe src="plots/avg_ratios_by_year.html" title="Avg ratios" loading="lazy"></iframe>
+            <h3>Średnie wskaźniki wg roku</h3>
+            <iframe src="plots/avg_ratios_by_year.html" title="Średnie wskaźniki" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>PKD group evolution</h3>
-            <iframe src="plots/pkd_group_evolution_heatmap.html" title="PKD evolution" loading="lazy"></iframe>
+            <h3>Ewolucja grup PKD</h3>
+            <iframe src="plots/pkd_group_evolution_heatmap.html" title="Ewolucja PKD" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>Growth vs profit (animated)</h3>
-            <iframe src="plots/pkd_growth_profit_matrix_animated.html" title="Growth vs profit" loading="lazy"></iframe>
+            <h3>Wzrost vs zysk (animacja)</h3>
+            <iframe src="plots/pkd_growth_profit_matrix_animated.html" title="Wzrost vs zysk" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>PKD matrix trajectories</h3>
-            <iframe src="plots/pkd_matrix_trajectories.html" title="PKD trajectories" loading="lazy"></iframe>
+            <h3>Trajektorie macierzy PKD</h3>
+            <iframe src="plots/pkd_matrix_trajectories.html" title="Trajektorie PKD" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>IKB ranking (animated)</h3>
-            <iframe src="plots/pkd_ikb_rank_animated.html" title="IKB rank" loading="lazy"></iframe>
+            <h3>Ranking IKB (animacja)</h3>
+            <iframe src="plots/pkd_ikb_rank_animated.html" title="Ranking IKB" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>IKB trends (animated)</h3>
-            <iframe src="plots/pkd_ikb_trends_animated.html" title="IKB trends" loading="lazy"></iframe>
+            <h3>Trendy IKB (animacja)</h3>
+            <iframe src="plots/pkd_ikb_trends_animated.html" title="Trendy IKB" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
-            <h3>FPI ranking (animated)</h3>
-            <iframe src="plots/pkd_fpi_ranking_animated.html" title="FPI ranking" loading="lazy"></iframe>
+            <h3>Ranking FPI (animacja)</h3>
+            <iframe src="plots/pkd_fpi_ranking_animated.html" title="Ranking FPI" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
             <h3>FPI trends</h3>
-            <iframe src="plots/pkd_fpi_trends.html" title="FPI trends" loading="lazy"></iframe>
+            <iframe src="plots/pkd_fpi_trends.html" title="Trendy FPI" loading="lazy"></iframe>
             </div>
 
             <div class="plot-card">
@@ -251,8 +251,8 @@
             </div>
 
             <div class="plot-card">
-            <h3>PKD 46.4 pillars (animated)</h3>
-            <iframe src="plots/pkd_46.4_pillars_animated.html" title="46.4 pillars" loading="lazy"></iframe>
+            <h3>PKD 46.4 filary (animacja)</h3>
+            <iframe src="plots/pkd_46.4_pillars_animated.html" title="Filary 46.4" loading="lazy"></iframe>
             </div>
         </div>
         </section>

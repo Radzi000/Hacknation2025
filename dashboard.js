@@ -194,11 +194,11 @@ class PKODashboard {
       const res = await fetch(this.options.dataUrl);
       this.model = await res.json();
     } catch (err) {
-      console.error("Failed to load dashboard data", err);
+      console.error("Nie udało się wczytać danych dashboardu", err);
       this.model = { years: [], sectors: [] };
       if (this.kpiContainer) {
         this.kpiContainer.innerHTML =
-          `<div class="kpi"><small>Error</small><div class="value">No data</div><div class="trend">Check ${this.options.dataUrl}</div></div>`;
+          `<div class="kpi"><small>Błąd</small><div class="value">Brak danych</div><div class="trend">Sprawdź ${this.options.dataUrl}</div></div>`;
       }
     }
   }
@@ -227,6 +227,13 @@ class PKODashboard {
     const { segment } = this.state;
     if (segment === "all") return this.model.sectors;
     return this.model.sectors.filter(s => s.tier === segment);
+  }
+
+  formatTier(tier) {
+    if (tier === "developing") return "Rozwojowe";
+    if (tier === "core") return "Kluczowe";
+    if (tier === "watchlist") return "Na obserwacji";
+    return tier ?? "";
   }
 
   updateSegmentUI() {
@@ -324,7 +331,7 @@ class PKODashboard {
     if (!sectors.length || !this.kpiContainer) {
       if (this.kpiContainer) {
         this.kpiContainer.innerHTML =
-          `<div class="kpi"><small>Loading</small><div class="value">—</div><div class="trend">Please wait…</div></div>`;
+          `<div class="kpi"><small>Ładowanie</small><div class="value">—</div><div class="trend">Proszę czekać…</div></div>`;
       }
       return;
     }
@@ -336,10 +343,10 @@ class PKODashboard {
     const bestSector = [...sectors].sort((a, b) => (b.score[idx] ?? 0) - (a.score[idx] ?? 0))[0];
 
     const kpis = [
-      { label: "Avg growth", value: `${avgGrowth.toFixed(1)}%`, trend: "+ resilient momentum" },
-      { label: "Avg default risk", value: `${(avgRisk * 100).toFixed(0)}%`, trend: "down vs 2020", down: true },
-      { label: "Avg debt ratio", value: `${(avgDebt * 100).toFixed(0)}%`, trend: "gradual deleveraging" },
-      { label: "Top sector", value: bestSector?.name ?? "—", trend: `${(bestSector?.score?.[idx] ?? 0).toFixed(0)} pts` }
+      { label: "Śr. wzrost", value: `${avgGrowth.toFixed(1)}%`, trend: "+ odporne momentum" },
+      { label: "Śr. ryzyko niewypł.", value: `${(avgRisk * 100).toFixed(0)}%`, trend: "spadek vs 2020", down: true },
+      { label: "Śr. zadłużenie", value: `${(avgDebt * 100).toFixed(0)}%`, trend: "stopniowa delewar." },
+      { label: "Lider sektora", value: bestSector?.name ?? "—", trend: `${(bestSector?.score?.[idx] ?? 0).toFixed(0)} pkt` }
     ];
 
     this.kpiContainer.innerHTML = kpis.map(k => `
@@ -357,7 +364,7 @@ class PKODashboard {
     const drivers = this.model.drivers.slice(0, maxShow);
     const more = this.model.drivers.length - drivers.length;
     this.driversList.innerHTML = drivers.map(d => `<span>${d}</span>`).join("");
-    if (more > 0) this.driversList.innerHTML += `<span>+${more} more</span>`;
+    if (more > 0) this.driversList.innerHTML += `<span>+${more} więcej</span>`;
   }
 
   renderMetrics() {
@@ -393,7 +400,7 @@ class PKODashboard {
           <span class="pill-badge ${
             s.tier === "developing" ? "dev" :
             s.tier === "core" ? "core" : "watch"
-          }">${s.tier}</span>
+          }">${this.formatTier(s.tier)}</span>
         </td>
         <td>${s.currentScore.toFixed(0)}</td>
         <td>${s.growthNow.toFixed(1)}%</td>
@@ -417,14 +424,14 @@ class PKODashboard {
     if (this.detailName) this.detailName.textContent = sector.name;
     if (this.detailTag) {
       this.detailTag.textContent =
-        `${sector.tier.charAt(0).toUpperCase()}${sector.tier.slice(1)} • ${(sector.score?.[idx] ?? 0).toFixed(0)} pts`;
+        `${this.formatTier(sector.tier)} • ${(sector.score?.[idx] ?? 0).toFixed(0)} pkt`;
       this.detailTag.className = "tag";
     }
 
     if (this.detailNote) this.detailNote.textContent = sector.note ?? "";
-    if (this.chipGrowth) this.chipGrowth.textContent = `Growth: ${(sector.growth?.[idx] ?? 0).toFixed(1)}%`;
-    if (this.chipRisk) this.chipRisk.textContent = `Risk: ${((sector.risk?.[idx] ?? 0) * 100).toFixed(0)}%`;
-    if (this.chipExport) this.chipExport.textContent = `Export share: ${(sector.export?.[idx] ?? 0).toFixed(0)}%`;
+    if (this.chipGrowth) this.chipGrowth.textContent = `Wzrost: ${(sector.growth?.[idx] ?? 0).toFixed(1)}%`;
+    if (this.chipRisk) this.chipRisk.textContent = `Ryzyko: ${((sector.risk?.[idx] ?? 0) * 100).toFixed(0)}%`;
+    if (this.chipExport) this.chipExport.textContent = `Udział eksportu: ${(sector.export?.[idx] ?? 0).toFixed(0)}%`;
 
     this.drawSpark(this.sparkScore, sector.score ?? [], this.colors[sector.tier] ?? "#5e8bff");
     this.drawSpark(this.sparkRisk, sector.defaults ?? (sector.risk ?? []).map(v => v * 100), "#ffb89f");
@@ -662,7 +669,7 @@ class PKODashboard {
 
       ctx.fillStyle = "rgba(220, 232, 255, 0.88)";
       ctx.textAlign = "right";
-      ctx.fillText(`${score.toFixed(0)} pts`, width - padding, y + barHeight / 1.45);
+      ctx.fillText(`${score.toFixed(0)} pkt`, width - padding, y + barHeight / 1.45);
 
       this.coverageRegions.push({ id: s.id, y, h: barHeight });
     });
@@ -757,7 +764,7 @@ class PKODashboard {
 
         ctx.fillStyle = "rgba(220,232,255,0.7)";
         ctx.font = "11px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
-        ctx.fillText("Forecast", lineX + 6, topPad - 4);
+        ctx.fillText("Prognoza", lineX + 6, topPad - 4);
       }
     }
 
@@ -788,7 +795,7 @@ class PKODashboard {
     this.matrixTooltip.style.left = `${x + 12}px`;
     this.matrixTooltip.style.top = `${y + 12}px`;
     this.matrixTooltip.innerHTML =
-      `<strong>${sector?.name ?? region.id}</strong><br>${year}: ${region.value.toFixed(0)} pts`;
+      `<strong>${sector?.name ?? region.id}</strong><br>${year}: ${region.value.toFixed(0)} pkt`;
   }
 
   handleMatrixClick(e) {
@@ -895,19 +902,19 @@ class PKODashboard {
     ctx.fillStyle = "rgba(220,232,255,0.8)";
     ctx.font = "12px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("Profit (proxy: composite score)", width / 2 - 40, height - pad + 28);
+    ctx.fillText("Rentowność (proxy: wynik łączny)", width / 2 - 40, height - pad + 28);
 
     ctx.save();
     ctx.translate(pad - 32, height / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillText("Growth (YoY %)", 0, 0);
+    ctx.fillText("Wzrost (r/r %)", 0, 0);
     ctx.restore();
 
     const labels = [
-      { text: "Leaders", x: medX + 8, y: medY - 10 },
-      { text: "Transformers", x: medX + 8, y: medY + 20 },
-      { text: "Efficiency", x: medX - 80, y: medY - 10 },
-      { text: "Stressed", x: medX - 70, y: medY + 20 }
+      { text: "Liderzy", x: medX + 8, y: medY - 10 },
+      { text: "Transformujący", x: medX + 8, y: medY + 20 },
+      { text: "Efektywność", x: medX - 80, y: medY - 10 },
+      { text: "Pod presją", x: medX - 70, y: medY + 20 }
     ];
 
     labels.forEach(l => {
@@ -1028,7 +1035,7 @@ class PKODashboard {
     });
 
     ctx.textAlign = "left";
-    ctx.fillText("IKB (composite score) • higher is stronger", pad, pad - 16);
+    ctx.fillText("IKB (wynik łączny) • wyżej = mocniejszy", pad, pad - 16);
 
     ctx.restore();
   }
