@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PKO Sector Outlook</title>
+  <style>
+    :root {
+      --blue-100: #dce8ff;
+      --blue-200: #9db5ff;
+      --blue-400: #5e8bff;
+      --blue-500: #2f6fe0;
+      --blue-600: #0f4db8;
+      --blue-700: #0a377f;
+      --blue-800: #082f68;
+      --blue-900: #061f47;
+      --panel: rgba(7, 24, 49, 0.86);
+      --panel-strong: rgba(5, 20, 40, 0.92);
+      --ink: #eaf1ff;
+      --muted: #9ab3dc;
+      --positive: #36d0ff;
+      --warning: #f4c95d;
+      --danger: #ff7b6f;
+      --glow: rgba(120, 182, 255, 0.35);
+      --shadow: rgba(4, 19, 46, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 18% 20%, rgba(47, 146, 255, 0.18), transparent 28%),
+                  radial-gradient(circle at 78% 10%, rgba(0, 132, 255, 0.12), transparent 30%),
+                  radial-gradient(circle at 50% 80%, rgba(12, 63, 137, 0.22), transparent 36%),
+                  #030f24;
+      color: var(--ink);
+      font-family: "Avenir Next", "Nunito Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page {
+      max-width: 1300px;
+      margin: 0 auto 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(9, 28, 62, 0.92), rgba(4, 16, 35, 0.94));
+      border: 1px solid rgba(120, 182, 255, 0.2);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.06),
+        0 16px 42px var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f4db8, #0a2b73);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.14),
+        0 12px 26px rgba(0, 14, 34, 0.5);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .titles {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .titles .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      color: var(--blue-200);
+    }
+
+    .titles h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(120, 182, 255, 0.2);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 24px rgba(0, 14, 34, 0.4);
+    }
+
+    .pill label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .segment button {
+      background: transparent;
+      border: 1px solid rgba(120, 182, 255, 0.3);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .segment button.active {
+      background: linear-gradient(135deg, rgba(47, 146, 255, 0.2), rgba(47, 146, 255, 0.06));
+      border-color: rgba(47, 146, 255, 0.7);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.12),
+        0 12px 24px rgba(6, 54, 120, 0.5),
+        0 0 0 1px rgba(47, 146, 255, 0.2);
+    }
+
+    .segment button:hover {
+      border-color: rgba(120, 182, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    #year-value {
+      font-weight: 700;
+      color: var(--blue-100);
+      font-size: 14px;
+    }
+
+    input[type="range"] {
+      appearance: none;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+      overflow: hidden;
+      width: 170px;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #dce8ff, #5e8bff);
+      box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.35),
+        0 0 0 6px rgba(47, 146, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: 2fr 1.1fr;
+        grid-template-rows: auto;
+        align-items: start;
+      }
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(120, 182, 255, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.06),
+        0 18px 36px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(47, 146, 255, 0.06), transparent 45%);
+      pointer-events: none;
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .panel p.sub {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .kpi {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(120, 182, 255, 0.16);
+      background: linear-gradient(135deg, rgba(13, 41, 90, 0.9), rgba(6, 26, 60, 0.9));
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.06),
+        0 16px 32px rgba(0, 17, 44, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi small {
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .kpi .value {
+      font-size: 22px;
+      font-weight: 650;
+      margin-top: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .kpi .trend {
+      color: var(--positive);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .kpi .trend.down {
+      color: var(--warning);
+    }
+
+    .chart-wrap {
+      margin-top: 4px;
+      background: var(--panel-strong);
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid rgba(120, 182, 255, 0.12);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.04),
+        0 16px 30px rgba(0, 14, 34, 0.42);
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-400);
+      box-shadow: 0 0 0 6px rgba(47, 146, 255, 0.12);
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(47, 146, 255, 0.12);
+      border: 1px solid rgba(47, 146, 255, 0.35);
+      color: var(--blue-100);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+    }
+
+    .table th, .table td {
+      padding: 10px 8px;
+      text-align: left;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(120, 182, 255, 0.1);
+    }
+
+    .table th {
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .table tbody tr {
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.12s ease;
+    }
+
+    .table tbody tr:hover {
+      background: rgba(47, 146, 255, 0.05);
+      transform: translateY(-1px);
+    }
+
+    .table tbody tr.active {
+      background: linear-gradient(90deg, rgba(47, 146, 255, 0.14), rgba(47, 146, 255, 0.06));
+      border-bottom-color: rgba(47, 146, 255, 0.4);
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .pill-badge.dev {
+      background: rgba(54, 208, 255, 0.14);
+      border: 1px solid rgba(54, 208, 255, 0.45);
+      color: var(--blue-100);
+    }
+
+    .pill-badge.core {
+      background: rgba(94, 139, 255, 0.14);
+      border: 1px solid rgba(94, 139, 255, 0.45);
+      color: var(--blue-100);
+    }
+
+    .pill-badge.watch {
+      background: rgba(255, 123, 111, 0.12);
+      border: 1px solid rgba(255, 123, 111, 0.45);
+      color: #ffd8d2;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .method {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      border-left: 2px solid rgba(47, 146, 255, 0.5);
+      padding-left: 10px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 240px;
+    }
+
+    .spark {
+      height: 70px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top-bar">
+      <div class="brand">
+        <div class="logo" aria-label="PKO mark">
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="18" y="20" width="12" height="26" rx="5" fill="#dce8ff" opacity="0.9"/>
+            <rect x="30" y="16" width="12" height="30" rx="6" fill="#a8c4ff"/>
+            <rect x="42" y="22" width="10" height="24" rx="5" fill="#6b9dff"/>
+            <circle cx="32" cy="12" r="4.2" fill="#e8433f"/>
+          </svg>
+        </div>
+        <div class="titles">
+          <span class="eyebrow">PKO Bank Polski</span>
+          <h1>Sector Outlook Dashboard</h1>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="pill segment">
+          <label>Classification</label>
+          <button data-segment="all" class="active">All</button>
+          <button data-segment="developing">Developing</button>
+          <button data-segment="core">Core</button>
+          <button data-segment="watchlist">Watchlist</button>
+        </div>
+        <div class="pill">
+          <label for="year">Year</label>
+          <input id="year" type="range" min="0" max="4" value="4" step="1" aria-label="Year selector">
+          <span id="year-value">2024</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Portfolio health</h2>
+        <p class="sub">Resilience, risk and momentum by PKD clusters</p>
+        <div class="kpis" id="kpi-list"></div>
+        <div class="chart-wrap">
+          <canvas id="scatter" aria-label="Growth versus risk scatter plot"></canvas>
+          <div class="legend">
+            <span><span class="dot" style="background:#36d0ff; box-shadow:0 0 0 6px rgba(54,208,255,0.14);"></span>Developing</span>
+            <span><span class="dot" style="background:#5e8bff; box-shadow:0 0 0 6px rgba(94,139,255,0.14);"></span>Core</span>
+            <span><span class="dot" style="background:#ff7b6f; box-shadow:0 0 0 6px rgba(255,123,111,0.14);"></span>Watchlist</span>
+            <span><span class="dot" style="background:#dce8ff; box-shadow:0 0 0 6px rgba(220,232,255,0.12);"></span>Lower risk ↘︎</span>
+          </div>
+        </div>
+        <div class="method">
+          <strong>Why this view?</strong> We align with PKO's credit-risk lens: sectors are grouped into <em>Developing</em> (fast growth, manageable leverage), <em>Core</em> (strategic, stable fundamentals) and <em>Watchlist</em> (elevated defaults or leverage). Scores blend growth momentum, debt ratio, export share and observed bankruptcy signals.
+        </div>
+      </section>
+
+      <section class="panel" id="detail">
+        <h2>Sector deep dive</h2>
+        <p class="sub" id="detail-name">Select a sector to see the path</p>
+        <div class="tag" id="detail-tag">—</div>
+        <div class="mini-grid">
+          <div>
+            <small>Composite score</small>
+            <canvas class="spark" id="spark-score"></canvas>
+          </div>
+          <div>
+            <small>Risk (defaults proxy)</small>
+            <canvas class="spark" id="spark-risk"></canvas>
+          </div>
+          <div>
+            <small>Debt ratio</small>
+            <canvas class="spark" id="spark-debt"></canvas>
+          </div>
+        </div>
+        <div class="mini-grid">
+          <div class="chip" id="chip-growth">Growth: —</div>
+          <div class="chip" id="chip-risk">Risk: —</div>
+          <div class="chip" id="chip-export">Export share: —</div>
+        </div>
+        <p class="note" id="detail-note"></p>
+      </section>
+    </div>
+
+    <section class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div>
+          <h2>Ranking & rationale</h2>
+          <p class="sub">Click a row to pin details • Scores adapt to the selected year (incl. forecasts to 2027)</p>
+        </div>
+        <div class="legend">
+          <span>Tier weights: growth (35%), leverage (25%), default stress (25%), export share (15%)</span>
+        </div>
+      </div>
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Sector</th>
+            <th>Tier</th>
+            <th>Score</th>
+            <th>Growth</th>
+            <th>Risk</th>
+            <th>Debt</th>
+            <th>Exports</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Forecast drivers</h2>
+      <p class="sub">Inputs used to extend outlook to 2027 (pkd_to_variables.json + PKO data stack)</p>
+      <div class="legend" id="drivers-list"></div>
+      <p class="note">Forecasts blend historical revenues (GS), working capital (NWC), KRZ defaults, export shares, and macro/commodity drivers mapped per PKD. Extend or trim drivers in pkd_to_variables.json.</p>
+    </section>
+  </div>
+
+  <script>
+    let dataModel = null;
+
+    const colors = {
+      developing: "#36d0ff",
+      core: "#5e8bff",
+      watchlist: "#ff7b6f"
+    };
+
+    let state = {
+      segment: "all",
+      yearIndex: 0,
+      selected: null
+    };
+
+    const kpiContainer = document.getElementById("kpi-list");
+    const yearSlider = document.getElementById("year");
+    const yearValue = document.getElementById("year-value");
+    const scatterCanvas = document.getElementById("scatter");
+    const tableBody = document.querySelector("#table tbody");
+    const segmentButtons = document.querySelectorAll(".segment button");
+    const driversList = document.getElementById("drivers-list");
+
+    const detailName = document.getElementById("detail-name");
+    const detailTag = document.getElementById("detail-tag");
+    const detailNote = document.getElementById("detail-note");
+    const chipGrowth = document.getElementById("chip-growth");
+    const chipRisk = document.getElementById("chip-risk");
+    const chipExport = document.getElementById("chip-export");
+    const sparkScore = document.getElementById("spark-score");
+    const sparkRisk = document.getElementById("spark-risk");
+    const sparkDebt = document.getElementById("spark-debt");
+
+    function setSegment(segment) {
+      state.segment = segment;
+      segmentButtons.forEach(btn => btn.classList.toggle("active", btn.dataset.segment === segment));
+      renderAll();
+    }
+
+    segmentButtons.forEach(btn => {
+      btn.addEventListener("click", () => setSegment(btn.dataset.segment));
+    });
+
+    yearSlider.addEventListener("input", e => {
+      state.yearIndex = parseInt(e.target.value, 10);
+      if (dataModel) {
+        yearValue.textContent = dataModel.years[state.yearIndex];
+      }
+      renderAll();
+    });
+
+    function formatPct(value) {
+      return `${(value * 100).toFixed(0)}%`;
+    }
+
+    function getVisibleSectors() {
+      if (!dataModel) return [];
+      return dataModel.sectors.filter(s => {
+        if (state.segment === "all") return true;
+        return s.tier === state.segment;
+      });
+    }
+
+    function renderKpis() {
+      const sectors = getVisibleSectors();
+      if (!sectors.length) {
+        kpiContainer.innerHTML = "<div class=\"kpi\"><small>Loading</small><div class=\"value\">—</div><div class=\"trend\">Please wait…</div></div>";
+        return;
+      }
+      const idx = state.yearIndex;
+      const avgGrowth = sectors.reduce((acc, s) => acc + s.growth[idx], 0) / sectors.length;
+      const avgRisk = sectors.reduce((acc, s) => acc + s.risk[idx], 0) / sectors.length;
+      const avgDebt = sectors.reduce((acc, s) => acc + s.debt[idx], 0) / sectors.length;
+      const bestSector = [...sectors].sort((a, b) => b.score[idx] - a.score[idx])[0];
+      const kpis = [
+        { label: "Avg growth", value: `${avgGrowth.toFixed(1)}%`, trend: "+ resilient momentum" },
+        { label: "Avg default risk", value: `${(avgRisk * 100).toFixed(0)}%`, trend: "down vs 2020", down: true },
+        { label: "Avg debt ratio", value: `${(avgDebt * 100).toFixed(0)}%`, trend: "gradual deleveraging" },
+        { label: "Top sector", value: bestSector.name, trend: `${bestSector.score[idx]} pts` }
+      ];
+      kpiContainer.innerHTML = kpis.map(k => `
+        <div class="kpi">
+          <small>${k.label}</small>
+          <div class="value">${k.value}</div>
+          <div class="trend ${k.down ? "down" : ""}">${k.trend}</div>
+        </div>
+      `).join("");
+    }
+
+    let scatterPoints = [];
+
+    function drawScatter() {
+      if (!dataModel) return;
+      const ctx = scatterCanvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const width = scatterCanvas.clientWidth * dpr;
+      const height = scatterCanvas.clientHeight * dpr;
+      scatterCanvas.width = width;
+      scatterCanvas.height = height;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.save();
+      ctx.translate(14 * dpr, 10 * dpr);
+      const plotW = width - 28 * dpr;
+      const plotH = height - 24 * dpr;
+
+      const sectors = dataModel.sectors;
+      const idx = state.yearIndex;
+      const maxGrowth = Math.max(...sectors.map(s => s.growth[idx])) * 1.05;
+      const maxRisk = Math.max(...sectors.map(s => s.risk[idx])) * 1.05;
+      scatterPoints = [];
+
+      // grid
+      ctx.strokeStyle = "rgba(220,232,255,0.08)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = (plotH / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(plotW, y);
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = "rgba(220,232,255,0.12)";
+      ctx.beginPath();
+      ctx.moveTo(0, plotH);
+      ctx.lineTo(plotW, plotH);
+      ctx.lineTo(plotW, 0);
+      ctx.stroke();
+
+      sectors.forEach(sector => {
+        const risk = sector.risk[idx];
+        const growth = sector.growth[idx];
+        const x = (risk / maxRisk) * plotW;
+        const y = plotH - (growth / maxGrowth) * plotH;
+        const radius = 8 * dpr;
+        const color = colors[sector.tier];
+        const gradient = ctx.createRadialGradient(x, y, 2, x, y, radius * 1.7);
+        gradient.addColorStop(0, color);
+        gradient.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(x, y, radius * 1.7, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = color;
+        ctx.shadowColor = "rgba(0,0,0,0.35)";
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = "#eaf1ff";
+        ctx.font = `${12 * dpr}px "Avenir Next", "Nunito Sans", "Segoe UI", sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText(sector.name.split(" ")[0], x, y - 12 * dpr);
+        scatterPoints.push({ id: sector.id, x: x + 14 * dpr, y: y + 10 * dpr, r: radius * 2 });
+      });
+
+      ctx.restore();
+    }
+
+    function drawSpark(canvas, series, color) {
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const width = canvas.clientWidth * dpr;
+      const height = canvas.clientHeight * dpr;
+      canvas.width = width;
+      canvas.height = height;
+      ctx.clearRect(0, 0, width, height);
+
+      const min = Math.min(...series);
+      const max = Math.max(...series);
+      const pad = 10 * dpr;
+      const w = width - pad * 2;
+      const h = height - pad * 2;
+
+      ctx.strokeStyle = "rgba(220,232,255,0.1)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad, height - pad);
+      ctx.lineTo(width - pad, height - pad);
+      ctx.stroke();
+
+      ctx.beginPath();
+      series.forEach((v, i) => {
+        const x = pad + (w / (series.length - 1)) * i;
+        const y = height - pad - ((v - min) / (max - min || 1)) * h;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2 * dpr;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 10;
+      ctx.stroke();
+
+      series.forEach((v, i) => {
+        const x = pad + (w / (series.length - 1)) * i;
+        const y = height - pad - ((v - min) / (max - min || 1)) * h;
+        ctx.fillStyle = "rgba(0,0,0,0.45)";
+        ctx.beginPath();
+        ctx.arc(x, y + 1 * dpr, 6 * dpr, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#dce8ff";
+        ctx.beginPath();
+        ctx.arc(x, y, 4.6 * dpr, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function handleSelect(id) {
+      state.selected = id;
+      renderDetail();
+      renderTable();
+    }
+
+    scatterCanvas.addEventListener("click", e => {
+      if (!scatterPoints.length) return;
+      const rect = scatterCanvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const cx = (e.clientX - rect.left) * dpr;
+      const cy = (e.clientY - rect.top) * dpr;
+      let nearest = null;
+      let minDist = Infinity;
+      scatterPoints.forEach(p => {
+        const dx = p.x - cx;
+        const dy = p.y - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = p;
+        }
+      });
+      if (nearest) {
+        handleSelect(nearest.id);
+      }
+    });
+
+    function renderTable() {
+      if (!dataModel) return;
+      const idx = state.yearIndex;
+      const sectors = getVisibleSectors()
+        .map(s => ({
+          ...s,
+          currentScore: s.score[idx],
+          growthNow: s.growth[idx],
+          riskNow: s.risk[idx],
+          debtNow: s.debt[idx],
+          exportNow: s.export[idx]
+        }))
+        .sort((a, b) => b.currentScore - a.currentScore);
+
+      tableBody.innerHTML = sectors.map((s, i) => `
+        <tr data-id="${s.id}" class="${state.selected === s.id ? "active" : ""}">
+          <td>${i + 1}</td>
+          <td>${s.name}</td>
+          <td><span class="pill-badge ${s.tier === "developing" ? "dev" : s.tier === "core" ? "core" : "watch"}">${s.tier}</span></td>
+          <td>${s.currentScore.toFixed(0)}</td>
+          <td>${s.growthNow.toFixed(1)}%</td>
+          <td>${(s.riskNow * 100).toFixed(0)}%</td>
+          <td>${(s.debtNow * 100).toFixed(0)}%</td>
+          <td>${s.exportNow.toFixed(0)}%</td>
+        </tr>
+      `).join("");
+
+      tableBody.querySelectorAll("tr").forEach(row => {
+        row.addEventListener("click", () => {
+          handleSelect(row.dataset.id);
+        });
+      });
+    }
+
+    function renderDetail() {
+      if (!dataModel) return;
+      const sector = dataModel.sectors.find(s => s.id === state.selected) || dataModel.sectors[0];
+      if (!sector) return;
+      const idx = state.yearIndex;
+      detailName.textContent = sector.name;
+      detailTag.textContent = `${sector.tier.charAt(0).toUpperCase()}${sector.tier.slice(1)} • ${sector.score[idx].toFixed(0)} pts`;
+      detailTag.className = `tag`;
+      detailNote.textContent = sector.note;
+      chipGrowth.textContent = `Growth: ${sector.growth[idx].toFixed(1)}%`;
+      chipRisk.textContent = `Risk: ${(sector.risk[idx] * 100).toFixed(0)}%`;
+      chipExport.textContent = `Export share: ${sector.export[idx].toFixed(0)}%`;
+
+      drawSpark(sparkScore, sector.score, colors[sector.tier]);
+      drawSpark(sparkRisk, sector.defaults || sector.risk.map(v => v * 100), "#ffb89f");
+      drawSpark(sparkDebt, sector.debt.map(v => v * 100), "#5e8bff");
+    }
+
+    function renderDrivers() {
+      if (!dataModel || !dataModel.drivers) return;
+      const maxShow = 16;
+      const drivers = dataModel.drivers.slice(0, maxShow);
+      const more = dataModel.drivers.length - drivers.length;
+      driversList.innerHTML = drivers
+        .map(d => `<span>${d}</span>`)
+        .join("");
+      if (more > 0) {
+        driversList.innerHTML += `<span>+${more} more</span>`;
+      }
+    }
+
+    function renderAll() {
+      if (!dataModel) return;
+      if (!state.selected && dataModel.sectors.length) {
+        state.selected = dataModel.sectors[0].id;
+      }
+      renderKpis();
+      drawScatter();
+      renderTable();
+      renderDetail();
+      renderDrivers();
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch("data/dashboard_data.json");
+        const json = await res.json();
+        dataModel = json;
+        yearSlider.max = dataModel.years.length - 1;
+        yearSlider.value = dataModel.years.length - 1;
+        state.yearIndex = dataModel.years.length - 1;
+        state.selected = dataModel.sectors[0]?.id || null;
+        yearValue.textContent = dataModel.years[state.yearIndex];
+        renderAll();
+      } catch (err) {
+        console.error("Failed to load dashboard data", err);
+        kpiContainer.innerHTML = "<div class=\"kpi\"><small>Error</small><div class=\"value\">No data</div><div class=\"trend\">Check data/dashboard_data.json</div></div>";
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

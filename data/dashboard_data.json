@@ -1,0 +1,1037 @@
+{
+  "years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026,
+    2027
+  ],
+  "sectors": [
+    {
+      "id": "35.1",
+      "name": "Wytwarzanie, przesyłanie, dystrybucja i handel energią elektryczną",
+      "tier": "watchlist",
+      "score": [
+        25.0,
+        51.2,
+        60.0,
+        60.0,
+        25.0,
+        45.7,
+        45.7,
+        45.7
+      ],
+      "growth": [
+        0,
+        28.13,
+        40.94,
+        43.59,
+        -21.75,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Wytwarzanie, przesyłanie, dystrybucja i handel energią elektryczną • revenue CAGR 6.0% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "46.7",
+      "name": "Pozostała wyspecjalizowana sprzedaż hurtowa",
+      "tier": "watchlist",
+      "score": [
+        36.2,
+        70.1,
+        59.0,
+        36.5,
+        50.6,
+        35.3,
+        35.3,
+        35.3
+      ],
+      "growth": [
+        0,
+        35.9,
+        32.62,
+        -22.48,
+        -7.73,
+        -10.0,
+        -10.0,
+        -10.0
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.92,
+        0.918,
+        0.925,
+        0.914,
+        0.907,
+        0.907,
+        0.907,
+        0.907
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Pozostała wyspecjalizowana sprzedaż hurtowa • revenue CAGR -10.0% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "47.1",
+      "name": "Sprzedaż detaliczna prowadzona w niewyspecjalizowanych sklepach",
+      "tier": "watchlist",
+      "score": [
+        25.0,
+        28.5,
+        35.9,
+        44.5,
+        53.1,
+        49.5,
+        49.5,
+        49.5
+      ],
+      "growth": [
+        0,
+        8.17,
+        22.32,
+        14.25,
+        3.89,
+        8.95,
+        8.95,
+        8.95
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż detaliczna prowadzona w niewyspecjalizowanych sklepach • revenue CAGR 8.9% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "45.1",
+      "name": "Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli",
+      "tier": "core",
+      "score": [
+        27.4,
+        45.5,
+        31.5,
+        53.4,
+        62.6,
+        62.6,
+        62.6,
+        62.6
+      ],
+      "growth": [
+        0,
+        20.51,
+        16.07,
+        24.34,
+        10.21,
+        17.06,
+        17.06,
+        17.06
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.983,
+        0.976,
+        0.972,
+        0.973,
+        0.977,
+        0.977,
+        0.977,
+        0.977
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż hurtowa i detaliczna pojazdów samochodowych, z wyłączeniem motocykli • revenue CAGR 17.1% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "46.3",
+      "name": "Sprzedaż hurtowa żywności, napojów i wyrobów tytoniowych",
+      "tier": "watchlist",
+      "score": [
+        29.1,
+        27.9,
+        40.0,
+        47.0,
+        56.2,
+        50.8,
+        50.8,
+        50.8
+      ],
+      "growth": [
+        0,
+        5.09,
+        23.51,
+        11.34,
+        3.96,
+        7.59,
+        7.59,
+        7.59
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.971,
+        0.976,
+        0.981,
+        0.97,
+        0.972,
+        0.972,
+        0.972,
+        0.972
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż hurtowa żywności, napojów i wyrobów tytoniowych • revenue CAGR 7.6% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "46.9",
+      "name": "Sprzedaż hurtowa niewyspecjalizowana",
+      "tier": "watchlist",
+      "score": [
+        41.4,
+        55.4,
+        49.0,
+        52.1,
+        67.0,
+        51.1,
+        51.1,
+        51.1
+      ],
+      "growth": [
+        0,
+        18.83,
+        19.45,
+        -5.47,
+        3.02,
+        -1.32,
+        -1.32,
+        -1.32
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.883,
+        0.88,
+        0.872,
+        0.864,
+        0.865,
+        0.865,
+        0.865,
+        0.865
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż hurtowa niewyspecjalizowana • revenue CAGR -1.3% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "46.4",
+      "name": "Sprzedaż hurtowa artykułów użytku domowego",
+      "tier": "core",
+      "score": [
+        43.4,
+        49.8,
+        41.8,
+        59.7,
+        72.2,
+        64.1,
+        64.1,
+        64.1
+      ],
+      "growth": [
+        0,
+        12.59,
+        13.92,
+        9.36,
+        7.06,
+        8.2,
+        8.2,
+        8.2
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.868,
+        0.867,
+        0.873,
+        0.866,
+        0.858,
+        0.858,
+        0.858,
+        0.858
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż hurtowa artykułów użytku domowego • revenue CAGR 8.2% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "29.3",
+      "name": "Produkcja części i akcesoriów do pojazdów silnikowych",
+      "tier": "watchlist",
+      "score": [
+        25.1,
+        42.6,
+        34.0,
+        45.2,
+        47.8,
+        44.1,
+        44.1,
+        44.1
+      ],
+      "growth": [
+        0,
+        20.61,
+        18.24,
+        8.27,
+        -4.57,
+        1.65,
+        1.65,
+        1.65
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.999,
+        1,
+        0.974,
+        0.971,
+        0.964,
+        0.964,
+        0.964,
+        0.964
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Produkcja części i akcesoriów do pojazdów silnikowych • revenue CAGR 1.6% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "47.7",
+      "name": "Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach",
+      "tier": "watchlist",
+      "score": [
+        38.5,
+        55.5,
+        51.0,
+        55.8,
+        57.6,
+        53.4,
+        53.4,
+        53.4
+      ],
+      "growth": [
+        0,
+        20.98,
+        23.86,
+        9.76,
+        -1.27,
+        4.1,
+        4.1,
+        4.1
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.903,
+        0.899,
+        0.901,
+        0.897,
+        0.907,
+        0.907,
+        0.907,
+        0.907
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Sprzedaż detaliczna pozostałych wyrobów prowadzona w wyspecjalizowanych sklepach • revenue CAGR 4.1% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "10.1",
+      "name": "Przetwarzanie i konserwowanie mięsa oraz produkcja wyrobów z mięsa",
+      "tier": "watchlist",
+      "score": [
+        25.9,
+        30.9,
+        63.1,
+        43.0,
+        50.6,
+        44.4,
+        44.4,
+        44.4
+      ],
+      "growth": [
+        0,
+        8.19,
+        40.69,
+        6.82,
+        -0.79,
+        2.94,
+        2.94,
+        2.94
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.994,
+        0.98,
+        0.974,
+        0.981,
+        0.976,
+        0.976,
+        0.976,
+        0.976
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Przetwarzanie i konserwowanie mięsa oraz produkcja wyrobów z mięsa • revenue CAGR 2.9% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "49.4",
+      "name": "Transport drogowy towarów oraz działalność usługowa związana z przeprowadzkami",
+      "tier": "watchlist",
+      "score": [
+        35.9,
+        43.7,
+        55.7,
+        40.5,
+        56.4,
+        41.2,
+        41.2,
+        41.2
+      ],
+      "growth": [
+        0,
+        14.63,
+        32.4,
+        -4.65,
+        2.78,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.922,
+        0.936,
+        0.949,
+        0.955,
+        0.959,
+        0.959,
+        0.959,
+        0.959
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Transport drogowy towarów oraz działalność usługowa związana z przeprowadzkami • revenue CAGR -1.0% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "22.2",
+      "name": "Produkcja wyrobów z tworzyw sztucznych",
+      "tier": "watchlist",
+      "score": [
+        43.4,
+        65.0,
+        47.8,
+        52.1,
+        62.1,
+        46.9,
+        46.9,
+        46.9
+      ],
+      "growth": [
+        0,
+        27.47,
+        18.92,
+        -8.17,
+        -2.26,
+        -5.26,
+        -5.26,
+        -5.26
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.868,
+        0.881,
+        0.876,
+        0.854,
+        0.856,
+        0.856,
+        0.856,
+        0.856
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Produkcja wyrobów z tworzyw sztucznych • revenue CAGR -5.3% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "62.0",
+      "name": "Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz dzialalność powiązana",
+      "tier": "developing",
+      "score": [
+        50.0,
+        58.5,
+        67.9,
+        65.2,
+        77.2,
+        72.7,
+        72.7,
+        72.7
+      ],
+      "growth": [
+        0,
+        17.5,
+        32.05,
+        16.19,
+        8.93,
+        12.5,
+        12.5,
+        12.5
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.821,
+        0.842,
+        0.852,
+        0.852,
+        0.831,
+        0.831,
+        0.831,
+        0.831
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Działalność związana z oprogramowaniem i doradztwem w zakresie informatyki oraz dzialalność powiązana • revenue CAGR 12.5% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "41.2",
+      "name": "Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych",
+      "tier": "core",
+      "score": [
+        41.1,
+        57.9,
+        70.4,
+        62.3,
+        67.1,
+        59.3,
+        59.3,
+        59.3
+      ],
+      "growth": [
+        0,
+        12.07,
+        29.7,
+        0.65,
+        -6.11,
+        -2.79,
+        -2.79,
+        -2.79
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        0.885,
+        0.797,
+        0.81,
+        0.813,
+        0.773,
+        0.773,
+        0.773,
+        0.773
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Roboty budowlane związane ze wznoszeniem budynków mieszkalnych i niemieszkalnych • revenue CAGR -2.8% | defaults 0 (2024) | export share 0.0%"
+    },
+    {
+      "id": "52.2",
+      "name": "Działalność usługowa wspomagająca transport",
+      "tier": "watchlist",
+      "score": [
+        25.0,
+        52.0,
+        41.1,
+        40.4,
+        47.7,
+        41.4,
+        41.4,
+        41.4
+      ],
+      "growth": [
+        0,
+        28.84,
+        26.31,
+        6.61,
+        -1.06,
+        2.7,
+        2.7,
+        2.7
+      ],
+      "risk": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "debt": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "export": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "defaults": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": "Działalność usługowa wspomagająca transport • revenue CAGR 2.7% | defaults 0 (2024) | export share 0.0%"
+    }
+  ],
+  "drivers": [
+    "Aluminium",
+    "Benzyna 95 1l",
+    "Bezrobotni zarejestrowani pozostający bez pracy dłużej niż 1 rok",
+    "CPI",
+    "Function of costs of budowa",
+    "GAZ ZIEMNY_close",
+    "HICP - Motor cars",
+    "Interest rates (yr close)",
+    "It zarobki",
+    "Kwoty świadczeń rodzinnych wypłaconych w roku - ogółem",
+    "Polietylen",
+    "Pozwolenia wydane na budowe",
+    "Samochody osobowe ogółem",
+    "Sprzedaż hurtowa - dynamika",
+    "Węgiel_USD",
+    "buraki cukrowe 1 dt",
+    "chmiel surowy 1dt",
+    "ciepła woda - za 1m3",
+    "energia elektryczna dla gospodarstw domowych",
+    "eur/pln",
+    "liście tytoniu 1dt",
+    "mleko krowie 1l",
+    "odkurzacz typu domowego",
+    "przewieziona masa towarów mln ton",
+    "pszenica 1 dt",
+    "usd/pln",
+    "wynagrodzenia brutto; ogółem",
+    "ziemniaki 1 dt",
+    "Średnia cena za metr w WWA",
+    "Średnia roczna cena sprzedaży energii elektrycznej na rynku konkurencyjnym zł/MWh",
+    "żywiec bydło"
+  ]
+}
