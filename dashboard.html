@@ -854,7 +854,7 @@
         </div>
       </div>
       <div class="method">
-        <strong>Dlaczego ten widok?</strong> Korzystamy z podejścia ryzyka kredytowego PKO: sektory dzielimy na <em>Rozwojowe</em> (szybki wzrost, kontrolowana dźwignia), <em>Kluczowe</em> (strategiczne, stabilne fundamenty) oraz <em>Na obserwacji</em> (podwyższone upadłości lub zadłużenie). Wynik miesza momentum wzrostu, wskaźnik zadłużenia, udział eksportu i sygnały upadłości.
+        <strong>Dlaczego ten widok?</strong> Korzystamy z podejścia ryzyka kredytowego PKO: sektory dzielimy na <em>Rozwojowe</em> (szybki wzrost, kontrolowana dźwignia), <em>Kluczowe</em> (strategiczne, stabilne fundamenty) oraz <em>Na obserwacji</em> (podwyższone upadłości lub zadłużenie). Wynik miesza momentum wzrostu, wskaźnik zadłużenia i sygnały upadłości.
       </div>
     </section>
 
@@ -1768,6 +1768,7 @@
         renderAll();
         queueMatrixSuite();
         requestAnimationFrame(() => queueMatrixSuite());
+        setTimeout(() => queueMatrixSuite(), 120);
       } catch (err) {
         console.error("Nie udało się wczytać danych dashboardu", err);
         kpiContainer.innerHTML = "<div class=\"kpi\"><small>Błąd</small><div class=\"value\">Brak danych</div><div class=\"trend\">Sprawdź data/dashboard_data.json</div></div>";

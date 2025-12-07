@@ -172,6 +172,7 @@ class PKODashboard {
     // Ensure matrix suite paints even if initial width calculations happened pre-layout.
     this.queueMatrixSuite();
     requestAnimationFrame(() => this.renderMatrixSuite());
+    setTimeout(() => this.renderMatrixSuite(), 120);
     return this;
   }
 
