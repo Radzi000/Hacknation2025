@@ -176,11 +176,12 @@
       appearance: none;
       height: 6px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
+      background: linear-gradient(90deg, var(--blue-500) 0%, var(--blue-500) var(--fill, 60%), rgba(255, 255, 255, 0.08) var(--fill, 60%), rgba(255, 255, 255, 0.08) 100%);
       outline: none;
       overflow: hidden;
       width: 170px;
       cursor: pointer;
+      transition: background 0.18s ease, box-shadow 0.18s ease;
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -193,6 +194,14 @@
         0 2px 6px rgba(0, 0, 0, 0.35),
         0 0 0 6px rgba(47, 146, 255, 0.35);
       border: 1px solid rgba(255, 255, 255, 0.35);
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    input[type="range"]:active::-webkit-slider-thumb {
+      transform: scale(1.04);
+      box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 8px rgba(47, 146, 255, 0.38);
     }
 
     .grid {
@@ -333,8 +342,11 @@
       background: rgba(47, 146, 255, 0.12);
       border: 1px solid rgba(47, 146, 255, 0.35);
       color: var(--blue-100);
-      font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: clamp(11px, 1.6vw, 14px);
+      line-height: 1.3;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .table {
@@ -441,6 +453,79 @@
       font-size: 12px;
       margin-top: 8px;
     }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .picker {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 240px;
+    }
+
+    .picker select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(120, 182, 255, 0.22);
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.06),
+        0 12px 24px rgba(0, 14, 34, 0.45);
+    }
+
+    .picker select:focus {
+      outline: none;
+      border-color: rgba(47, 146, 255, 0.65);
+      box-shadow:
+        0 0 0 2px rgba(47, 146, 255, 0.3),
+        0 12px 24px rgba(0, 18, 42, 0.6);
+    }
+
+    .bar {
+      height: 380px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .metric-card {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(120, 182, 255, 0.14);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.05),
+        0 12px 24px rgba(0, 14, 34, 0.4);
+    }
+
+    .metric-card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .metric-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
@@ -496,8 +581,16 @@
       </section>
 
       <section class="panel" id="detail">
-        <h2>Sector deep dive</h2>
-        <p class="sub" id="detail-name">Select a sector to see the path</p>
+        <div class="detail-header">
+          <div>
+            <h2>Sector deep dive</h2>
+            <p class="sub" id="detail-name">Select a sector to see the path</p>
+          </div>
+          <label class="picker" for="sector-picker">
+            <span>Pick sector</span>
+            <select id="sector-picker" aria-label="Sector selector"></select>
+          </label>
+        </div>
         <div class="tag" id="detail-tag">—</div>
         <div class="mini-grid">
           <div>
@@ -519,6 +612,10 @@
           <div class="chip" id="chip-export">Export share: —</div>
         </div>
         <p class="note" id="detail-note"></p>
+        <div class="chart-wrap" aria-label="Sector coverage">
+          <canvas id="coverage-chart" class="bar" aria-label="Scores for all PKD sectors"></canvas>
+          <p class="note">Scores for every PKD sector covered by pkd_to_variables.json (linked to the year slider, incl. 2027 forecast).</p>
+        </div>
       </section>
     </div>
 
@@ -553,6 +650,7 @@
       <h2>Forecast drivers</h2>
       <p class="sub">Inputs used to extend outlook to 2027 (pkd_to_variables.json + PKO data stack)</p>
       <div class="legend" id="drivers-list"></div>
+      <div class="metric-grid" id="metric-grid"></div>
       <p class="note">Forecasts blend historical revenues (GS), working capital (NWC), KRZ defaults, export shares, and macro/commodity drivers mapped per PKD. Extend or trim drivers in pkd_to_variables.json.</p>
     </section>
   </div>
@@ -579,6 +677,7 @@
     const tableBody = document.querySelector("#table tbody");
     const segmentButtons = document.querySelectorAll(".segment button");
     const driversList = document.getElementById("drivers-list");
+    const metricGrid = document.getElementById("metric-grid");
 
     const detailName = document.getElementById("detail-name");
     const detailTag = document.getElementById("detail-tag");
@@ -589,6 +688,8 @@
     const sparkScore = document.getElementById("spark-score");
     const sparkRisk = document.getElementById("spark-risk");
     const sparkDebt = document.getElementById("spark-debt");
+    const sectorPicker = document.getElementById("sector-picker");
+    const coverageCanvas = document.getElementById("coverage-chart");
 
     function setSegment(segment) {
       state.segment = segment;
@@ -600,12 +701,30 @@
       btn.addEventListener("click", () => setSegment(btn.dataset.segment));
     });
 
+    function updateSliderFill() {
+      const min = Number(yearSlider.min);
+      const max = Number(yearSlider.max);
+      const val = Number(yearSlider.value);
+      const percent = ((val - min) / (max - min || 1)) * 100;
+      yearSlider.style.setProperty("--fill", `${percent}%`);
+    }
+
+    function updateYearLabel() {
+      if (!dataModel) return;
+      const year = dataModel.years[state.yearIndex];
+      const label = dataModel.forecast_start && year >= dataModel.forecast_start ? `${year} • forecast` : `${year}`;
+      yearValue.textContent = label;
+      updateSliderFill();
+    }
+
     yearSlider.addEventListener("input", e => {
       state.yearIndex = parseInt(e.target.value, 10);
-      if (dataModel) {
-        yearValue.textContent = dataModel.years[state.yearIndex];
-      }
+      updateYearLabel();
       renderAll();
+    });
+
+    sectorPicker.addEventListener("change", e => {
+      handleSelect(e.target.value);
     });
 
     function formatPct(value) {
@@ -618,6 +737,16 @@
         if (state.segment === "all") return true;
         return s.tier === state.segment;
       });
+    }
+
+    function renderPicker() {
+      if (!dataModel || !sectorPicker) return;
+      sectorPicker.innerHTML = dataModel.sectors
+        .map(s => `<option value="${s.id}">${s.name}</option>`)
+        .join("");
+      if (state.selected) {
+        sectorPicker.value = state.selected;
+      }
     }
 
     function renderKpis() {
@@ -647,6 +776,7 @@
     }
 
     let scatterPoints = [];
+    let coverageRegions = [];
 
     function drawScatter() {
       if (!dataModel) return;
@@ -771,8 +901,12 @@
 
     function handleSelect(id) {
       state.selected = id;
+      if (sectorPicker) {
+        sectorPicker.value = id;
+      }
       renderDetail();
       renderTable();
+      renderCoverageChart();
     }
 
     scatterCanvas.addEventListener("click", e => {
@@ -796,6 +930,18 @@
         handleSelect(nearest.id);
       }
     });
+
+    if (coverageCanvas) {
+      coverageCanvas.addEventListener("click", e => {
+        if (!coverageRegions.length) return;
+        const rect = coverageCanvas.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        const region = coverageRegions.find(r => y >= r.y && y <= r.y + r.h);
+        if (region) {
+          handleSelect(region.id);
+        }
+      });
+    }
 
     function renderTable() {
       if (!dataModel) return;
@@ -849,9 +995,59 @@
       drawSpark(sparkDebt, sector.debt.map(v => v * 100), "#5e8bff");
     }
 
+    function renderCoverageChart() {
+      if (!dataModel || !coverageCanvas) return;
+      const ctx = coverageCanvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const width = coverageCanvas.clientWidth || 640;
+      const barHeight = 18;
+      const gap = 8;
+      const padding = 16;
+      const sectors = [...dataModel.sectors];
+      const idx = state.yearIndex;
+      sectors.sort((a, b) => b.score[idx] - a.score[idx]);
+      const height = padding * 2 + sectors.length * (barHeight + gap);
+      coverageCanvas.width = width * dpr;
+      coverageCanvas.height = height * dpr;
+      coverageCanvas.style.height = `${height}px`;
+      coverageRegions = [];
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+
+      const maxScore = Math.max(...sectors.map(s => s.score[idx])) || 1;
+      ctx.font = "12px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+      ctx.textBaseline = "middle";
+      sectors.forEach((s, i) => {
+        const y = padding + i * (barHeight + gap);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+        ctx.fillRect(padding, y, width - padding * 2, barHeight);
+        const barWidth = Math.max(6, (s.score[idx] / maxScore) * (width - padding * 2));
+        const isSelected = state.selected === s.id;
+        ctx.fillStyle = colors[s.tier];
+        ctx.globalAlpha = isSelected ? 1 : 0.72;
+        ctx.fillRect(padding, y, barWidth, barHeight);
+        ctx.globalAlpha = 1;
+        if (isSelected) {
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.65)";
+          ctx.lineWidth = 1;
+          ctx.strokeRect(padding - 1, y - 1, barWidth + 2, barHeight + 2);
+        }
+        ctx.fillStyle = "#eaf1ff";
+        ctx.textAlign = "left";
+        ctx.fillText(`${i + 1}. ${s.name}`, padding + 8, y + barHeight / 1.45);
+        ctx.fillStyle = "rgba(220, 232, 255, 0.88)";
+        ctx.textAlign = "right";
+        ctx.fillText(`${s.score[idx].toFixed(0)} pts`, width - padding, y + barHeight / 1.45);
+        coverageRegions.push({ id: s.id, y, h: barHeight });
+      });
+
+      ctx.restore();
+    }
+
     function renderDrivers() {
       if (!dataModel || !dataModel.drivers) return;
-      const maxShow = 16;
+      const maxShow = 20;
       const drivers = dataModel.drivers.slice(0, maxShow);
       const more = dataModel.drivers.length - drivers.length;
       driversList.innerHTML = drivers
@@ -862,16 +1058,29 @@
       }
     }
 
+    function renderMetrics() {
+      if (!dataModel || !dataModel.metrics || !metricGrid) return;
+      metricGrid.innerHTML = dataModel.metrics.map(m => `
+        <div class="metric-card">
+          <h3>${m.title}</h3>
+          <p>${m.detail}</p>
+        </div>
+      `).join("");
+    }
+
     function renderAll() {
       if (!dataModel) return;
       if (!state.selected && dataModel.sectors.length) {
         state.selected = dataModel.sectors[0].id;
       }
+      renderPicker();
       renderKpis();
       drawScatter();
       renderTable();
       renderDetail();
+      renderCoverageChart();
       renderDrivers();
+      renderMetrics();
     }
 
     async function loadData() {
@@ -883,7 +1092,7 @@
         yearSlider.value = dataModel.years.length - 1;
         state.yearIndex = dataModel.years.length - 1;
         state.selected = dataModel.sectors[0]?.id || null;
-        yearValue.textContent = dataModel.years[state.yearIndex];
+        updateYearLabel();
         renderAll();
       } catch (err) {
         console.error("Failed to load dashboard data", err);

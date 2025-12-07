@@ -1033,5 +1033,28 @@
     "Średnia cena za metr w WWA",
     "Średnia roczna cena sprzedaży energii elektrycznej na rynku konkurencyjnym zł/MWh",
     "żywiec bydło"
+  ],
+  "forecast_start": 2025,
+  "metrics": [
+    {
+      "title": "Revenue momentum",
+      "detail": "Historical GS revenue plus polynomial projection for 2025-2027 to show run-rate growth."
+    },
+    {
+      "title": "Default stress (KRZ)",
+      "detail": "Bankruptcy/insolvency observations per PKD, treated as a risk anchor for the outlook."
+    },
+    {
+      "title": "Leverage & liquidity",
+      "detail": "Debt ratio and working-capital stretch to spot sectors with tightening cash positions."
+    },
+    {
+      "title": "Export exposure",
+      "detail": "Share of exports inside revenues to capture FX sensitivity and external demand."
+    },
+    {
+      "title": "Macro & commodity drivers",
+      "detail": "Mapped per pkd_to_variables.json (FX pairs, energy, agri/metal inputs, rates, wages)."
+    }
   ]
 }
