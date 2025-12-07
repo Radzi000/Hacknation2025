@@ -236,6 +236,12 @@ class PKODashboard {
     return tier ?? "";
   }
 
+  shortName(name, max = 24) {
+    if (!name) return "";
+    const trimmed = name.trim();
+    return trimmed.length <= max ? trimmed : `${trimmed.slice(0, max - 1)}…`;
+  }
+
   updateSegmentUI() {
     const buttons = this.segmentControl?.querySelectorAll("button[data-segment]") || [];
     buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.segment === this.state.segment));
@@ -311,9 +317,10 @@ class PKODashboard {
   renderMatrixSuite() {
     this.updateMatrixToggleUI();
 
-    if (this.state.matrixMode === "heatmap") this.renderMatrix();
-    if (this.state.matrixMode === "growth-profit") this.renderGrowthProfit();
-    if (this.state.matrixMode === "ikb") this.renderIkb();
+    // Always redraw all modes so switching tabs reflects the current year immediately.
+    this.renderMatrix();
+    this.renderGrowthProfit();
+    this.renderIkb();
   }
 
   /* ---------------- UI sections ---------------- */
@@ -738,7 +745,7 @@ class PKODashboard {
       const y = topPad + i * cellH;
       ctx.textAlign = "left";
       ctx.fillStyle = "rgba(220,232,255,0.86)";
-      ctx.fillText(`${i + 1}. ${s.name}`, pad, y + cellH / 1.6);
+      ctx.fillText(`${i + 1}. ${this.shortName(s.name)}`, pad, y + cellH / 1.6);
 
       years.forEach((year, j) => {
         const x = labelWidth + pad + j * cellW;

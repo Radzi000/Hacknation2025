@@ -973,6 +973,12 @@
       return tier ?? "";
     }
 
+    function shortName(name, max = 24) {
+      if (!name) return "";
+      const trimmed = name.trim();
+      return trimmed.length <= max ? trimmed : `${trimmed.slice(0, max - 1)}…`;
+    }
+
     function getVisibleSectors() {
       if (!dataModel) return [];
       return dataModel.sectors.filter(s => {
@@ -1108,12 +1114,10 @@
 
     function renderMatrix() {
       if (!dataModel || !matrixCanvas) return;
-      matrixCanvas.style.display = matrixMode === "heatmap" ? "block" : "none";
-      if (matrixMode !== "heatmap") {
-        matrixRegions = [];
-        if (matrixTooltip) matrixTooltip.style.display = "none";
-        return;
-      }
+      const isActive = matrixMode === "heatmap";
+      matrixCanvas.style.display = isActive ? "block" : "none";
+      matrixRegions = [];
+      if (!isActive && matrixTooltip) matrixTooltip.style.display = "none";
       const years = dataModel.years;
       const idx = state.yearIndex;
       const sectors = [...dataModel.sectors].sort((a, b) => b.score[idx] - a.score[idx]);
@@ -1153,7 +1157,7 @@
         const y = topPad + i * cellH;
         ctx.textAlign = "left";
         ctx.fillStyle = "rgba(220,232,255,0.86)";
-        ctx.fillText(`${i + 1}. ${s.name}`, pad, y + cellH / 1.6);
+        ctx.fillText(`${i + 1}. ${shortName(s.name)}`, pad, y + cellH / 1.6);
         years.forEach((year, j) => {
           const x = labelWidth + pad + j * cellW;
           const val = s.score[j] ?? 0;
@@ -1186,11 +1190,9 @@
 
     function renderGrowthProfit() {
       if (!dataModel || !gpCanvas) return;
-      gpCanvas.style.display = matrixMode === "growth-profit" ? "block" : "none";
-      if (matrixMode !== "growth-profit") {
-        gpRegions = [];
-        return;
-      }
+      const isActive = matrixMode === "growth-profit";
+      gpCanvas.style.display = isActive ? "block" : "none";
+      gpRegions = [];
       const ctx = gpCanvas.getContext("2d");
       const dpr = window.devicePixelRatio || 1;
       const width = gpCanvas.clientWidth || 1000;
@@ -1284,11 +1286,9 @@
 
     function renderIkb() {
       if (!dataModel || !ikbCanvas) return;
-      ikbCanvas.style.display = matrixMode === "ikb" ? "block" : "none";
-      if (matrixMode !== "ikb") {
-        ikbRegions = [];
-        return;
-      }
+      const isActive = matrixMode === "ikb";
+      ikbCanvas.style.display = isActive ? "block" : "none";
+      ikbRegions = [];
       const ctx = ikbCanvas.getContext("2d");
       const dpr = window.devicePixelRatio || 1;
       const width = ikbCanvas.clientWidth || 1000;
