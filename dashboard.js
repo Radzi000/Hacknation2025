@@ -26,6 +26,7 @@ class PKODashboard {
     };
 
     this.model = null;
+    this.matrixFrame = null;
 
     this.scatterPoints = [];
     this.coverageRegions = [];
@@ -82,6 +83,12 @@ class PKODashboard {
   }
 
   bindEvents() {
+    const handleYearChange = (value, { light = false } = {}) => {
+      const idx = parseInt(value, 10);
+      if (Number.isNaN(idx)) return;
+      this.setYearIndex(idx, { light });
+    };
+
     /* Segment: event delegation */
     this.segmentControl?.addEventListener("click", (e) => {
       const btn = e.target.closest("button[data-segment]");
@@ -90,10 +97,8 @@ class PKODashboard {
     });
 
     /* Year slider */
-    this.yearSlider?.addEventListener("input", (e) => {
-      const idx = parseInt(e.target.value, 10);
-      this.setYearIndex(idx);
-    });
+    this.yearSlider?.addEventListener("input", (e) => handleYearChange(e.target.value, { light: true }));
+    this.yearSlider?.addEventListener("change", (e) => handleYearChange(e.target.value));
 
     /* Sector picker */
     this.sectorPicker?.addEventListener("change", (e) => {
@@ -167,15 +172,20 @@ class PKODashboard {
     this.renderAll();
   }
 
-  setYearIndex(idx) {
+  setYearIndex(idx, { light = false } = {}) {
     if (!this.model) return;
     const max = this.model.years.length - 1;
+    if (idx === this.state.yearIndex) return;
     this.state.yearIndex = Math.max(0, Math.min(max, idx));
     if (this.yearSlider) this.yearSlider.value = String(this.state.yearIndex);
     this.updateYearLabel();
-    this.renderAll();
-    // Extra refresh to keep matrix views in sync while dragging the slider.
-    this.renderMatrixSuite();
+    if (light) {
+      // Lightweight pass while dragging: keep charts in sync without reflowing the whole page.
+      this.renderChartsOnly();
+    } else {
+      this.renderAll();
+    }
+    this.queueMatrixSuite();
   }
 
   setMatrixMode(mode) {
@@ -376,6 +386,14 @@ class PKODashboard {
     this.drawScatter();
     this.renderCoverageChart();
     this.renderMatrixSuite();
+  }
+
+  queueMatrixSuite() {
+    if (this.matrixFrame) cancelAnimationFrame(this.matrixFrame);
+    this.matrixFrame = requestAnimationFrame(() => {
+      this.matrixFrame = null;
+      this.renderMatrixSuite();
+    });
   }
 
   renderMatrixSuite() {
