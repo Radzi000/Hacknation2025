@@ -526,6 +526,67 @@
       font-size: 12px;
       line-height: 1.45;
     }
+
+    .toggle {
+      display: inline-flex;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(120, 182, 255, 0.18);
+      padding: 6px;
+      border-radius: 12px;
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 24px rgba(0, 14, 34, 0.45);
+    }
+
+    .toggle button {
+      background: transparent;
+      border: 1px solid rgba(120, 182, 255, 0.3);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .toggle button.active {
+      background: linear-gradient(135deg, rgba(47, 146, 255, 0.2), rgba(47, 146, 255, 0.08));
+      border-color: rgba(47, 146, 255, 0.7);
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.12),
+        0 12px 24px rgba(6, 54, 120, 0.5),
+        0 0 0 1px rgba(47, 146, 255, 0.2);
+    }
+
+    .heatmap {
+      width: 100%;
+      height: auto;
+      min-height: 360px;
+      display: block;
+    }
+
+    .chart-wrap.rel {
+      position: relative;
+    }
+
+    .tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: rgba(5, 16, 35, 0.9);
+      border: 1px solid rgba(120, 182, 255, 0.25);
+      color: var(--ink);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      box-shadow:
+        0 -1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 22px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 5;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -653,6 +714,30 @@
       <div class="metric-grid" id="metric-grid"></div>
       <p class="note">Forecasts blend historical revenues (GS), working capital (NWC), KRZ defaults, export shares, and macro/commodity drivers mapped per PKD. Extend or trim drivers in pkd_to_variables.json.</p>
     </section>
+
+    <section class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+        <div>
+          <h2>PKD matrix over time</h2>
+          <p class="sub">Matrix suite from Clustering_Index_i_iny_finalny_szajsik.ipynb (linked to the year slider)</p>
+        </div>
+        <div class="legend">
+          <span>Dark = weak fundamentals • Bright = strong outlook • Dotted line = start of forecast</span>
+        </div>
+      </div>
+      <div class="toggle" id="matrix-toggle">
+        <button data-mode="heatmap" class="active">Heatmap</button>
+        <button data-mode="growth-profit">PKD matrix: Growth vs Profit</button>
+        <button data-mode="ikb">IKB ranking</button>
+      </div>
+      <div class="chart-wrap rel">
+        <canvas id="matrix" class="heatmap" aria-label="PKD scores by year"></canvas>
+        <canvas id="gp-chart" class="heatmap" style="display:none;" aria-label="Growth vs profit matrix"></canvas>
+        <canvas id="ikb-chart" class="heatmap" style="display:none;" aria-label="IKB ranking over time"></canvas>
+        <div id="matrix-tooltip" class="tooltip" role="tooltip"></div>
+      </div>
+      <p class="note">Order uses current outlook to mirror the clustering notebook; click any cell/point/line to pin that sector in the deep dive.</p>
+    </section>
   </div>
 
   <script>
@@ -690,6 +775,11 @@
     const sparkDebt = document.getElementById("spark-debt");
     const sectorPicker = document.getElementById("sector-picker");
     const coverageCanvas = document.getElementById("coverage-chart");
+    const matrixCanvas = document.getElementById("matrix");
+    const gpCanvas = document.getElementById("gp-chart");
+    const ikbCanvas = document.getElementById("ikb-chart");
+    const matrixTooltip = document.getElementById("matrix-tooltip");
+    const matrixToggle = document.getElementById("matrix-toggle");
 
     function setSegment(segment) {
       state.segment = segment;
@@ -777,6 +867,10 @@
 
     let scatterPoints = [];
     let coverageRegions = [];
+    let matrixRegions = [];
+    let gpRegions = [];
+    let ikbRegions = [];
+    let matrixMode = "heatmap";
 
     function drawScatter() {
       if (!dataModel) return;
@@ -847,6 +941,280 @@
         scatterPoints.push({ id: sector.id, x: x + 14 * dpr, y: y + 10 * dpr, r: radius * 2 });
       });
 
+      ctx.restore();
+    }
+
+    function colorScale(value) {
+      // value expected 0-100
+      const clamp = Math.max(0, Math.min(100, value));
+      const t = clamp / 100;
+      const r = Math.round(30 + (75 * t));
+      const g = Math.round(90 + (140 * t));
+      const b = Math.round(190 + (55 * t));
+      return `rgb(${r},${g},${b})`;
+    }
+
+    function renderMatrix() {
+      if (!dataModel || !matrixCanvas) return;
+      matrixCanvas.style.display = matrixMode === "heatmap" ? "block" : "none";
+      if (matrixMode !== "heatmap") {
+        matrixRegions = [];
+        if (matrixTooltip) matrixTooltip.style.display = "none";
+        return;
+      }
+      const years = dataModel.years;
+      const idx = state.yearIndex;
+      const sectors = [...dataModel.sectors].sort((a, b) => b.score[idx] - a.score[idx]);
+      const dpr = window.devicePixelRatio || 1;
+      const width = matrixCanvas.clientWidth || 1000;
+      const labelWidth = 210;
+      const pad = 14;
+      const topPad = 32;
+      const bottomPad = 24;
+      const cellH = 22;
+      const cellW = Math.max(34, (width - labelWidth - pad * 2) / years.length);
+      const height = topPad + sectors.length * cellH + bottomPad;
+      matrixCanvas.width = width * dpr;
+      matrixCanvas.height = height * dpr;
+      matrixCanvas.style.height = `${height}px`;
+      matrixRegions = [];
+      const ctx = matrixCanvas.getContext("2d");
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(255,255,255,0.02)";
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = "12px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+      ctx.fillStyle = "rgba(220,232,255,0.75)";
+      ctx.textBaseline = "middle";
+
+      // Years header
+      years.forEach((y, j) => {
+        const x = labelWidth + pad + j * cellW + cellW / 2;
+        ctx.textAlign = "center";
+        const label = dataModel.forecast_start && y >= dataModel.forecast_start ? `${y}*` : `${y}`;
+        ctx.fillText(label, x, topPad - 14);
+      });
+
+      // Cells
+      sectors.forEach((s, i) => {
+        const y = topPad + i * cellH;
+        ctx.textAlign = "left";
+        ctx.fillStyle = "rgba(220,232,255,0.86)";
+        ctx.fillText(`${i + 1}. ${s.name}`, pad, y + cellH / 1.6);
+        years.forEach((year, j) => {
+          const x = labelWidth + pad + j * cellW;
+          const val = s.score[j] ?? 0;
+          ctx.fillStyle = colorScale(val);
+          ctx.fillRect(x, y, cellW - 2, cellH - 2);
+          matrixRegions.push({ id: s.id, yearIndex: j, x, y, w: cellW - 2, h: cellH - 2, value: val });
+        });
+      });
+
+      // Forecast divider
+      if (dataModel.forecast_start) {
+        const forecastIdx = years.findIndex(y => y >= dataModel.forecast_start);
+        if (forecastIdx > -1) {
+          const lineX = labelWidth + pad + forecastIdx * cellW - 4;
+          ctx.strokeStyle = "rgba(220,232,255,0.5)";
+          ctx.setLineDash([6, 4]);
+          ctx.beginPath();
+          ctx.moveTo(lineX, 8);
+          ctx.lineTo(lineX, height - 8);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = "rgba(220,232,255,0.7)";
+          ctx.font = "11px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+          ctx.fillText("Forecast", lineX + 6, topPad - 4);
+        }
+      }
+
+      ctx.restore();
+    }
+
+    function renderGrowthProfit() {
+      if (!dataModel || !gpCanvas) return;
+      gpCanvas.style.display = matrixMode === "growth-profit" ? "block" : "none";
+      if (matrixMode !== "growth-profit") {
+        gpRegions = [];
+        return;
+      }
+      const ctx = gpCanvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const width = gpCanvas.clientWidth || 1000;
+      const height = 420;
+      gpCanvas.width = width * dpr;
+      gpCanvas.height = height * dpr;
+      gpCanvas.style.height = `${height}px`;
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+      const idx = state.yearIndex;
+      const sectors = dataModel.sectors;
+      const profits = sectors.map(s => s.score[idx]);
+      const growths = sectors.map(s => s.growth[idx]);
+      const medianProfit = profits.slice().sort((a, b) => a - b)[Math.floor(profits.length / 2)] || 0;
+      const medianGrowth = growths.slice().sort((a, b) => a - b)[Math.floor(growths.length / 2)] || 0;
+      const maxProfit = Math.max(...profits) || 1;
+      const minProfit = Math.min(...profits) || 0;
+      const maxGrowth = Math.max(...growths) || 1;
+      const minGrowth = Math.min(...growths) || 0;
+      const pad = 50;
+      const plotW = width - pad * 2;
+      const plotH = height - pad * 2;
+      gpRegions = [];
+
+      // Axes
+      ctx.strokeStyle = "rgba(220,232,255,0.1)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad, pad);
+      ctx.lineTo(pad, height - pad);
+      ctx.lineTo(width - pad, height - pad);
+      ctx.stroke();
+
+      // Median lines
+      const medX = pad + ((medianProfit - minProfit) / (maxProfit - minProfit || 1)) * plotW;
+      const medY = height - pad - ((medianGrowth - minGrowth) / (maxGrowth - minGrowth || 1)) * plotH;
+      ctx.setLineDash([6, 4]);
+      ctx.strokeStyle = "rgba(220,232,255,0.5)";
+      ctx.beginPath();
+      ctx.moveTo(medX, pad);
+      ctx.lineTo(medX, height - pad);
+      ctx.moveTo(pad, medY);
+      ctx.lineTo(width - pad, medY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      sectors.forEach(s => {
+        const profit = s.score[idx];
+        const growth = s.growth[idx];
+        const x = pad + ((profit - minProfit) / (maxProfit - minProfit || 1)) * plotW;
+        const y = height - pad - ((growth - minGrowth) / (maxGrowth - minGrowth || 1)) * plotH;
+        const color = colors[s.tier];
+        ctx.fillStyle = color;
+        ctx.shadowBlur = state.selected === s.id ? 16 : 8;
+        ctx.shadowColor = color;
+        ctx.beginPath();
+        ctx.arc(x, y, state.selected === s.id ? 8 : 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = "#eaf1ff";
+        ctx.font = "11px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(s.name.split(" ")[0], x, y - 12);
+        gpRegions.push({ id: s.id, x, y, r: 10 });
+      });
+
+      // Labels
+      ctx.fillStyle = "rgba(220,232,255,0.8)";
+      ctx.font = "12px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+      ctx.fillText("Profit (proxy: composite score)", width / 2 - 40, height - pad + 28);
+      ctx.save();
+      ctx.translate(pad - 32, height / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("Growth (YoY %)", 0, 0);
+      ctx.restore();
+
+      // Quadrant labels
+      const labels = [
+        { text: "Leaders", x: medX + 8, y: medY - 10 },
+        { text: "Transformers", x: medX + 8, y: medY + 20 },
+        { text: "Efficiency", x: medX - 80, y: medY - 10 },
+        { text: "Stressed", x: medX - 70, y: medY + 20 }
+      ];
+      labels.forEach(l => {
+        ctx.fillStyle = "rgba(220,232,255,0.65)";
+        ctx.fillText(l.text, l.x, l.y);
+      });
+      ctx.restore();
+    }
+
+    function renderIkb() {
+      if (!dataModel || !ikbCanvas) return;
+      ikbCanvas.style.display = matrixMode === "ikb" ? "block" : "none";
+      if (matrixMode !== "ikb") {
+        ikbRegions = [];
+        return;
+      }
+      const ctx = ikbCanvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const width = ikbCanvas.clientWidth || 1000;
+      const height = 420;
+      ikbCanvas.width = width * dpr;
+      ikbCanvas.height = height * dpr;
+      ikbCanvas.style.height = `${height}px`;
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+      const years = dataModel.years;
+      const pad = 60;
+      const plotW = width - pad * 2;
+      const plotH = height - pad * 2;
+      const maxScore = Math.max(...dataModel.sectors.flatMap(s => s.score)) || 1;
+      const minScore = Math.min(...dataModel.sectors.flatMap(s => s.score)) || 0;
+      ikbRegions = [];
+
+      // Axes
+      ctx.strokeStyle = "rgba(220,232,255,0.1)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad, pad);
+      ctx.lineTo(pad, height - pad);
+      ctx.lineTo(width - pad, height - pad);
+      ctx.stroke();
+
+      // Vertical line for selected year
+      const xYear = pad + (plotW / (years.length - 1)) * state.yearIndex;
+      ctx.setLineDash([5, 4]);
+      ctx.strokeStyle = "rgba(220,232,255,0.5)";
+      ctx.beginPath();
+      ctx.moveTo(xYear, pad);
+      ctx.lineTo(xYear, height - pad);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      dataModel.sectors.forEach((s, idx) => {
+        const color = colors[s.tier];
+        ctx.beginPath();
+        s.score.forEach((v, i) => {
+          const x = pad + (plotW / (years.length - 1)) * i;
+          const y = height - pad - ((v - minScore) / (maxScore - minScore || 1)) * plotH;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+          if (i === state.yearIndex) {
+            ikbRegions.push({ id: s.id, x, y, r: 8 });
+          }
+        });
+        ctx.strokeStyle = color;
+        ctx.lineWidth = state.selected === s.id ? 2.5 : 1.4;
+        ctx.globalAlpha = state.selected === s.id ? 1 : 0.65;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = state.selected === s.id ? 12 : 6;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+      });
+
+      // Points on selected year
+      ikbRegions.forEach(p => {
+        ctx.fillStyle = colors[dataModel.sectors.find(s => s.id === p.id).tier];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.id === state.selected ? 7 : 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Labels
+      ctx.fillStyle = "rgba(220,232,255,0.8)";
+      ctx.font = "12px \"Avenir Next\", \"Nunito Sans\", \"Segoe UI\", sans-serif";
+      ctx.textAlign = "center";
+      years.forEach((y, i) => {
+        const x = pad + (plotW / (years.length - 1)) * i;
+        const label = dataModel.forecast_start && y >= dataModel.forecast_start ? `${y}*` : `${y}`;
+        ctx.fillText(label, x, height - pad + 18);
+      });
+      ctx.textAlign = "left";
+      ctx.fillText("IKB (composite score) • higher is stronger", pad, pad - 16);
       ctx.restore();
     }
 
@@ -937,6 +1305,75 @@
         const rect = coverageCanvas.getBoundingClientRect();
         const y = e.clientY - rect.top;
         const region = coverageRegions.find(r => y >= r.y && y <= r.y + r.h);
+        if (region) {
+          handleSelect(region.id);
+        }
+      });
+    }
+
+    if (matrixCanvas) {
+      matrixCanvas.addEventListener("mousemove", e => {
+        if (!matrixRegions.length || !matrixTooltip) return;
+        const rect = matrixCanvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const region = matrixRegions.find(r => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h);
+        if (region) {
+          const sector = dataModel.sectors.find(s => s.id === region.id);
+          const year = dataModel.years[region.yearIndex];
+          matrixTooltip.style.display = "block";
+          matrixTooltip.style.left = `${e.clientX - rect.left + 12}px`;
+          matrixTooltip.style.top = `${e.clientY - rect.top + 12}px`;
+          matrixTooltip.innerHTML = `<strong>${sector?.name || region.id}</strong><br>${year}: ${region.value.toFixed(0)} pts`;
+        } else {
+          matrixTooltip.style.display = "none";
+        }
+      });
+
+      matrixCanvas.addEventListener("mouseleave", () => {
+        if (matrixTooltip) matrixTooltip.style.display = "none";
+      });
+
+      matrixCanvas.addEventListener("click", e => {
+        if (!matrixRegions.length) return;
+        const rect = matrixCanvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const region = matrixRegions.find(r => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h);
+        if (region) {
+          handleSelect(region.id);
+        }
+      });
+    }
+
+    if (gpCanvas) {
+      gpCanvas.addEventListener("click", e => {
+        if (!gpRegions.length) return;
+        const rect = gpCanvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const region = gpRegions.find(r => {
+          const dx = r.x - x;
+          const dy = r.y - y;
+          return Math.sqrt(dx * dx + dy * dy) <= r.r;
+        });
+        if (region) {
+          handleSelect(region.id);
+        }
+      });
+    }
+
+    if (ikbCanvas) {
+      ikbCanvas.addEventListener("click", e => {
+        if (!ikbRegions.length) return;
+        const rect = ikbCanvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const region = ikbRegions.find(r => {
+          const dx = r.x - x;
+          const dy = r.y - y;
+          return Math.sqrt(dx * dx + dy * dy) <= (r.r + 4);
+        });
         if (region) {
           handleSelect(region.id);
         }
@@ -1081,6 +1518,9 @@
       renderCoverageChart();
       renderDrivers();
       renderMetrics();
+      renderMatrix();
+      renderGrowthProfit();
+      renderIkb();
     }
 
     async function loadData() {
@@ -1093,6 +1533,17 @@
         state.yearIndex = dataModel.years.length - 1;
         state.selected = dataModel.sectors[0]?.id || null;
         updateYearLabel();
+        if (matrixToggle) {
+          matrixToggle.querySelectorAll("button").forEach(btn => {
+            btn.addEventListener("click", () => {
+              matrixMode = btn.dataset.mode;
+              matrixToggle.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === btn));
+              renderMatrix();
+              renderGrowthProfit();
+              renderIkb();
+            });
+          });
+        }
         renderAll();
       } catch (err) {
         console.error("Failed to load dashboard data", err);
