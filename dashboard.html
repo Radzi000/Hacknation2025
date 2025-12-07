@@ -117,7 +117,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: flex-end;
     }
 
@@ -812,14 +812,10 @@
           <div class="chip" id="chip-growth">Wzrost: —</div>
           <div class="chip" id="chip-risk">Ryzyko: —</div>
         </div>
-        <div class="chart-wrap" aria-label="Pokrycie sektorów">
-          <canvas id="coverage-chart" class="bar" aria-label="Wyniki wszystkich sektorów PKD"></canvas>
-          <p class="note">Wyniki dla każdego sektora PKD z pkd_to_variables.json (powiązane z suwakiem roku, w tym prognoza do 2027).</p>
-        </div>
       </section>
     </div>
 
-    <section class="panel">
+    <section class="panel" style="margin-top:18px;">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
         <div>
           <h2>Ranking i uzasadnienie</h2>
