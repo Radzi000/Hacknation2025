@@ -372,6 +372,12 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .chart-wrap.rel { position: relative; }
 
+#scatter {
+  width: 100%;
+  min-height: 420px;
+  display: block;
+}
+
 .legend {
   display: flex;
   gap: 10px;
