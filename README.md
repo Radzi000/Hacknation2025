@@ -5,6 +5,8 @@ Project's task is, using the available sources of economic, financial and admini
 
 #TO RUN:
 in bash run 'python3 -m http.server 8000'
+
+
 in the browser open: 'http://localhost:8000/dashboard.html'
 
 Repository layout and current data drops:
