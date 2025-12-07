@@ -245,11 +245,28 @@ class PKODashboard {
 
   /* ---------------- Helpers ---------------- */
 
+  getTierForScore(score) {
+    if (!Number.isFinite(score)) return "watchlist";
+    if (score <= 55) return "watchlist";
+    if (score <= 65) return "core";
+    return "developing";
+  }
+
+  getSectorTierForYear(sector, yearIndex = this.state.yearIndex) {
+    const score = sector?.score?.[yearIndex];
+    return this.getTierForScore(score);
+  }
+
   getVisibleSectors() {
     if (!this.model) return [];
+    const idx = this.state.yearIndex;
     const { segment } = this.state;
-    if (segment === "all") return this.model.sectors;
-    return this.model.sectors.filter(s => s.tier === segment);
+    return this.model.sectors
+      .map(s => {
+        const tier = this.getSectorTierForYear(s, idx);
+        return { ...s, tier };
+      })
+      .filter(s => segment === "all" || s.tier === segment);
   }
 
   parseLuCsv(csvText) {
@@ -509,11 +526,12 @@ class PKODashboard {
     if (!sector) return;
 
     const idx = this.state.yearIndex;
+    const tier = this.getSectorTierForYear(sector, idx);
 
     if (this.detailName) this.detailName.textContent = sector.name;
     if (this.detailTag) {
       this.detailTag.textContent =
-        `${this.formatTier(sector.tier)} • ${(sector.score?.[idx] ?? 0).toFixed(0)} pkt`;
+        `${this.formatTier(tier)} • ${(sector.score?.[idx] ?? 0).toFixed(0)} pkt`;
       this.detailTag.className = "tag";
     }
 
@@ -523,7 +541,7 @@ class PKODashboard {
     if (this.chipGrowth) this.chipGrowth.textContent = `Wzrost: ${(sector.growth?.[idx] ?? 0).toFixed(1)}%`;
     if (this.chipRisk) this.chipRisk.textContent = `Ryzyko: ${((sector.risk?.[idx] ?? 0) * 100).toFixed(0)}%`;
 
-    this.drawSpark(this.sparkScore, sector.score ?? [], this.colors[sector.tier] ?? "#5e8bff");
+    this.drawSpark(this.sparkScore, sector.score ?? [], this.colors[tier] ?? "#5e8bff");
     this.drawSpark(this.sparkRisk, sector.defaults ?? (sector.risk ?? []).map(v => v * 100), "#ffb89f");
     this.drawSpark(this.sparkDebt, (sector.debt ?? []).map(v => v * 100), "#5e8bff");
   }
@@ -637,10 +655,11 @@ class PKODashboard {
     sectors.forEach(sector => {
       const risk = sector.risk?.[idx] ?? 0;
       const growth = sector.growth?.[idx] ?? 0;
+      const tier = this.getSectorTierForYear(sector, idx);
       const x = (risk / maxRisk) * plotW;
       const y = plotH - (growth / maxGrowth) * plotH;
       const radius = 8 * dpr;
-      const color = this.colors[sector.tier] ?? "#5e8bff";
+      const color = this.colors[tier] ?? "#5e8bff";
 
       const gradient = ctx.createRadialGradient(x, y, 2, x, y, radius * 1.7);
       gradient.addColorStop(0, color);
@@ -735,7 +754,8 @@ class PKODashboard {
     sectors.forEach((s, i) => {
       const y = padding + i * (barHeight + gap);
       const score = s.score?.[idx] ?? 0;
-      const color = this.colors[s.tier] ?? "#5e8bff";
+      const tier = this.getSectorTierForYear(s, idx);
+      const color = this.colors[tier] ?? "#5e8bff";
       const isSelected = this.state.selected === s.id;
 
       ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
@@ -925,8 +945,8 @@ class PKODashboard {
     const idx = this.state.yearIndex;
     const sectors = this.model.sectors;
 
-    const profits = sectors.map(s => s.score?.[idx] ?? 0);
-    const growths = sectors.map(s => s.growth?.[idx] ?? 0);
+      const profits = sectors.map(s => s.score?.[idx] ?? 0);
+      const growths = sectors.map(s => s.growth?.[idx] ?? 0);
 
     const medianProfit = profits.slice().sort((a, b) => a - b)[Math.floor(profits.length / 2)] ?? 0;
     const medianGrowth = growths.slice().sort((a, b) => a - b)[Math.floor(growths.length / 2)] ?? 0;
@@ -970,7 +990,8 @@ class PKODashboard {
       const x = pad + ((profit - minProfit) / (maxProfit - minProfit || 1)) * plotW;
       const y = height - pad - ((growth - minGrowth) / (maxGrowth - minGrowth || 1)) * plotH;
 
-      const color = this.colors[s.tier] ?? "#5e8bff";
+      const tier = this.getSectorTierForYear(s, idx);
+      const color = this.colors[tier] ?? "#5e8bff";
       const isSelected = this.state.selected === s.id;
 
       ctx.fillStyle = color;
@@ -1080,7 +1101,8 @@ class PKODashboard {
     ctx.setLineDash([]);
 
     this.model.sectors.forEach(s => {
-      const color = this.colors[s.tier] ?? "#5e8bff";
+      const tier = this.getSectorTierForYear(s, this.state.yearIndex);
+      const color = this.colors[tier] ?? "#5e8bff";
       const isSelected = this.state.selected === s.id;
 
       ctx.beginPath();
@@ -1107,7 +1129,8 @@ class PKODashboard {
     });
 
     this.ikbRegions.forEach(p => {
-      const tier = this.model.sectors.find(s => s.id === p.id)?.tier;
+      const sector = this.model.sectors.find(s => s.id === p.id);
+      const tier = this.getSectorTierForYear(sector, this.state.yearIndex);
       ctx.fillStyle = this.colors[tier] ?? "#5e8bff";
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.id === this.state.selected ? 7 : 5, 0, Math.PI * 2);
