@@ -170,6 +170,50 @@
       font-weight: 700;
       color: var(--blue-100);
       font-size: 14px;
+      display: inline-block;
+      min-width: 110px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .year-pill {
+      gap: 12px;
+      flex-wrap: nowrap;
+      min-width: 240px;
+    }
+
+    .year-pill input[type="range"] {
+      flex: 1 1 auto;
+    }
+
+    .year-readout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 150px;
+      justify-content: flex-end;
+    }
+
+    .forecast-flag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(244, 201, 93, 0.12);
+      border: 1px solid rgba(244, 201, 93, 0.4);
+      color: var(--warning);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      white-space: nowrap;
+    }
+
+    .forecast-flag.is-visible {
+      visibility: visible;
     }
 
     input[type="range"] {
@@ -679,10 +723,13 @@
           <button data-segment="core">Core</button>
           <button data-segment="watchlist">Watchlist</button>
         </div>
-        <div class="pill">
+        <div class="pill year-pill">
           <label for="year">Year</label>
           <input id="year" type="range" min="0" max="4" value="4" step="1" aria-label="Year selector">
-          <span id="year-value">2024</span>
+          <div class="year-readout">
+            <span id="year-value">—</span>
+            <span id="forecast-flag" class="forecast-flag" aria-live="polite">Forecast</span>
+          </div>
         </div>
       </div>
     </header>
@@ -853,6 +900,7 @@
     const kpiContainer = document.getElementById("kpi-list");
     const yearSlider = document.getElementById("year");
     const yearValue = document.getElementById("year-value");
+    const forecastFlag = document.getElementById("forecast-flag");
     const scatterCanvas = document.getElementById("scatter");
     const tableBody = document.querySelector("#table tbody");
     const segmentButtons = document.querySelectorAll(".segment button");
@@ -897,8 +945,14 @@
     function updateYearLabel() {
       if (!dataModel) return;
       const year = dataModel.years[state.yearIndex];
-      const label = dataModel.forecast_start && year >= dataModel.forecast_start ? `${year} • forecast` : `${year}`;
-      yearValue.textContent = label;
+      const isForecast = dataModel.forecast_start && year >= dataModel.forecast_start;
+      yearValue.textContent = `${year}`;
+
+      if (forecastFlag) {
+        forecastFlag.classList.toggle("is-visible", Boolean(isForecast));
+        forecastFlag.setAttribute("aria-hidden", isForecast ? "false" : "true");
+      }
+
       updateSliderFill();
     }
 

@@ -33,10 +33,13 @@
           <button data-segment="watchlist">Watchlist</button>
         </div>
 
-        <div class="pill">
+        <div class="pill year-pill">
           <label for="year">Year</label>
           <input id="year" type="range" min="0" max="4" value="4" step="1" aria-label="Year selector">
-          <span id="year-value">—</span>
+          <div class="year-readout">
+            <span id="year-value">—</span>
+            <span id="forecast-flag" class="forecast-flag" aria-live="polite">Forecast</span>
+          </div>
         </div>
       </div>
     </header>

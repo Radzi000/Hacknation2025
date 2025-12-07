@@ -43,6 +43,7 @@ class PKODashboard {
     this.kpiContainer = document.getElementById("kpi-list");
     this.yearSlider = document.getElementById("year");
     this.yearValue = document.getElementById("year-value");
+    this.forecastFlag = document.getElementById("forecast-flag");
 
     this.scatterCanvas = document.getElementById("scatter");
 
@@ -257,11 +258,15 @@ class PKODashboard {
   updateYearLabel() {
     if (!this.model?.years?.length) return;
     const year = this.model.years[this.state.yearIndex];
-    const label =
-      this.model.forecast_start && year >= this.model.forecast_start
-        ? `${year} • forecast`
-        : `${year}`;
-    if (this.yearValue) this.yearValue.textContent = label;
+    const isForecast = this.model.forecast_start && year >= this.model.forecast_start;
+
+    if (this.yearValue) this.yearValue.textContent = `${year}`;
+
+    if (this.forecastFlag) {
+      this.forecastFlag.classList.toggle("is-visible", Boolean(isForecast));
+      this.forecastFlag.setAttribute("aria-hidden", isForecast ? "false" : "true");
+    }
+
     this.updateSliderFill();
   }
 
