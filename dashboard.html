@@ -587,6 +587,71 @@
       z-index: 5;
       white-space: nowrap;
     }
+
+    /* =========================================================
+       Deep dives / Prebuilt PKD visuals (MERGED)
+       ========================================================= */
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .panel-head .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      color: var(--blue-200);
+      margin: 0 0 4px;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+    }
+
+    .plot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 18px;
+    }
+
+    .plot-card {
+      background: var(--panel);
+      border: 1px solid rgba(120,182,255,0.18);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 14px 34px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plot-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(47, 146, 255, 0.05), transparent 45%);
+      pointer-events: none;
+    }
+
+    .plot-card h3 {
+      margin: 4px 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .plot-card iframe {
+      width: 100%;
+      height: 520px;
+      border: 0;
+      border-radius: 12px;
+      background: #0b1832;
+      box-shadow:
+        0 -1px 0 rgba(255,255,255,0.04),
+        0 12px 24px rgba(0, 14, 34, 0.35);
+    }
   </style>
 </head>
 <body>
@@ -737,6 +802,36 @@
         <div id="matrix-tooltip" class="tooltip" role="tooltip"></div>
       </div>
       <p class="note">Order uses current outlook to mirror the clustering notebook; click any cell/point/line to pin that sector in the deep dive.</p>
+    </section>
+
+    <!-- =======================================================
+         MERGED SECTION: Prebuilt PKD visuals
+         ======================================================= -->
+    <section class="panel">
+      <header class="panel-head">
+        <div>
+          <p class="eyebrow">Deep dives</p>
+          <h2>Prebuilt PKD visuals</h2>
+        </div>
+      </header>
+      <div class="plot-grid">
+        <div class="plot-card">
+          <h3>Avg ratios by year</h3>
+          <iframe src="avg_ratios_by_year.html" title="Avg ratios" loading="lazy"></iframe>
+        </div>
+        <div class="plot-card">
+          <h3>PKD group evolution</h3>
+          <iframe src="pkd_group_evolution_heatmap.html" title="PKD evolution" loading="lazy"></iframe>
+        </div>
+        <div class="plot-card">
+          <h3>Growth vs profit (animated)</h3>
+          <iframe src="pkd_growth_profit_matrix_animated.html" title="Growth vs profit" loading="lazy"></iframe>
+        </div>
+        <div class="plot-card">
+          <h3>PKD matrix trajectories</h3>
+          <iframe src="pkd_matrix_trajectories.html" title="PKD trajectories" loading="lazy"></iframe>
+        </div>
+      </div>
     </section>
   </div>
 
