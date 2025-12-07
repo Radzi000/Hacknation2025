@@ -1045,10 +1045,10 @@
 
     function getVisibleSectors() {
       if (!dataModel) return [];
-      const idx = state.yearIndex;
-      return dataModel.sectors
-        .map(s => ({ ...s, tier: sectorTier(s, idx) }))
-        .filter(s => state.segment === "all" || s.tier === state.segment);
+      return dataModel.sectors.filter(s => {
+        if (state.segment === "all") return true;
+        return s.tier === state.segment;
+      });
     }
 
     function renderPicker() {
@@ -1094,18 +1094,6 @@
     let ikbRegions = [];
     let matrixMode = "heatmap";
     let matrixFrame = null;
-
-    function deriveTier(score) {
-      if (!Number.isFinite(score)) return "watchlist";
-      if (score <= 55) return "watchlist";
-      if (score <= 65) return "core";
-      return "developing";
-    }
-
-    function sectorTier(sector, idx = state.yearIndex) {
-      const score = sector?.score?.[idx];
-      return deriveTier(score);
-    }
 
     function queueMatrixSuite() {
       if (matrixFrame) cancelAnimationFrame(matrixFrame);
@@ -1159,11 +1147,10 @@
       sectors.forEach(sector => {
         const risk = sector.risk[idx];
         const growth = sector.growth[idx];
-        const tier = sectorTier(sector, idx);
         const x = (risk / maxRisk) * plotW;
         const y = plotH - (growth / maxGrowth) * plotH;
         const radius = 8 * dpr;
-        const color = colors[tier];
+        const color = colors[sector.tier];
         const gradient = ctx.createRadialGradient(x, y, 2, x, y, radius * 1.7);
         gradient.addColorStop(0, color);
         gradient.addColorStop(1, "rgba(255,255,255,0)");
@@ -1333,8 +1320,7 @@
         const growth = s.growth[idx];
         const x = pad + ((profit - minProfit) / (maxProfit - minProfit || 1)) * plotW;
         const y = height - pad - ((growth - minGrowth) / (maxGrowth - minGrowth || 1)) * plotH;
-        const tier = sectorTier(s, idx);
-        const color = colors[tier];
+        const color = colors[s.tier];
         ctx.fillStyle = color;
         ctx.shadowBlur = state.selected === s.id ? 16 : 8;
         ctx.shadowColor = color;
@@ -1416,8 +1402,7 @@
       ctx.setLineDash([]);
 
       dataModel.sectors.forEach((s, idx) => {
-        const tier = sectorTier(s, state.yearIndex);
-        const color = colors[tier];
+        const color = colors[s.tier];
         ctx.beginPath();
         s.score.forEach((v, i) => {
           const x = pad + (plotW / (years.length - 1)) * i;
@@ -1440,9 +1425,7 @@
 
       // Points on selected year
       ikbRegions.forEach(p => {
-        const sector = dataModel.sectors.find(s => s.id === p.id);
-        const tier = sectorTier(sector, state.yearIndex);
-        ctx.fillStyle = colors[tier];
+        ctx.fillStyle = colors[dataModel.sectors.find(s => s.id === p.id).tier];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.id === state.selected ? 7 : 5, 0, Math.PI * 2);
         ctx.fill();
@@ -1662,9 +1645,8 @@
       const sector = dataModel.sectors.find(s => s.id === state.selected) || dataModel.sectors[0];
       if (!sector) return;
       const idx = state.yearIndex;
-      const tier = sectorTier(sector, idx);
       detailName.textContent = sector.name;
-      detailTag.textContent = `${formatTier(tier)} • ${sector.score[idx].toFixed(0)} pkt`;
+      detailTag.textContent = `${formatTier(sector.tier)} • ${sector.score[idx].toFixed(0)} pkt`;
       detailTag.className = `tag`;
       if (valScore) valScore.textContent = `${sector.score[idx].toFixed(0)} pkt`;
       if (valRisk) valRisk.textContent = `${(sector.risk[idx] * 100).toFixed(1)}%`;
@@ -1672,7 +1654,7 @@
       chipGrowth.textContent = `Wzrost: ${sector.growth[idx].toFixed(1)}%`;
       chipRisk.textContent = `Ryzyko: ${(sector.risk[idx] * 100).toFixed(0)}%`;
 
-      drawSpark(sparkScore, sector.score, colors[tier]);
+      drawSpark(sparkScore, sector.score, colors[sector.tier]);
       drawSpark(sparkRisk, sector.defaults || sector.risk.map(v => v * 100), "#ffb89f");
       drawSpark(sparkDebt, sector.debt.map(v => v * 100), "#5e8bff");
     }
@@ -1706,8 +1688,7 @@
         ctx.fillRect(padding, y, width - padding * 2, barHeight);
         const barWidth = Math.max(6, (s.score[idx] / maxScore) * (width - padding * 2));
         const isSelected = state.selected === s.id;
-        const tier = sectorTier(s, idx);
-        ctx.fillStyle = colors[tier];
+        ctx.fillStyle = colors[s.tier];
         ctx.globalAlpha = isSelected ? 1 : 0.72;
         ctx.fillRect(padding, y, barWidth, barHeight);
         ctx.globalAlpha = 1;
@@ -1798,6 +1779,8 @@
           });
         }
         renderAll();
+        queueMatrixSuite();
+        requestAnimationFrame(() => queueMatrixSuite());
       } catch (err) {
         console.error("Nie udało się wczytać danych dashboardu", err);
         kpiContainer.innerHTML = "<div class=\"kpi\"><small>Błąd</small><div class=\"value\">Brak danych</div><div class=\"trend\">Sprawdź data/dashboard_data.json</div></div>";
@@ -1805,6 +1788,9 @@
     }
 
     loadData();
+    window.addEventListener("load", () => {
+      queueMatrixSuite();
+    });
   </script>
 </body>
 </html>
